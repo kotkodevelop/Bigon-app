@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Bigon.pro — Onboarding</title>
+    <meta
+      name="description"
+      content="Адаптивная вёрстка onboarding-экрана мобильного приложения Bigon.pro"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-label="Onboarding Bigon.pro">
+      <section class="preloader is-active" id="preloader" aria-label="Загрузка приложения">
+        <div class="preloader__content">
+          <img
+            class="preloader__logo"
+            src="./assets/logo.svg"
+            alt="Bigon.pro"
+            width="232"
+            height="48"
+          />
+        </div>
+      </section>
+
+      <section class="onboarding" id="onboarding" aria-live="polite">
+        <div class="onboarding__inner">
+          <div class="slider" id="slider">
+            <article class="slide slide--active" data-slide="0">
+              <div class="slide__top slide__top--end">
+                <button class="slide__skip" type="button" data-skip>Пропустить</button>
+              </div>
+
+              <div class="slide-inner-content">
+                <div class="slide__media slide__media--cart">
+                  <img
+                    src="./assets/cart-onboard-1.svg"
+                    alt="Корзина с покупками и кэшбэком"
+                    width="323"
+                    height="248"
+                  />
+                </div>
+
+                <div class="slide__content">
+                  <h1 class="slide__title">Bigon: Кэшбэк, который работает везде</h1>
+                  <p class="slide__text">
+                    Накапливайте кэшбэк за покупки в онлайн <br> и оффлайн магазинах и тратьте его у
+                    любых партнеров Bigon.pro
+                  </p>
+                </div>
+              </div>
+
+              
+
+            </article>
+
+            <article class="slide" data-slide="1" aria-hidden="true">
+              <div class="slide__top slide__top--end">
+                <button class="slide__skip" type="button" data-skip>Пропустить</button>
+              </div>
+
+              <div class="slide-inner-content">
+                <div class="slide__media slide__media--phone">
+                  <img
+                    src="./assets/onboard-2.svg"
+                    alt="Телефон с QR-кодом и бонусами"
+                    width="293"
+                    height="278"
+                  />
+                </div>
+
+                <div class="slide__content slide__content--wide">
+                  <h2 class="slide__title">Ваша выгода растёт с каждой покупкой</h2>
+
+                  <div class="benefits-card" aria-label="Преимущества">
+                    <div class="benefit-item">
+                      <span class="benefit-item__icon">
+                        <img src="./assets/ul-li-star.svg" alt="" aria-hidden="true" width="20" height="20" />
+                      </span>
+                      <p class="benefit-item__text">Кэшбэк за каждую покупку</p>
+                    </div>
+
+                    <div class="benefit-item">
+                      <span class="benefit-item__icon">
+                        <img src="./assets/ul-li-star.svg" alt="" aria-hidden="true" width="20" height="20" />
+                      </span>
+                      <p class="benefit-item__text">
+                        Бонусы за регистрацию, отзывы и участие в реферальной программе
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+            </article>
+
+            <article class="slide" data-slide="2" aria-hidden="true">
+              <div class="slide__top"></div>
+
+              <div class="slide-inner-content">
+                <div class="slide__media slide__media--girl">
+                  <img
+                    src="./assets/onboard-3.svg"
+                    alt="Девушка с телефоном и приветственными баллами"
+                    width="319"
+                    height="322"
+                  />
+                </div>
+
+                <div class="slide__content slide__content--final">
+                  <h2 class="slide__title">Начните экономить <br> прямо сейчас!</h2>
+                  <p class="slide__text">
+                    Зарегистрируйтесь, чтобы получить <br> <span>1000 приветственных баллов</span> и найти ближайшие
+                    магазины Bigon.
+                  </p>
+                </div>
+              </div>
+
+              
+            </article>
+          </div>
+
+          <div class="slider__footer">
+            <div class="pagination" id="pagination" aria-label="Навигация по слайдам">
+              <button class="pagination__dot is-active" type="button" aria-label="Слайд 1"></button>
+              <button class="pagination__dot" type="button" aria-label="Слайд 2"></button>
+              <button class="pagination__dot" type="button" aria-label="Слайд 3"></button>
+            </div>
+
+            <div class="actions" id="actions">
+              <button class="button button--primary" type="button" id="nextButton">Продолжить</button>
+
+              <div class="actions__final" id="finalActions" hidden>
+                <a class="button button--primary" href="#" aria-label="Зарегистрироваться">
+                  Зарегистрироваться
+                </a>
+                <a class="button button--secondary" href="#" aria-label="Войти">Войти</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
