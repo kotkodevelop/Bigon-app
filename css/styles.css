@@ -31,9 +31,7 @@ body {
   margin: 0;
   min-height: 100%;
   font-family: "Montserrat", sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(145, 125, 250, 0.08), transparent 38%),
-    linear-gradient(180deg, #fbfbff 0%, #ffffff 100%);
+  background:#fff;
   color: var(--color-text);
   overflow: hidden;
 }
