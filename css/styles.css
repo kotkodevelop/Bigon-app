@@ -31,6 +31,7 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  min-height: 100dvh;
   font-family: "Montserrat", sans-serif;
   background: #fff;
   color: var(--color-text);
@@ -67,6 +68,7 @@ img {
 .app {
   position: relative;
   min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   place-items: center;
   padding: 0;
@@ -129,7 +131,9 @@ img {
 .onboarding__inner {
   position: relative;
   width: 100%;
-  height: calc(100vh - 16px);
+  height: 100svh;
+  height: 100dvh;
+  max-height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -301,7 +305,7 @@ img {
 }
 
 .slider__footer {
-  padding: 0 13px calc(env(safe-area-inset-bottom) + 8px);
+  padding: 0 13px calc(env(safe-area-inset-bottom) + 10px);
 }
 
 .pagination {
@@ -398,7 +402,7 @@ img {
   position: absolute;
   left: 50%;
   bottom: 0;
-  transform: translateX(-50%);
+  transform: translate3d(-50%, 0, 0);
 
   width: 260px;
   min-height: 48px;
@@ -419,7 +423,12 @@ img {
     inset 0 -1px 1px rgba(255, 255, 255, 0.28);
 
   isolation: isolate;
+  contain: paint;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity, backdrop-filter;
 }
+
 .slide-media-girl-bar::before {
   content: "";
   position: absolute;
@@ -427,18 +436,17 @@ img {
   z-index: -1;
 
   border-radius: inherit;
+  background: rgba(255, 255, 255, 0.10);
 
-  background:
-    linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.42),
-      rgba(255, 255, 255, 0.12) 42%,
-      rgba(255, 255, 255, 0.02) 100%
-    );
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
 
-  opacity: 0.5;
+  transform: translateZ(0);
   pointer-events: none;
 }
+
+
+
 .slide-media-girl-bar-text {
   flex: 1;
 }
@@ -483,15 +491,6 @@ img {
   }
 }
 
-@media (min-width: 431px) {
-  .app {
-    padding: 8px 13px;
-  }
-
-  .onboarding__inner {
-    min-height: min(100svh - 36px, 930px);
-  }
-}
 
 @media (max-height: 760px) {
   .slide {
