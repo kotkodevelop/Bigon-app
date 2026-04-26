@@ -306,6 +306,10 @@ img {
 
 .slider__footer {
   padding: 0 13px calc(env(safe-area-inset-bottom) + 10px);
+    height: 152px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
 
 .pagination {
@@ -531,7 +535,11 @@ img {
   }
 
   .slider__footer {
-    padding-bottom: calc(env(safe-area-inset-bottom) + 8px);
+    padding: 0 13px calc(env(safe-area-inset-bottom) + 10px);
+    height: 152px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
   }
 
   .pagination {
