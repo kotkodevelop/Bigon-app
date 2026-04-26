@@ -218,6 +218,7 @@ img {
 }
 .first-fields-screen {
   background: #F7F8FA;
+  padding: 13px 13px calc(env(safe-area-inset-bottom) + 10px);
 }
 .auth-panel {
   display: none;
