@@ -558,6 +558,10 @@ img {
   min-height: 100%;
 }
 
+.address-default-view .field-list {
+  gap: 24px;
+}
+
 .address-search-view {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -854,14 +858,17 @@ textarea {
 }
 
 .screen__subtext {
-  margin: 0 0 12px;
+  margin: 0 0 24px;
   color: #8b8b98;
   font-size: 12px;
   line-height: 1.45;
 }
 
 .screen__subtext--compact {
-  margin-top: 8px;
+  margin-top: 4px;
+  color: #757575;
+  font-size: 12px;
+  max-width: 320px;
 }
 
 .company-auto-fill {
@@ -870,6 +877,8 @@ textarea {
 
 .choice-group--list {
   gap: 8px;
+  overflow-y: auto;
+  max-height: 72vh;
 }
 
 .iin-screen-field input {
@@ -897,6 +906,9 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  color: #1F1F1F;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .choice-toggle small,
@@ -914,44 +926,47 @@ textarea {
 }
 
 .choice-toggle i {
-  width: 34px;
-  height: 20px;
+  width: 35px;
+  height: 16px;
   border-radius: 999px;
-  background: #d9dae2;
+  background: #AAAAAA;
   position: relative;
   flex: 0 0 auto;
+  border: 2px solid #E6F0FE;
+  box-shadow: 0px 4px 4px 0px #00000003 inset;
+
 }
 
 .choice-toggle i::after {
   content: '';
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background: #fff;
-  top: 2px;
-  left: 2px;
-  box-shadow: 0 1px 4px rgba(0,0,0,.12);
+  top: -4px;
+  left: -2px;
+  box-shadow: 0px 0px 4px 0px #00000040;
   transition: transform .22s ease;
 }
 
 .choice-toggle input:checked + i {
-  background: #2b78ff;
+  background: #0066F5;
 }
 
 .choice-toggle input:checked + i::after {
-  transform: translateX(14px);
+  transform: translateX(15px);
 }
 
 .upload-box {
-  width: 72px;
-  height: 72px;
-  border-radius: 18px;
-  background: #eef3ff;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background: #F7F8FA;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 10px 0 18px;
+  margin: 16px 0 0px;
 }
 
 .upload-box__icon {
@@ -980,11 +995,11 @@ textarea {
 
 .button--light-blue {
   min-height: 42px;
-  background: #edf4ff;
-  color: #6f8df9;
+  background: #E6F0FE;
+  color: #0066F5;
   border-radius: 10px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  padding: 0 24px;
 }
 
 .button--inline {
@@ -1074,11 +1089,7 @@ textarea {
   max-width: 240px;
 }
 
-.choice-toggle--line {
-  margin-top: 12px;
-  padding: 10px 0;
-  border-top: 1px solid #ececf2;
-}
+
 
 .success-illustration,
 .success-illustration--small,
@@ -1143,18 +1154,24 @@ textarea {
 .modal__close--corner,
 .modal__close--top {
   position: absolute;
-  right: 14px;
-  top: 14px;
+  right: 13px;
+  top: 13px;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,.16);
+  box-shadow: -1px 4px 4px 0px #00000029;
+  width: 34px !important;
+  height: 34px !important;
 }
 
 .modal__sheet--logo {
   width: calc(100% - 26px);
   margin: auto;
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 20px;
+  padding: 13px;
   bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) !important;
+  padding-top: 55px;
+  padding-bottom: 40px;
 }
 
 .logo-preview {
@@ -1162,7 +1179,7 @@ textarea {
   aspect-ratio: 1;
   border-radius: 14px;
   background: radial-gradient(circle at 50% 50%, #191919, #3d2906 70%, #161616 100%);
-  margin-bottom: 16px;
+  margin-bottom: 40px;
 }
 
 .modal__actions--row {
@@ -1173,12 +1190,16 @@ textarea {
 
 .modal__sheet--schedule,
 .modal__sheet--info {
-  padding: 16px 14px calc(env(safe-area-inset-bottom) + 14px);
+  padding: 10px 13px calc(env(safe-area-inset-bottom) + 8px);
 }
 
 .modal__title--left {
   text-align: left;
-  padding-right: 28px;
+  padding: 0;
+}
+
+.under-photo-block-field {
+  margin-top: 24px;
 }
 
 .choice-toggle--space {
@@ -1347,7 +1368,6 @@ textarea {
 }
 
 .schedule-time-input {
-  width: 62px;
   min-height: 30px;
   border-radius: 8px;
   background: #f7f7fb;
@@ -1403,6 +1423,16 @@ textarea {
   bottom: calc(env(safe-area-inset-bottom) + 8px);
   padding: 10px 16px 16px;
   border-radius: 24px;
+  height: calc(100% - 48px);
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.modal__sheet--schedule .modal__handle {
+  margin-bottom: 36px
 }
 .modal__sheet--info {
   left: 8px;
@@ -1420,6 +1450,36 @@ textarea {
 .modal__sheet--info .info-section { overflow: auto; }
 .modal__sheet--info .modal__title--left { padding-top: 6px; }
 
+.modal__sheet--schedule .choice-toggle span {
+  font-size: 14px;
+  font-weight: 500;
+}
+.modal__sheet--schedule  .choice-toggle small {
+  color: #757575;
+  font-weight: 400;
+  font-size: 12px;
+}
+.modal__sheet--schedule  .choice-toggle {
+  align-items: start;
+}
+
+.modal__sheet--schedule .modal__title--left {
+  font-weight: 600;
+  font-size: 17px;
+  color: #1F1F1F;
+}
+.modal__sheet--schedule .choice-toggle {
+  margin: 24px 0;
+}
+
+.modal__sheet--schedule .modal__actions {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 26px);
+  left: 13px;
+  bottom: calc(env(safe-area-inset-bottom) + 10px);
+}
+
 .week-chips {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -1427,13 +1487,13 @@ textarea {
   margin: 14px 0 16px;
 }
 .week-chips .chip {
-  height: 42px;
+  height: 46px;
   border-radius: 10px;
-  background: #F4F5F8;
-  color: #4b4b57;
+  background: #F7F8FA;
+  color: #1F1F1F;
   font-size: 14px;
 }
-.week-chips .chip.is-active { background: #2D6CF6; color: #fff; }
+.week-chips .chip.is-active { background: #0066F5; color: #fff; }
 
 .time-row {
   display: grid;
@@ -1536,3 +1596,86 @@ textarea {
   color: #2D6CF6;
 }
 .mini-icon-button--danger { background: #FFF1F1; color: #FF5A5F; }
+
+.upper-upl-text {
+  color: #757575;
+  font-size: 12px;
+  margin: 0;
+}
+.upper-upl-text-title {
+  margin-bottom: 8px;
+  color: #1F1F1F;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+
+
+.schedule-days-label {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1F1F1F;
+}
+.schedule-list {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 50vh;
+}
+
+.time-row {
+  grid-template-columns: 1fr 20px 1fr;
+  gap: 10px;
+  align-items: center;
+  margin: 14px 0 18px;
+}
+
+.time-row__divider {
+  text-align: center;
+  color: #9A9DAA;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.time-field {
+  height: 50px;
+  border-radius: 12px;
+  background: #F4F5F8;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+}
+
+.time-field__prefix {
+  color: #8D90A0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.time-field__value {
+  color: #1F1F1F;
+  font-size: 14px;
+  line-height: 1;
+  width: 64px;
+}
+
+.time-field__clear {
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: #8D90A0;
+  font-size: 28px;
+  line-height: 1;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.modal__sheet--schedule .modal__close img {
+  width: 18px;
+  height: 18px;
+}

@@ -385,7 +385,22 @@
         <section class="screen" data-screen="company-data" aria-hidden="true">
           <header class="screen__top screen__top--steps"><button class="back-button" type="button" data-back aria-label="Назад"><span></span></button><h2 class="screen__title-md">Компания</h2><button class="screen__skip" type="button" data-open-exit>Пропустить</button></header>
           <div class="progress progress--company"></div>
-          <div class="screen__body"><h3 class="step-heading">6. Данные компании</h3><p class="screen__subtext screen__subtext--compact">Загрузите Логотип компании.</p><p class="screen__subtext screen__subtext--compact">Покупатели увидят его на страницах ваших товаров и вашего магазина.</p><p class="screen__subtext screen__subtext--compact screen__subtext--tiny">Требования: Квадратный формат (1:1), минимум 500×500 px, JPG/PNG/WEBP, до 5 МБ.</p><input id="logoFileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden /><button class="upload-box" type="button" id="openLogoModal"><span class="upload-box__icon">+</span></button><label class="field field--labelled"><span class="field__label">Название магазина <em>*</em></span><input class="field__input" type="text" value="Eco Life" /></label></div>
+          <div class="screen__body"><h3 class="step-heading">6. Данные компании</h3>
+            <div class="upper-upl-text">
+              <div class="upper-upl-text-title">Загрузите Логотип компании.</div>
+              Покупатели увидят его на страницах ваших товаров и вашего магазина.
+              Требования: Квадратный формат (1:1), минимум 500×500 px, JPG/PNG/WEBP, до 5 МБ.
+            </div>
+              
+         
+            <input id="logoFileInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+            <button class="upload-box" type="button" id="openLogoModal">
+              <img src="./assets/Camera.svg" alt="Camera">
+            </button>
+              
+              <label class="field field--labelled">
+                <span class="field__label under-photo-block-field">Название магазина <em>*</em></span>
+                <input class="field__input" type="text" value="Eco Life" /></label></div>
           <footer class="screen__footer"><button class="button button--primary" type="button" data-go="company-sphere">Продолжить</button></footer>
         </section>
 
@@ -450,7 +465,7 @@
         <div class="modal__backdrop" data-close-logo></div>
         <div class="modal__sheet modal__sheet--logo" role="dialog" aria-modal="true">
           <button class="modal__close modal__close--corner" type="button" data-close-logo aria-label="Закрыть"><img src="./assets/close.svg" alt="" width="11" height="11" /></button>
-          <div class="logo-preview" id="logoPreview"></div><p class="modal__text modal__text--center">Предпросмотр логотипа компании</p>
+          <div class="logo-preview" id="logoPreview"></div>
           <div class="modal__actions modal__actions--row"><button class="button button--light" type="button" data-close-logo>Отмена</button><button class="button button--primary" type="button" data-save-logo>Сохранить</button></div>
         </div>
       </div>
@@ -459,10 +474,15 @@
         <div class="modal__backdrop" data-close-schedule></div>
         <div class="modal__sheet modal__sheet--schedule" data-swipe-sheet role="dialog" aria-modal="true">
           <div class="modal__handle"></div>
-          <button class="modal__close modal__close--corner" type="button" data-close-schedule aria-label="Закрыть"><img src="./assets/close.svg" alt="" width="11" height="11" /></button>
+          <button class="modal__close modal__close--corner" type="button" data-close-schedule aria-label="Закрыть"><img src="./assets/close-icon-find.svg" alt="" width="18" height="18" /></button>
           <h3 class="modal__title modal__title--left">График работы</h3>
-          <label class="choice-toggle choice-toggle--line choice-toggle--space"><span>Время одно для всех рабочих дней<small>Дни выключены переключатель</small></span><input type="checkbox" checked id="sameTimeToggle" /><i></i></label>
-          <div class="time-row"><div class="chip chip--time">с 08:00</div><div class="chip chip--time">до 18:00</div></div>
+          <label class="choice-toggle choice-toggle--line choice-toggle--space"><span>Время одно для всех рабочих дней<small>Чтобы настроить время для каждого рабочего дня выключите переключатель</small></span><input type="checkbox" checked id="sameTimeToggle" /><i></i></label>
+          <div class="time-row" id="sameTimeRow"><div class="time-field"><span class="time-field__prefix">с</span>
+            <input type="text" class="time-field__value">
+            <button class="time-field__clear" type="button" aria-label="Очистить">×</button></div><span class="time-row__divider">–</span><div class="time-field"><span class="time-field__prefix">до</span>
+              <input type="text" class="time-field__value">
+              <button class="time-field__clear" type="button" aria-label="Очистить">×</button></div></div>
+          <div class="schedule-days-label">Выберите рабочие дни:</div>
           <div class="week-chips"><button class="chip is-active" type="button">Пн</button><button class="chip is-active" type="button">Вт</button><button class="chip is-active" type="button">Ср</button><button class="chip is-active" type="button">Чт</button><button class="chip is-active" type="button">Пт</button><button class="chip" type="button">Сб</button><button class="chip" type="button">Вс</button></div>
           <div class="schedule-list" id="scheduleList" hidden><div class="schedule-item"><span>Понедельник:</span><div><b>с 08:00</b> — <b>до 18:00</b></div></div><div class="schedule-item"><span>Вторник:</span><div><b>с 09:00</b> — <b>до 21:00</b></div></div><div class="schedule-item"><span>Среда:</span><div><b>с 09:00</b> — <b>до 21:00</b></div></div><div class="schedule-item"><span>Четверг:</span><div><b>с 08:00</b> — <b>до 18:00</b></div></div><div class="schedule-item"><span>Воскресенье:</span><div><b>с 10:00</b> — <b>до 16:00</b></div></div></div>
           <div class="modal__actions"><button class="button button--primary" type="button" data-save-schedule>Сохранить</button></div>

@@ -22,6 +22,7 @@ const scheduleModal = document.getElementById('scheduleModal');
 const openScheduleModalButton = document.getElementById('openScheduleModal');
 const sameTimeToggle = document.getElementById('sameTimeToggle');
 const scheduleList = document.getElementById('scheduleList');
+const sameTimeRow = document.getElementById('sameTimeRow');
 const saveScheduleButton = document.querySelector('[data-save-schedule]');
 const weekChips = Array.from(document.querySelectorAll('.week-chips .chip'));
 const storeSchedulePreview = document.getElementById('storeSchedulePreview');
@@ -383,8 +384,20 @@ const buildScheduleRows = () => {
 
   const activeDays = weekChips.filter((chip) => chip.classList.contains('is-active'));
   const labels = activeDays.length
-    ? activeDays.map((chip) => chip.textContent.trim())
-    : ['Пн'];
+  ? activeDays.map((chip) => {
+      const short = chip.textContent.trim();
+      const map = {
+        Пн: 'Понедельник',
+        Вт: 'Вторник',
+        Ср: 'Среда',
+        Чт: 'Четверг',
+        Пт: 'Пятница',
+        Сб: 'Суббота',
+        Вс: 'Воскресенье',
+      };
+      return map[short] || short;
+    })
+  : ['Понедельник'];
 
   scheduleList.innerHTML = labels
     .map((label, index) =>
@@ -404,7 +417,7 @@ const getScheduleSummary = () => {
       .map((chip) => chip.textContent.trim())
       .join(', ');
 
-    return `${active || 'Пн, Вт, Ср, Чт, Пт'}: 08:00 - 18:00`;
+    return `${active || 'Понедельник, Вт, Ср, Чт, Пт'}: 08:00 - 18:00`;
   }
 
   const rows = Array.from(scheduleList?.querySelectorAll('.schedule-item') || []);
@@ -602,6 +615,10 @@ sameTimeToggle?.addEventListener('change', (event) => {
     scheduleList.hidden = checked;
   }
 
+  if (sameTimeRow) {
+    sameTimeRow.hidden = !checked;
+  }
+
   if (!checked) {
     buildScheduleRows();
   }
@@ -617,6 +634,10 @@ saveScheduleButton?.addEventListener('click', () => {
 
   closeModal(scheduleModal);
 });
+
+if (sameTimeRow) {
+  sameTimeRow.hidden = !sameTimeToggle?.checked;
+}
 
 if (!sameTimeToggle?.checked) {
   buildScheduleRows();
@@ -644,7 +665,7 @@ saveStoreButton?.addEventListener('click', () => {
     schedule:
       storeSchedulePreview?.innerHTML ||
       savedScheduleData ||
-      'Пн, Вт, Ср, Чт, Пт: 08:00 - 18:00',
+      'Понедельник, Вт, Ср, Чт, Пт: 08:00 - 18:00',
     photo: storePhotoUrls[0] || '',
   };
 
