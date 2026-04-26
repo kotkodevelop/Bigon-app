@@ -312,6 +312,10 @@ img {
     flex-direction: column;
 }
 
+.slider-footer-spacer {
+  flex-grow: 1;
+}
+
 .pagination {
   display: flex;
   align-items: center;
@@ -534,13 +538,6 @@ img {
     padding: 12px;
   }
 
-  .slider__footer {
-    padding: 0 13px calc(env(safe-area-inset-bottom) + 10px);
-    height: 152px;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-  }
 
   .pagination {
     margin-bottom: 14px;
