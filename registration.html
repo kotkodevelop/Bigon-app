@@ -15,10 +15,9 @@
   <body>
     <main class="registration-app" id="registrationApp">
       <div class="screen-stack" id="screenStack">
-        <section class="screen screen--active" data-screen="auth" aria-hidden="false">
+        <section class="screen screen--active first-fields-screen" data-screen="auth" aria-hidden="false">
           <header class="screen__top screen__top--auth">
-            <span class="screen__eyebrow">Вход / регистрация</span>
-            <button class="icon-button" type="button" aria-label="Закрыть">
+            <button class="icon-button registration-close-btn" type="button" aria-label="Закрыть">
               <img src="./assets/close.svg" alt="" width="11" height="11" />
             </button>
           </header>
@@ -86,32 +85,38 @@
             <div class="account-type-list" role="radiogroup" aria-label="Тип аккаунта">
               <label class="account-card is-selected" data-account-card>
                 <input class="account-card__input" type="radio" name="accountType" value="Частное лицо" checked />
-                <div class="account-card__icon">
-                  <img src="./assets/Profile.svg" alt="" width="24" height="24" />
-                </div>
+                
                 <div class="account-card__content">
-                  <div class="account-card__title">Частное лицо</div>
+                  <div class="account-card__title">
+                    <div class="account-card__icon">
+                      <img src="./assets/Profile.svg" alt="" width="24" height="24" />
+                    </div>
+                    <p>Частное лицо</p>
+                    <span class="account-card__radio"></span>
+                  </div>
                   <p class="account-card__text">
-                    Зарабатывайте Баллы за ваши покупки и тратьте их у партнёров. Вы также можете
-                    размещать объявления о продаже своих товаров и услуг.
+                    Зарабатывайте Баллы за ваши покупки и тратьте их у партнёров. <br>
+                    Вы также можете размещать объявления о продаже своих товаров и услуг. 
                   </p>
                 </div>
-                <span class="account-card__radio"></span>
+                
               </label>
 
               <label class="account-card" data-account-card>
                 <input class="account-card__input" type="radio" name="accountType" value="Компания" />
-                <div class="account-card__icon">
-                  <img src="./assets/Work.svg" alt="" width="24" height="24" />
-                </div>
+                
                 <div class="account-card__content">
-                  <div class="account-card__title">Компания</div>
+                  <div class="account-card__title">
+                    <div class="account-card__icon">
+                      <img src="./assets/Work.svg" alt="" width="24" height="24" />
+                    </div>
+                    <p>Компания</p>
+                    <span class="account-card__radio"></span>
+                  </div>
                   <p class="account-card__text">
-                    Для юридических лиц. Продавайте товары и услуги онлайн через Bigon. Подключайте
-                    сотрудников, функции «Кассира» для продаж и оффлайн-магазинов.
+                    Для юридических лиц. Продавайте товары и услуги онлайн через Bigon: Подключайте сотрудников, функцию «Кассир» для продажи в оффлайн-магазинах, используйте бизнес-инструменты платформы.
                   </p>
                 </div>
-                <span class="account-card__radio"></span>
               </label>
             </div>
           </div>
