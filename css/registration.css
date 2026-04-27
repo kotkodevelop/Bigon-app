@@ -1175,6 +1175,7 @@ textarea {
   margin: auto;
   border-radius: 20px;
   padding: 13px;
+  left: 13px;
   bottom: auto;
   top: 50%;
   transform: translateY(-50%) !important;
