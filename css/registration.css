@@ -1438,6 +1438,7 @@ textarea {
   bottom: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  overflow: hidden;
 }
 .modal__sheet--schedule .modal__handle {
   margin-bottom: 36px
@@ -1483,6 +1484,7 @@ textarea {
 .modal__sheet--schedule .modal__actions {
   position: absolute;
   bottom: 0;
+  z-index: 3;
   width: 100%;
   padding-left: 13px;
   padding-right: 13px;
@@ -1490,6 +1492,8 @@ textarea {
   padding-top: 10px;
   padding-bottom: calc(env(safe-area-inset-bottom) + 10px);
   background: #fff;
+  box-shadow: 0 -8px 24px rgba(31, 31, 31, 0.06);
+  transform: translateZ(0);
 }
 
 .week-chips {
@@ -1628,10 +1632,14 @@ textarea {
   color: #1F1F1F;
 }
 .schedule-list {
+  position: relative;
+  z-index: 0;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 55vh;
   padding-bottom: calc(env(safe-area-inset-bottom) + 88px);
+  background: #fff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .time-row {
