@@ -26,12 +26,15 @@ const sameTimeRow = document.getElementById('sameTimeRow');
 const saveScheduleButton = document.querySelector('[data-save-schedule]');
 const weekChips = Array.from(document.querySelectorAll('.week-chips .chip'));
 const storeSchedulePreview = document.getElementById('storeSchedulePreview');
+const editScheduleButton = document.getElementById('editScheduleButton');
 
 const processingInfoModal = document.getElementById('processingInfoModal');
 const openProcessingInfoButton = document.getElementById('openProcessingInfo');
 const closeProcessingInfoButtons = Array.from(
   document.querySelectorAll('[data-close-processing-info]')
 );
+const processingDesignSheet = processingInfoModal?.querySelector('.modal__sheet--processing-design');
+const processingDesignContent = processingInfoModal?.querySelector('.processing-design__content');
 
 const pickupToggle = document.getElementById('pickupToggle');
 const addStoreButton = document.getElementById('addStoreButton');
@@ -290,6 +293,12 @@ const bindAddressSearch = (prefix) => {
 const openModal = (modal) => {
   if (!modal) return;
   modal.hidden = false;
+
+  if (modal === processingInfoModal && processingDesignSheet && processingDesignContent) {
+    processingDesignSheet.scrollTop = 0;
+    processingDesignSheet.style.setProperty('--processing-content-overlap', '0px');
+  }
+
   requestAnimationFrame(() => {
     modal.classList.add('is-open');
   });
@@ -362,6 +371,13 @@ const bindSwipeModal = (modal) => {
   sheet.addEventListener('pointercancel', end);
 };
 
+const syncProcessingContentOverlap = () => {
+  if (!processingDesignSheet || !processingDesignContent) return;
+
+  const overlap = Math.min(processingDesignSheet.scrollTop, 28);
+  processingDesignSheet.style.setProperty('--processing-content-overlap', `${overlap}px`);
+};
+
 const updateLogoPreview = (url) => {
   if (!logoPreview) return;
   logoPreview.style.backgroundImage = url ? `url(${url})` : '';
@@ -372,12 +388,38 @@ const createScheduleRow = (label, from = '08:00', to = '18:00') => `
   <div class="schedule-item">
     <span>${label}</span>
     <div class="schedule-item__inputs">
-      <input class="schedule-time-input" type="text" value="${from}" />
-      <span>—</span>
-      <input class="schedule-time-input" type="text" value="${to}" />
+      <div class="time-field">
+        <span class="time-field__prefix">с</span>
+        <input class="schedule-time-input" type="text" value="${from}" />
+        <button class="time-field__clear" type="button" aria-label="Очистить время">
+          <img src="./assets/close-icon-find.svg" alt="close" />
+        </button>
+      </div>
+
+      <span class="schedule-item__dash">—</span>
+
+      <div class="time-field">
+        <span class="time-field__prefix">до</span>
+        <input class="schedule-time-input" type="text" value="${to}" />
+        <button class="time-field__clear" type="button" aria-label="Очистить время">
+          <img src="./assets/close-icon-find.svg" alt="close" />
+        </button>
+      </div>
     </div>
   </div>
 `;
+
+document.addEventListener('click', (event) => {
+  const clearButton = event.target.closest('.time-field__clear');
+  if (!clearButton) return;
+
+  const field = clearButton.closest('.time-field');
+  const input = field?.querySelector('.schedule-time-input');
+  if (!input) return;
+
+  input.value = '';
+  input.focus();
+});
 
 const buildScheduleRows = () => {
   if (!scheduleList) return;
@@ -387,13 +429,13 @@ const buildScheduleRows = () => {
   ? activeDays.map((chip) => {
       const short = chip.textContent.trim();
       const map = {
-        Пн: 'Понедельник',
-        Вт: 'Вторник',
-        Ср: 'Среда',
-        Чт: 'Четверг',
-        Пт: 'Пятница',
-        Сб: 'Суббота',
-        Вс: 'Воскресенье',
+        Пн: 'Понедельник:',
+        Вт: 'Вторник:',
+        Ср: 'Среда:',
+        Чт: 'Четверг:',
+        Пт: 'Пятница:',
+        Сб: 'Суббота:',
+        Вс: 'Воскресенье:',
       };
       return map[short] || short;
     })
@@ -411,23 +453,112 @@ const buildScheduleRows = () => {
 };
 
 const getScheduleSummary = () => {
+  const shortDayMap = {
+    'Понедельник:': 'пн',
+    'Вторник:': 'вт',
+    'Среда:': 'ср',
+    'Четверг:': 'чт',
+    'Пятница:': 'пт',
+    'Суббота:': 'сб',
+    'Воскресенье:': 'вс',
+  };
+
   if (sameTimeToggle?.checked) {
     const active = weekChips
       .filter((chip) => chip.classList.contains('is-active'))
-      .map((chip) => chip.textContent.trim())
-      .join(', ');
+      .map((chip) => chip.textContent.trim());
 
-    return `${active || 'Понедельник, Вт, Ср, Чт, Пт'}: 08:00 - 18:00`;
+    const allDays = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+    const activeIndexes = allDays
+      .map((day, index) => (active.includes(day) ? index : -1))
+      .filter((index) => index !== -1);
+
+    if (!activeIndexes.length) {
+      return `
+        <div class="store-schedule-summary">
+          <div><span>пн - пт:</span> 08:00 - 18:00</div>
+        </div>
+      `;
+    }
+
+    const groups = [];
+    let start = activeIndexes[0];
+    let prev = activeIndexes[0];
+
+    for (let i = 1; i < activeIndexes.length; i += 1) {
+      const current = activeIndexes[i];
+
+      if (current === prev + 1) {
+        prev = current;
+        continue;
+      }
+
+      groups.push([start, prev]);
+      start = current;
+      prev = current;
+    }
+
+    groups.push([start, prev]);
+
+    const lines = groups.map(([from, to]) => {
+      const fromDay = allDays[from].toLowerCase();
+      const toDay = allDays[to].toLowerCase();
+      const daysText = from === to ? fromDay : `${fromDay} - ${toDay}`;
+
+      return `<div><span>${daysText}:</span> 08:00 - 18:00</div>`;
+    });
+
+    return `
+      <div class="store-schedule-summary">
+        ${lines.join('')}
+      </div>
+    `;
   }
 
   const rows = Array.from(scheduleList?.querySelectorAll('.schedule-item') || []);
-  return rows
-    .map((row) => {
-      const label = row.querySelector('span')?.textContent?.trim() || '';
-      const inputs = row.querySelectorAll('input');
-      return `${label}: ${inputs[0]?.value || '08:00'} - ${inputs[1]?.value || '18:00'}`;
-    })
-    .join('<br>');
+
+  const normalized = rows.map((row) => {
+    const label = row.querySelector('.schedule-item > span')?.textContent?.trim() || '';
+    const inputs = row.querySelectorAll('.schedule-time-input');
+    const from = inputs[0]?.value?.trim() || '08:00';
+    const to = inputs[1]?.value?.trim() || '18:00';
+
+    return {
+      day: shortDayMap[label] || label.toLowerCase(),
+      from,
+      to,
+    };
+  });
+
+  const groups = [];
+
+  for (const item of normalized) {
+    const last = groups[groups.length - 1];
+
+    if (last && last.from === item.from && last.to === item.to) {
+      last.days.push(item.day);
+    } else {
+      groups.push({
+        from: item.from,
+        to: item.to,
+        days: [item.day],
+      });
+    }
+  }
+
+  const lines = groups.map((group) => {
+    const firstDay = group.days[0];
+    const lastDay = group.days[group.days.length - 1];
+    const daysText = group.days.length === 1 ? firstDay : `${firstDay} - ${lastDay}`;
+
+    return `<div><span>${daysText}:</span> ${group.from} - ${group.to}</div>`;
+  });
+
+  return `
+    <div class="store-schedule-summary">
+      ${lines.join('')}
+    </div>
+  `;
 };
 
 const syncPickupState = () => {
@@ -449,7 +580,8 @@ const renderStorePhotos = () => {
     const remove = document.createElement('button');
     remove.type = 'button';
     remove.className = 'photo-upload__remove';
-    remove.textContent = '✕';
+    remove.setAttribute('aria-label', 'Удалить фото');
+    remove.innerHTML = '<img src="./assets/delete-bin.svg" alt="delete">';
     remove.addEventListener('click', () => {
       storePhotoUrls.splice(index, 1);
       renderStorePhotos();
@@ -461,14 +593,30 @@ const renderStorePhotos = () => {
 };
 
 const fillStoreForm = (data) => {
-  if (!data) return;
+  if (storeAddressInput) {
+    storeAddressInput.value = 'Московская обл., г. Москва, ул. Ленина, д. 1, 123';
+  }
 
-  if (storeAddressInput) storeAddressInput.value = data.address || '';
-  if (storePhoneInput) storePhoneInput.value = data.phone || '';
+  if (storePhoneInput) {
+    storePhoneInput.value = '+7 (999) 999-99-99';
+  }
 
   if (storeSchedulePreview) {
-    storeSchedulePreview.hidden = !data.schedule;
-    storeSchedulePreview.innerHTML = data.schedule || '';
+    storeSchedulePreview.hidden = false;
+    storeSchedulePreview.innerHTML = `
+      <div class="store-schedule-summary">
+        <div><span>пн - пт:</span> 08:00 - 18:00</div>
+        <div><span>сб - вс:</span> 12:00 - 17:00</div>
+      </div>
+    `;
+  }
+
+  if (openScheduleModalButton) {
+    openScheduleModalButton.hidden = true;
+  }
+
+  if (editScheduleButton) {
+    editScheduleButton.hidden = false;
   }
 };
 
@@ -484,6 +632,8 @@ bindSwipeModal(exitModal);
 bindSwipeModal(scheduleModal);
 bindSwipeModal(logoModal);
 bindSwipeModal(processingInfoModal);
+
+processingDesignSheet?.addEventListener('scroll', syncProcessingContentOverlap, { passive: true });
 
 tabs.forEach((tab) => {
   tab.addEventListener('click', () => {
@@ -594,6 +744,10 @@ openScheduleModalButton?.addEventListener('click', () => {
   openModal(scheduleModal);
 });
 
+editScheduleButton?.addEventListener('click', () => {
+  openModal(scheduleModal);
+});
+
 Array.from(document.querySelectorAll('[data-close-schedule]')).forEach((button) => {
   button.addEventListener('click', () => closeModal(scheduleModal));
 });
@@ -632,6 +786,14 @@ saveScheduleButton?.addEventListener('click', () => {
     storeSchedulePreview.innerHTML = savedScheduleData;
   }
 
+  if (openScheduleModalButton) {
+    openScheduleModalButton.hidden = true;
+  }
+
+  if (editScheduleButton) {
+    editScheduleButton.hidden = false;
+  }
+
   closeModal(scheduleModal);
 });
 
@@ -660,21 +822,31 @@ storePhotosInput?.addEventListener('change', () => {
 
 saveStoreButton?.addEventListener('click', () => {
   savedStoreData = {
-    address: storeAddressInput?.value?.trim() || 'Московская обл., г. Москва, ул. Ленина, д. 1, 123',
-    phone: storePhoneInput?.value?.trim() || '+7 (999) 999-99-99',
-    schedule:
-      storeSchedulePreview?.innerHTML ||
-      savedScheduleData ||
-      'Понедельник, Вт, Ср, Чт, Пт: 08:00 - 18:00',
-    photo: storePhotoUrls[0] || '',
+    address: 'Московская обл., г. Москва, ул. Ленина, д. 1, 123',
+    phone: '+7 (999) 999-99-99',
+    schedule: `
+      <div class="store-schedule-summary">
+        <div><span>пн - пт:</span> 08:00 - 18:00</div>
+        <div><span>сб - вс:</span> 12:00 - 17:00</div>
+      </div>
+    `,
+    photo: './assets/store-card-preview.png',
   };
 
-  if (storeCardAddress) storeCardAddress.textContent = savedStoreData.address;
-  if (storeCardPhone) storeCardPhone.textContent = savedStoreData.phone;
-  if (storeCardSchedule) storeCardSchedule.innerHTML = savedStoreData.schedule;
+  if (storeCardAddress) {
+    storeCardAddress.innerHTML = 'Московская обл., г. Москва, ул. Ленина, д. 1,<br>123';
+  }
 
-  if (storeCardThumb && savedStoreData.photo) {
-    storeCardThumb.style.backgroundImage = `url(${savedStoreData.photo})`;
+  if (storeCardPhone) {
+    storeCardPhone.textContent = savedStoreData.phone;
+  }
+
+  if (storeCardSchedule) {
+    storeCardSchedule.innerHTML = savedStoreData.schedule;
+  }
+
+  if (storeCardThumb) {
+    storeCardThumb.style.backgroundImage = "url('./assets/store-card-preview.png')";
     storeCardThumb.classList.add('store-card__thumb--image');
   }
 
@@ -725,3 +897,9 @@ document.addEventListener('keydown', (event) => {
   if (scheduleModal && !scheduleModal.hidden) closeModal(scheduleModal);
   if (processingInfoModal && !processingInfoModal.hidden) closeModal(processingInfoModal);
 });
+
+if (openScheduleModalButton && editScheduleButton && storeSchedulePreview) {
+  const hasSchedulePreview = !storeSchedulePreview.hidden && storeSchedulePreview.innerHTML.trim().length > 0;
+  openScheduleModalButton.hidden = hasSchedulePreview;
+  editScheduleButton.hidden = !hasSchedulePreview;
+}
