@@ -1,0 +1,27 @@
+<svg width="78" height="92" viewBox="0 0 78 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="1" width="52" height="90" rx="10" fill="#1B1B21"/>
+  <rect x="15" y="4" width="46" height="84" rx="7" fill="url(#pinkScreen)"/>
+  <path d="M27 5.5H49C48.7 10.1 46.4 12.2 42.1 12.2H33.9C29.6 12.2 27.3 10.1 27 5.5Z" fill="#111116"/>
+  <circle cx="24" cy="15" r="3.3" fill="#101016"/>
+  <circle cx="31.5" cy="15" r="3.3" fill="#101016"/>
+  <circle cx="27.8" cy="22.8" r="3.3" fill="#101016"/>
+  <path d="M15 61.5C27.2 51.8 37.2 42.5 44 29.5C49 49 54.2 64 61 75.5V88H15V61.5Z" fill="url(#pinkWaveA)" opacity=".98"/>
+  <path d="M61 14C45 25 34 38.5 25.5 57.5C21.6 44.7 18.3 32 15 20.5V11C15 7.1 18.1 4 22 4H61V14Z" fill="url(#pinkWaveB)" opacity=".95"/>
+  <defs>
+    <linearGradient id="pinkScreen" x1="16" y1="4" x2="63" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE2D9"/>
+      <stop offset=".43" stop-color="#FF9AB5"/>
+      <stop offset="1" stop-color="#7650F6"/>
+    </linearGradient>
+    <linearGradient id="pinkWaveA" x1="18" y1="37" x2="61" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#280065"/>
+      <stop offset=".47" stop-color="#E41585"/>
+      <stop offset="1" stop-color="#FFE7E0"/>
+    </linearGradient>
+    <linearGradient id="pinkWaveB" x1="16" y1="7" x2="51" y2="55" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF0E5"/>
+      <stop offset=".55" stop-color="#FFB7C1"/>
+      <stop offset="1" stop-color="#EF236D"/>
+    </linearGradient>
+  </defs>
+</svg>

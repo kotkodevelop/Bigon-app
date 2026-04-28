@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Каталог</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/catalog.css" />
+  </head>
+  <body>
+    <main class="catalog-app" data-screen="categories" aria-label="Каталог">
+      <section class="catalog-page catalog-page--categories is-active" data-catalog-page="categories" aria-label="Категории каталога">
+        <div class="catalog-search catalog-search--single">
+          <img src="./assets/search.svg" alt="" />
+          <input type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+        </div>
+
+        <div class="catalog-grid" aria-label="Разделы каталога">
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-1.svg" alt="" />
+            <span>Недвижимость</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-2.svg" alt="" />
+            <span>Транспорт</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Электроника</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-4.svg" alt="" />
+            <span>Для бизнеса</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Услуги</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-1.svg" alt="" />
+            <span>Недвижимость</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-2.svg" alt="" />
+            <span>Транспорт</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Услуги</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-4.svg" alt="" />
+            <span>Для бизнеса</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Стройматериалы</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Услуги</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-4.svg" alt="" />
+            <span>Для бизнеса</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Услуги</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Услуги</span>
+          </a>
+          <a class="catalog-category-card" href="#subcategories" data-catalog-go="subcategories">
+            <img src="./assets/catalog/catalog-item-3.svg" alt="" />
+            <span>Услуги</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="catalog-page catalog-page--subcategories" data-catalog-page="subcategories" aria-label="Подкатегории">
+        <header class="catalog-topbar">
+          <a class="catalog-back" href="#categories" data-catalog-go="categories" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </a>
+          <div class="catalog-search">
+            <img src="./assets/search.svg" alt="" />
+            <input type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+          </div>
+        </header>
+
+        <h1 class="catalog-title">Электроника</h1>
+
+        <nav class="catalog-subcategory-list" aria-label="Подкатегории">
+          <a class="catalog-subcategory" href="#products" data-catalog-go="products">
+            <span class="catalog-all-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span>Все товары</span>
+          </a>
+          <a class="catalog-subcategory" href="#products" data-catalog-go="products">Аудио и видео</a>
+          <a class="catalog-subcategory" href="#products" data-catalog-go="products">Товары для компьютера</a>
+          <a class="catalog-subcategory" href="#products" data-catalog-go="products">Ноутбуки</a>
+          <a class="catalog-subcategory" href="#products" data-catalog-go="products">Фототехника</a>
+        </nav>
+      </section>
+
+      <section class="catalog-page catalog-page--products" data-catalog-page="products" aria-label="Список объявлений">
+        <header class="catalog-topbar catalog-topbar--products">
+          <a class="catalog-back" href="#subcategories" data-catalog-go="subcategories" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </a>
+          <div class="catalog-search">
+            <img src="./assets/search.svg" alt="" />
+            <input type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+          </div>
+        </header>
+
+        <a class="catalog-breadcrumb" href="#subcategories" data-catalog-go="subcategories">Электроника</a>
+        <h1 class="catalog-title catalog-title--products">Ноутбуки</h1>
+
+        <div class="catalog-filter-bar" aria-label="Фильтры">
+          <a class="catalog-filter-chip catalog-filter-chip--icon is-active" href="#filters" data-catalog-go="filters" aria-label="Открыть фильтры">
+            <img src="./assets/catalog/catalog-filter-icon.svg" alt="" />
+          </a>
+          <button class="catalog-filter-chip catalog-filter-chip--city is-active" type="button">
+            <img src="./assets/catalog/catalog-filter-pin.svg" alt="" />
+            <span>Тюмень</span>
+            <b aria-hidden="true">×</b>
+          </button>
+          <button class="catalog-filter-chip catalog-filter-chip--sort" type="button" aria-label="Сортировка">
+            <img src="./assets/catalog/catalog-filters-arrows-updown.svg" alt="" />
+          </button>
+          <button class="catalog-filter-chip" type="button">Цена <img src="./assets/catalog/catalog-filter-arrow-down.svg" alt="" /></button>
+          <button class="catalog-filter-chip" type="button" data-catalog-go="seller">Тип продавца <img src="./assets/catalog/catalog-filter-arrow-down.svg" alt="" /></button>
+        </div>
+
+        <div class="catalog-products-grid" aria-label="Список объявлений">
+          <article class="catalog-product-card">
+            <div class="catalog-product-card__image">
+              <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+              <span><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+            </div>
+            <button class="catalog-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+            <div class="catalog-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+            <h2>Штаны мужские</h2>
+            <p>Ростов-на-Дону</p>
+            <time>4 ноября 2025</time>
+          </article>
+          <article class="catalog-product-card">
+            <div class="catalog-product-card__image">
+              <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+              <span><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+            </div>
+            <button class="catalog-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+            <div class="catalog-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+            <h2>Штаны мужские</h2>
+            <p>Ростов-на-Дону</p>
+            <time>4 ноября 2025</time>
+          </article>
+          <article class="catalog-product-card">
+            <div class="catalog-product-card__image">
+              <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+              <span><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+            </div>
+            <button class="catalog-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+            <div class="catalog-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+            <h2>Штаны мужские</h2>
+            <p>Ростов-на-Дону</p>
+            <time>4 ноября 2025</time>
+          </article>
+          <article class="catalog-product-card">
+            <div class="catalog-product-card__image">
+              <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+              <span><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+            </div>
+            <button class="catalog-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+            <div class="catalog-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+            <h2>Штаны мужские</h2>
+            <p>Ростов-на-Дону</p>
+            <time>4 ноября 2025</time>
+          </article>
+          <article class="catalog-product-card">
+            <div class="catalog-product-card__image">
+              <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+              <span><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+            </div>
+            <button class="catalog-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+            <div class="catalog-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+            <h2>Штаны мужские</h2>
+            <p>Ростов-на-Дону</p>
+            <time>4 ноября 2025</time>
+          </article>
+          <article class="catalog-product-card">
+            <div class="catalog-product-card__image">
+              <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+              <span><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+            </div>
+            <button class="catalog-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+            <div class="catalog-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+            <h2>Штаны мужские</h2>
+            <p>Ростов-на-Дону</p>
+            <time>4 ноября 2025</time>
+          </article>
+        </div>
+      </section>
+
+      <div class="catalog-overlay" data-catalog-go="products" hidden aria-hidden="true"></div>
+
+      <section class="catalog-sheet catalog-sheet--filters" data-catalog-sheet="filters" aria-label="Фильтры" hidden>
+        <div class="catalog-sheet__handle" aria-hidden="true"></div>
+        <button class="catalog-sheet-close" type="button" data-catalog-go="products" aria-label="Закрыть">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+        </button>
+
+        <h2>Фильтры</h2>
+
+        <div class="catalog-filter-list">
+          <button class="catalog-filter-row" type="button">
+            <span>Категория</span>
+            <b>Ноутбуки</b>
+            <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="" />
+          </button>
+          <button class="catalog-filter-row" type="button">
+            <span>Город</span>
+            <b>Тюмень</b>
+            <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="" />
+          </button>
+          <button class="catalog-filter-row" type="button" data-catalog-go="seller">
+            <span>Тип продавца</span>
+            <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="" />
+          </button>
+          <button class="catalog-filter-row" type="button">
+            <span>Рейтинг</span>
+            <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="catalog-filter-section">
+          <h3>Срок размещения</h3>
+          <div class="catalog-term-tabs" role="group" aria-label="Срок размещения">
+            <button class="is-active" type="button">За 24 часа</button>
+            <button type="button">За 7 дней</button>
+            <button type="button">За 30 дней</button>
+            <button type="button">За всё время</button>
+          </div>
+        </div>
+
+        <div class="catalog-filter-section">
+          <h3>Цена, ₽</h3>
+          <div class="catalog-price-fields">
+            <label><span>от</span><input type="text" value="0" inputmode="numeric" /></label>
+            <label><span>до</span><input type="text" inputmode="numeric" /></label>
+          </div>
+        </div>
+
+        <div class="catalog-toggle-list">
+          <label class="catalog-toggle-row">
+            <span>VIP объявления</span>
+            <input type="checkbox" />
+            <i></i>
+          </label>
+          <label class="catalog-toggle-row">
+            <span>Есть самовывоз</span>
+            <input type="checkbox" />
+            <i></i>
+          </label>
+        </div>
+
+        <div class="catalog-sheet-actions">
+          <button class="catalog-primary-button" type="button" data-catalog-go="products">Показать</button>
+          <button class="catalog-secondary-button" type="button">Очистить</button>
+        </div>
+      </section>
+
+      <section class="catalog-sheet catalog-sheet--seller" data-catalog-sheet="seller" aria-label="Тип продавца" hidden>
+        <div class="catalog-sheet__handle" aria-hidden="true"></div>
+        <header class="catalog-sheet-header">
+          <button class="catalog-back" type="button" data-catalog-go="filters" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <h2>Тип продавца</h2>
+        </header>
+
+        <fieldset class="catalog-radio-list">
+          <legend class="sr-only">Тип продавца</legend>
+          <label class="catalog-radio-row">
+            <span>Все</span>
+            <input type="radio" name="seller-type" checked />
+            <i></i>
+          </label>
+          <label class="catalog-radio-row">
+            <span>Компании</span>
+            <input type="radio" name="seller-type" />
+            <i></i>
+          </label>
+          <label class="catalog-radio-row">
+            <span>Частное лицо</span>
+            <input type="radio" name="seller-type" />
+            <i></i>
+          </label>
+        </fieldset>
+
+        <button class="catalog-primary-button catalog-primary-button--bottom" type="button" data-catalog-go="filters">Готово</button>
+      </section>
+    </main>
+
+    <script src="./js/catalog.js"></script>
+  </body>
+</html>

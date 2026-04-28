@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Чек найден</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/scan-check.css" />
+  </head>
+  <body>
+    <main class="scan-app scan-app--found">
+
+      <header class="scan-header">
+        <button class="scan-back" type="button" aria-label="Назад" data-scan-back>
+          <img src="./assets/back-btn.svg" alt="" />
+        </button>
+        <h1 class="scan-title">Сканировать Чек</h1>
+      </header>
+
+      <section class="scan-camera" aria-label="Чек найден">
+        <div class="scan-receipt-view" aria-hidden="true"></div>
+
+        <div class="scan-tools" aria-label="Инструменты камеры">
+          <button class="scan-tool-button" type="button" aria-label="Открыть галерею">
+            <img src="./assets/scan/image-scan.svg" alt="" />
+          </button>
+          <button class="scan-tool-button" type="button" aria-label="Включить вспышку">
+            <img src="./assets/scan/light-scan.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="scan-frame" aria-hidden="true">
+          <div class="scan-receipt-card">
+            <img src="./assets/home/qr-code.svg" alt="" />
+          </div>
+          <span class="scan-frame__corner scan-frame__corner--tl"></span>
+          <span class="scan-frame__corner scan-frame__corner--tr"></span>
+          <span class="scan-frame__corner scan-frame__corner--bl"></span>
+          <span class="scan-frame__corner scan-frame__corner--br"></span>
+        </div>
+
+        <div class="scan-hint">Наведите телефон на чек</div>
+      </section>
+    </main>
+
+    <script src="./js/scan-check.js"></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<svg width="78" height="92" viewBox="0 0 78 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="11" y="1" width="53" height="90" rx="10" fill="#111820"/>
+  <rect x="14" y="4" width="47" height="84" rx="7" fill="url(#greenScreen)"/>
+  <path d="M26.5 5.5H48.5C48.2 10.1 45.9 12.2 41.6 12.2H33.4C29.1 12.2 26.8 10.1 26.5 5.5Z" fill="#0B0E12"/>
+  <circle cx="23.5" cy="15" r="3.3" fill="#0A0A0E"/>
+  <circle cx="31" cy="15" r="3.3" fill="#0A0A0E"/>
+  <circle cx="27.3" cy="22.8" r="3.3" fill="#0A0A0E"/>
+  <path d="M14 65.5C27.5 54 39 42 48 25C51.2 45 55.2 60 61 77V88H14V65.5Z" fill="url(#greenWaveA)" opacity=".98"/>
+  <path d="M61 16C44 28 32 42.5 24 60C20 46.5 17.2 32 14 20V11C14 7.1 17.1 4 21 4H61V16Z" fill="url(#greenWaveB)" opacity=".95"/>
+  <defs>
+    <linearGradient id="greenScreen" x1="14" y1="4" x2="61" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151C23"/>
+      <stop offset=".43" stop-color="#14312B"/>
+      <stop offset="1" stop-color="#2AFF81"/>
+    </linearGradient>
+    <linearGradient id="greenWaveA" x1="18" y1="37" x2="63" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071014"/>
+      <stop offset=".45" stop-color="#1541D8"/>
+      <stop offset="1" stop-color="#4DFF75"/>
+    </linearGradient>
+    <linearGradient id="greenWaveB" x1="15" y1="6" x2="51" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#19232E"/>
+      <stop offset=".6" stop-color="#102B58"/>
+      <stop offset="1" stop-color="#3DFFC1"/>
+    </linearGradient>
+  </defs>
+</svg>

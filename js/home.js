@@ -11,6 +11,20 @@ const homeSwipePanels = Array.from(document.querySelectorAll('[data-home-swipe-p
 let homeActiveModal = null;
 let homeCloseTimer = null;
 
+const resolveHomeModal = (target = homeActiveModal) => {
+  if (!target) return homeActiveModal;
+  if (target.currentTarget?.closest) {
+    return target.currentTarget.closest('.home-modal') || homeActiveModal;
+  }
+  if (target.classList?.contains('home-modal')) {
+    return target;
+  }
+  if (target.closest) {
+    return target.closest('.home-modal') || homeActiveModal;
+  }
+  return homeActiveModal;
+};
+
 const openHomeModal = (name) => {
   const modal = homeModalMap[name];
   if (!modal) return;
@@ -31,9 +45,9 @@ const openHomeModal = (name) => {
   requestAnimationFrame(() => modal.classList.add('is-open'));
 };
 
-const closeHomeModal = (modal = homeActiveModal) => {
-  if (!modal) return;
-  const closingModal = modal;
+const closeHomeModal = (target = homeActiveModal) => {
+  const closingModal = resolveHomeModal(target);
+  if (!closingModal) return;
   const panel = closingModal.querySelector('[data-home-swipe-panel]');
 
   closingModal.classList.remove('is-open');

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Уведомлений нет</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/notifications.css" />
+  </head>
+  <body>
+    <main class="notifications-app notifications-app--empty" aria-label="Уведомления">
+      <header class="notifications-header">
+        <button class="notifications-back" type="button" aria-label="Назад" data-notifications-back>
+          <img src="./assets/back-btn.svg" alt="" />
+        </button>
+        <h1>Уведомления</h1>
+      </header>
+
+      <section class="notifications-empty-state" aria-label="Нет уведомлений">
+        <img src="./assets/notifications/notification-empty.svg" alt="" />
+        <h2>У вас пока нет уведомлений</h2>
+      </section>
+    </main>
+
+    <script src="./js/notifications.js"></script>
+  </body>
+</html>

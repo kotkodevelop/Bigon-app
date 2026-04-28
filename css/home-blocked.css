@@ -1,0 +1,231 @@
+.home-app--blocked {
+  --home-blocked-blur: 6px;
+}
+
+.home-hero--blocked {
+  z-index: 1;
+  min-height: 250px;
+  padding-bottom: 52px;
+  cursor: pointer;
+}
+
+.home-user--blocked {
+  min-width: 40px;
+}
+
+.home-blocked-avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #dfe6ef;
+}
+
+
+
+.home-hero--blocked .home-hero__right {
+  gap: 7px;
+}
+
+.home-hero--blocked .home-city {
+  font-size: 16px;
+  gap: 2px;
+}
+
+.home-hero--blocked .home-city img {
+  width: 20px;
+  height: 20px;
+}
+
+.home-hero--blocked .home-round-icon__badge {
+  top: -5px;
+  right: -5px;
+}
+
+.home-hero--blocked .home-quick-actions,
+.home-hero--blocked .home-invite {
+  opacity: 0.78;
+}
+
+.home-hero-lock {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  overflow: hidden;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0px -16px 32px -8px #3B146C;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.home-hero-lock::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 55% 20%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06) 52%, rgba(255, 255, 255, 0.02));
+}
+
+.home-hero-lock img {
+  width: 40px;
+  height: 40px;
+}
+
+.home-app--blocked .home-content-shell {
+  margin-top: -32px;
+  padding-top: 13px;
+}
+
+.home-blocked-intro {
+  padding-top: 16px;
+  cursor: pointer;
+}
+
+.home-blocked-intro h1 {
+  max-width: 390px;
+  margin: 0;
+  color: #1f1f1f;
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.home-blocked-fill-btn {
+  width: 242px;
+  height: 40px;
+  margin-top: 16px;
+  border-radius: 10px;
+  background: #917dfa;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.home-blocked-intro p {
+  margin: 8px 0 0;
+  color: #1f1f1f;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.home-wallet-section--blocked {
+  cursor: pointer;
+}
+
+.home-wallet-locked {
+  position: relative;
+}
+
+.home-wallet-grid--blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-wallet-section--blocked .home-help,
+.home-wallet-section--blocked .home-section__head {
+  position: relative;
+  z-index: 2;
+}
+
+.home-wallet-lock {
+  position: absolute;
+  z-index: 3;
+  right: 8px;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0px 8px 24px -8px #A8A8A8;
+
+}
+
+.home-wallet-lock img {
+  width: 24px;
+  height: 24px;
+}
+
+.home-blocked-modal .home-modal__backdrop {
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.home-blocked-card {
+  position: relative;
+  width: calc(100% - 26px);
+  max-width: 404px;
+  min-height: 312px;
+  padding: 50px 13px 40px;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: center;
+  transform: translate3d(0, 8px, 0) scale(0.98);
+  transition: transform var(--home-transition);
+}
+
+.home-blocked-modal.is-open .home-blocked-card {
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.home-blocked-card__image {
+  width: 110px;
+  height: 120px;
+  margin: 0 auto 24px;
+  object-fit: contain;
+}
+
+.home-blocked-card h2 {
+  max-width: 324px;
+  margin: 0 auto 40px;
+  color: #1f1f1f;
+  font-size: 17px;
+  line-height: 21px;
+  font-weight: 600;
+}
+
+.home-blocked-card__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+.home-blocked-card__button img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 360px) {
+  .home-hero--blocked .home-city {
+    font-size: 14px;
+  }
+
+  .home-hero-lock {
+    width: 74px;
+    height: 74px;
+  }
+
+  .home-blocked-intro h1 {
+    font-size: 16px;
+  }
+}

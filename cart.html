@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Корзина</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/cart.css" />
+  </head>
+  <body>
+    <main class="cart-app cart-app--cards" aria-label="Корзина">
+      <header class="cart-header">
+        <button class="cart-header__back" type="button" aria-label="Назад">
+          <img src="./assets/back-btn.svg" alt="" />
+        </button>
+        <h1>Корзина</h1>
+        <button class="cart-header__trash" type="button" aria-label="Очистить корзину">
+          <img src="./assets/cart/cart-big-bin.svg" alt="" />
+        </button>
+      </header>
+
+      <section class="cart-card-list" aria-label="Товары в корзине">
+        <article class="cart-seller-card">
+          <div class="cart-product">
+            <img class="cart-product__image cart-product__image--photo" src="./assets/cart/cart-product.svg" alt="Штаны мужские" />
+
+            <div class="cart-product__info">
+              <h2>Штаны мужские</h2>
+              <strong>2 000 ₽</strong>
+            </div>
+
+            <span class="cart-badge">5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span>
+
+            <div class="cart-product__bottom">
+              <div class="cart-actions" aria-label="Действия с товаром">
+                <button class="cart-icon-btn cart-icon-btn--heart" type="button" aria-label="Добавить в избранное"></button>
+                <button class="cart-icon-btn cart-icon-btn--delete" type="button" aria-label="Удалить товар">
+                  <img src="./assets/cart/cart-bin.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="cart-counter" aria-label="Количество товара">
+                <button type="button" aria-label="Уменьшить количество">−</button>
+                <span>1</span>
+                <button type="button" aria-label="Увеличить количество">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-line"></div>
+
+          <div class="cart-product cart-product--phone">
+            <img class="cart-product__image cart-product__image--photo" src="./assets/cart/cart-product.svg" alt="Смартфон Apple iPhone 13" />
+
+            <div class="cart-product__info">
+              <h2>Смартфон Apple iPhone 13 128GB nanoSim/eSim</h2>
+              <strong>62 990 ₽</strong>
+            </div>
+
+            <span class="cart-badge cart-badge--wide">8% <img src="./assets/home/item-coin-mini.svg" alt="" /></span>
+
+            <div class="cart-product__bottom">
+              <div class="cart-actions" aria-label="Действия с товаром">
+                <button class="cart-icon-btn cart-icon-btn--heart is-active" type="button" aria-label="В избранном"></button>
+                <button class="cart-icon-btn cart-icon-btn--delete" type="button" aria-label="Удалить товар">
+                  <img src="./assets/cart/cart-bin.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="cart-counter" aria-label="Количество товара">
+                <button type="button" aria-label="Уменьшить количество">−</button>
+                <span>1</span>
+                <button type="button" aria-label="Увеличить количество">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-line cart-line--total"></div>
+
+          <div class="cart-total">
+            <span>Итого</span>
+            <strong>64 990 ₽</strong>
+          </div>
+
+          <button class="cart-main-btn" type="button">Оформить заказ у этого продавца</button>
+        </article>
+
+        <article class="cart-seller-card cart-seller-card--single">
+          <div class="cart-product cart-product--phone">
+            <img class="cart-product__image cart-product__image--photo" src="./assets/cart/cart-product.svg" alt="Смартфон Apple iPhone 13" />
+
+            <div class="cart-product__info">
+              <h2>Смартфон Apple iPhone 13 128GB nanoSim/eSim</h2>
+              <strong>62 990 ₽</strong>
+            </div>
+
+            <span class="cart-badge">5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span>
+
+            <div class="cart-product__bottom">
+              <div class="cart-actions" aria-label="Действия с товаром">
+                <button class="cart-icon-btn cart-icon-btn--heart is-active" type="button" aria-label="В избранном"></button>
+                <button class="cart-icon-btn cart-icon-btn--delete" type="button" aria-label="Удалить товар">
+                  <img src="./assets/cart/cart-bin.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="cart-counter" aria-label="Количество товара">
+                <button type="button" aria-label="Уменьшить количество">−</button>
+                <span>1</span>
+                <button type="button" aria-label="Увеличить количество">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cart-line cart-line--total"></div>
+
+          <div class="cart-total">
+            <span>Итого</span>
+            <strong>64 990 ₽</strong>
+          </div>
+
+          <button class="cart-main-btn" type="button">Оформить заказ у этого продавца</button>
+        </article>
+      </section>
+    </main>
+
+    <script src="./js/cart.js"></script>
+  </body>
+</html>

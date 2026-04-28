@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Главная заблокирована</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/home-blocked.css" />
+  </head>
+  <body>
+    <main class="home-app home-app--blocked" id="homeApp">
+      <section class="home-screen" aria-label="Главная страница">
+        <header class="home-hero home-hero--blocked" data-open-blocked-modal>
+
+          <div class="home-hero__bar">
+            <div class="home-user home-user--blocked">
+              <span class="home-blocked-avatar" aria-hidden="true">
+                <img src="assets/home/user.png" alt="">
+              </span>
+            </div>
+
+            <div class="home-hero__right">
+              <button class="home-city" type="button" aria-label="Выбрать город">
+                <img src="./assets/home/home-pin.svg" alt="" />
+                <span>Выберите город</span>
+              </button>
+              <button class="home-round-icon home-round-icon--badge" type="button" aria-label="Уведомления: 1 новое">
+                <img src="./assets/home/home-notification.svg" alt="" />
+                <span class="home-round-icon__badge" aria-hidden="true">1</span>
+              </button>
+              <button class="home-round-icon home-round-icon--badge" type="button" aria-label="Корзина: 3 товара">
+                <img src="./assets/home/home-cart-icon.svg" alt="" />
+                <span class="home-round-icon__badge" aria-hidden="true">3</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="home-quick-actions">
+            <button class="home-quick-action" type="button" data-open-blocked-modal>
+              <img src="./assets/home/home-qr-icon.svg" alt="" />
+              <span>Показать QR-код</span>
+            </button>
+            <button class="home-quick-action" type="button" data-open-blocked-modal>
+              <span class="home-receipt-icon" aria-hidden="true">
+                <img src="assets/home/home-head-scan.svg" alt="scan">
+              </span>
+              <span>Сканировать чек</span>
+            </button>
+          </div>
+
+          <button class="home-invite" type="button" data-open-blocked-modal>
+            <img src="./assets/home/add-user.svg" alt="" />
+            <span>Пригласи друга и получи +40 бонусов</span>
+          </button>
+
+          <button class="home-hero-lock" type="button" data-open-blocked-modal aria-label="Заполнить личные данные">
+            <img src="./assets/home/lock-home-hero.svg" alt="" />
+          </button>
+        </header>
+
+        <div class="home-content-shell">
+          <div class="home-tabs" role="tablist" aria-label="Тип профиля">
+            <button class="home-tab is-active" type="button" data-home-tab="person">Я Частное лицо</button>
+            <button class="home-tab" type="button" data-home-tab="company">Я Компания</button>
+          </div>
+
+          <div class="home-scroll-area">
+            <section class="home-blocked-intro" data-open-blocked-modal aria-label="Заполните личные данные">
+              <h1>Чтобы начать накапливать кэшбэк и пользоваться всеми функциями Bigon, заполните личные данные.</h1>
+              <button class="home-blocked-fill-btn" type="button">
+                <span>Заполнить Личные данные</span>
+              </button>
+              <p>Это займёт не больше 2 минут!</p>
+            </section>
+
+            <section class="home-section home-wallet-section home-wallet-section--blocked" data-open-blocked-modal aria-label="Мой кошелёк">
+              <div class="home-section__head">
+                <h1>Мой кошелёк</h1>
+                <button class="home-help" type="button" data-open-blocked-modal aria-label="Заполнить личные данные">
+                  <img src="./assets/home/home-alert.svg" alt="" />
+                </button>
+              </div>
+
+              <div class="home-wallet-locked">
+                <div class="home-wallet-grid home-wallet-grid--blurred">
+                <button class="home-wallet-card home-wallet-card--points" type="button">
+                  <span class="home-wallet-card__label">Всего баллов:</span>
+                  <span class="home-wallet-card__arrow"><img src="./assets/home/home-arrow-r.svg" alt="" /></span>
+                  <div class="home-wallet-card-strong"><span>2 000</span> <img src="./assets/home/home-coin-icon.svg" alt="" /></div>
+                  <small><img src="./assets/home/home-fire.svg" alt="" />1 000 баллов сгорят<br />20.12.2026!</small>
+                </button>
+
+                <article class="home-wallet-card home-wallet-card--economy">
+                  <img class="home-wallet-card__dec" src="./assets/home/home-economy-dec.svg" alt="" />
+                  <img class="home-wallet-card__wallet" src="./assets/home/home-wallet-image.svg" alt="" />
+                  <span class="home-wallet-card__label">Вы сэкономили<br />в этом месяце:</span>
+                  <div class="home-wallet-card-strong">3 840 ₽</div>
+                </article>
+                </div>
+                <span class="home-wallet-lock" aria-hidden="true">
+                  <img src="./assets/home/lock-wallet-hero.svg" alt="" />
+                </span>
+              </div>
+            </section>
+
+            <section class="home-section" aria-label="Новые компании">
+              <h2 class="home-section-title">Новые компании</h2>
+              <div class="home-company-row">
+                <article class="home-company-card">
+                  <img src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+                  <span><strong>Eco Life</strong><small>Электроника</small></span>
+                  <i></i>
+                </article>
+                <article class="home-company-card">
+                  <img src="./assets/home/home-company-icon-2.svg" alt="Linguest" />
+                  <span><strong>Linguest</strong><small>Услуги</small></span>
+                </article>
+                <article class="home-company-card">
+                  <img src="./assets/home/home-company-icon-2.svg" alt="Linguest" />
+                  <span><strong>Linguest</strong><small>Услуги</small></span>
+                </article>
+              </div>
+            </section>
+
+            <nav class="home-mini-menu" aria-label="Быстрые разделы">
+              <button class="home-mini-card" type="button">
+                <strong>Каталог</strong>
+                <img src="./assets/home/home-catalog-image.svg" alt="" />
+              </button>
+              <button class="home-mini-card" type="button">
+                <strong>Компании<br />в городе</strong>
+                <img src="./assets/home/home-companys-image.svg" alt="" />
+              </button>
+              <button class="home-mini-card" type="button">
+                <strong>В разрабо<br />тке</strong>
+                <img src="./assets/home/home-working-image.svg" alt="" />
+              </button>
+              <button class="home-mini-card" type="button">
+                <strong>В разрабо<br />тке</strong>
+                <img src="./assets/home/home-working-image.svg" alt="" />
+              </button>
+            </nav>
+
+            <section class="home-section home-products-section" aria-label="Обратите внимание">
+              <h2 class="home-section-title">Обратите внимание</h2>
+              <div class="home-products-grid">
+                <article class="home-product-card">
+                  <div class="home-product-card__image">
+                    <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+                    <span class="home-product-card__photo"><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+                  </div>
+                  <button class="home-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                  <div class="home-product-card__info">
+                    <div class="home-product-card__price">2 000 ₽ <span>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+                    <h3>Штаны мужские</h3>
+                    <p>Ростов-на-Дону</p>
+                    <time>4 ноября 2025</time>
+                  </div>
+                </article>
+
+                <article class="home-product-card">
+                  <div class="home-product-card__image">
+                    <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+                    <span class="home-product-card__photo"><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+                  </div>
+                  <button class="home-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                  <div class="home-product-card__info">
+                    <div class="home-product-card__price">2 000 ₽ <span>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+                    <h3>Штаны мужские</h3>
+                    <p>Ростов-на-Дону</p>
+                    <time>4 ноября 2025</time>
+                  </div>
+                </article>
+
+                <article class="home-product-card">
+                  <div class="home-product-card__image">
+                    <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+                    <span class="home-product-card__photo"><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+                  </div>
+                  <button class="home-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                  <div class="home-product-card__info">
+                    <div class="home-product-card__price">2 000 ₽ <span>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+                    <h3>Штаны мужские</h3>
+                    <p>Ростов-на-Дону</p>
+                    <time>4 ноября 2025</time>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            <section class="home-section home-products-section" aria-label="Рекламный подзаголовок">
+              <h2 class="home-section-title">Рекламный подзаголовок</h2>
+              <div class="home-products-grid">
+                <article class="home-product-card">
+                  <div class="home-product-card__image">
+                    <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+                    <span class="home-product-card__photo"><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+                  </div>
+                  <button class="home-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                  <div class="home-product-card__info">
+                    <div class="home-product-card__price">2 000 ₽ <span>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+                    <h3>Штаны мужские</h3>
+                    <p>Ростов-на-Дону</p>
+                    <time>4 ноября 2025</time>
+                  </div>
+                </article>
+
+                <article class="home-product-card">
+                  <div class="home-product-card__image">
+                    <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+                    <span class="home-product-card__photo"><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+                  </div>
+                  <button class="home-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                  <div class="home-product-card__info">
+                    <div class="home-product-card__price">2 000 ₽ <span>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+                    <h3>Штаны мужские</h3>
+                    <p>Ростов-на-Дону</p>
+                    <time>4 ноября 2025</time>
+                  </div>
+                </article>
+
+                <article class="home-product-card">
+                  <div class="home-product-card__image">
+                    <img src="./assets/home/product-image.jpg" alt="Штаны мужские" />
+                    <span class="home-product-card__photo"><img src="./assets/home/camera-icon.svg" alt="" />1</span>
+                  </div>
+                  <button class="home-product-card__heart" type="button" aria-label="Добавить в избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                  <div class="home-product-card__info">
+                    <div class="home-product-card__price">2 000 ₽ <span>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+                    <h3>Штаны мужские</h3>
+                    <p>Ростов-на-Дону</p>
+                    <time>4 ноября 2025</time>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <nav class="home-bottom-nav" aria-label="Навигация приложения">
+          <button class="home-nav-item is-active" type="button">
+            <img src="assets/home/menu-home.svg" alt="">
+            <span>Главная</span>
+          </button>
+          <button class="home-nav-item" type="button">
+            <img src="assets/home/menu-heart.svg" alt="">
+            <span>Избранное</span>
+          </button>
+          <button class="home-nav-item" type="button">
+            <img src="assets/home/menu-filter.svg" alt="">
+            <span>Объявления</span>
+          </button>
+          <button class="home-nav-item" type="button">
+            <img src="assets/home/menu-chat.svg" alt="">
+            <span>Чат</span>
+          </button>
+          <button class="home-nav-item" type="button">
+            <img src="assets/home/menu-user.svg" alt="">
+            <span>Профиль</span>
+          </button>
+        </nav>
+      </section>
+
+      <div class="home-modal home-modal--center home-blocked-modal" id="homeBlockedModal" hidden>
+        <div class="home-modal__backdrop" data-close-blocked-modal></div>
+        <section class="home-blocked-card" role="dialog" aria-modal="true" aria-labelledby="homeBlockedTitle">
+          <button class="home-modal-close" type="button" data-close-blocked-modal aria-label="Закрыть">
+            <img src="./assets/close.svg" alt="" />
+          </button>
+          <img class="home-blocked-card__image" src="./assets/home/lock-modal-home.svg" alt="" />
+          <h2 id="homeBlockedTitle">Эта функция станет доступна после заполнения личных данных</h2>
+          <button class="home-primary-button home-blocked-card__button" type="button">
+            <span>Заполнить Личные данные</span>
+            <img src="./assets/home/arrow-right.svg" alt="" />
+          </button>
+        </section>
+      </div>
+    </main>
+
+    <script src="./js/home-blocked.js"></script>
+  </body>
+</html>

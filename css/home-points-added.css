@@ -1,0 +1,41 @@
+.home-added-modal .home-modal__backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.home-sheet--points-added {
+  min-height: 268px;
+  padding: 50px 13px calc(16px + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.home-added-points__image {
+  width: 165px;
+  margin: 0 auto 25px;
+  object-fit: contain;
+}
+
+.home-added-points__text {
+  margin: 0 0 40px;
+  color: #1f1f1f;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.home-sheet--points-added .home-primary-button {
+  margin-top: 0;
+}
+
+.home-added-modal.is-closing .home-sheet {
+  transform: translate3d(0, 42px, 0);
+}
+
+.home-added-modal.is-closing .home-modal__backdrop {
+  opacity: 0;
+}
+
+.home-added-points-title-text {
+  color: #6D39DF;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
