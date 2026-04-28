@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Компании в городе</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/companies.css" />
+  </head>
+  <body>
+    <main class="city-app" data-screen="categories" aria-label="Компании в городе">
+      <section class="city-screen city-screen--categories is-active" data-city-page="categories" aria-label="Категории компаний">
+        <header class="city-search-header">
+          <a class="city-back" href="./home.html" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></a>
+          <div class="city-search">
+            <img class="city-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+            <input class="city-search__input" type="search" placeholder="Поиск компании" aria-label="Поиск компании" />
+            <button class="city-search__clear" type="button" aria-label="Очистить" hidden>
+              <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+            </button>
+          </div>
+          <button class="city-map-button" type="button" data-city-go="map" aria-label="Показать на карте"><img src="./assets/map-icon-checkout.svg" alt="" /></button>
+        </header>
+
+        <h1 class="city-title">Категории</h1>
+
+        <div class="city-category-grid">
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Одежда и обувь</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Всё для детей</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Красота</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Здоровье</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Услуги</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Развлечения</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Всё для дома</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Электроника</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Всё для питомцев</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Всё для авто</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Обучение и образование</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Путешествия</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Спорт</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Хобби и творчество</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Цветы</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Праздники</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Украшения</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Парфюмерия</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Финансы</span></a>
+          <a class="city-category-card" href="#list" data-city-go="list"><img src="./assets/city-catalog-item.svg" alt="" /><span>Для бизнеса</span></a>
+        </div>
+      </section>
+
+      <section class="city-screen city-screen--list" data-city-page="list" aria-label="Список компаний">
+        <header class="city-search-header">
+          <button class="city-back" type="button" data-city-go="categories" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <div class="city-search">
+            <img class="city-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+            <input class="city-search__input" type="search" placeholder="Поиск компании" aria-label="Поиск компании" />
+            <button class="city-search__clear" type="button" aria-label="Очистить" hidden>
+              <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+            </button>
+          </div>
+          <button class="city-map-button" type="button" data-city-go="map" aria-label="Показать на карте"><img src="./assets/map-icon-checkout.svg" alt="" /></button>
+        </header>
+
+        <div class="city-list-head">
+          <h1>Электроника</h1>
+          <p>Найдено: 45</p>
+        </div>
+
+        <div class="company-list">
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+          <article class="company-list-card company-list-card--eco" data-city-go="company-catalog">
+            <div class="company-list-card__body">
+              <h2>Eco Life</h2>
+              <p>Электроника</p>
+              <span><b>★</b> 10 (5)</span>
+            </div>
+            <img class="company-list-card__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+          </article>
+        </div>
+      </section>
+
+      <section class="city-screen city-screen--map" data-city-page="map" aria-label="Компании на карте">
+        <img class="city-map-image" src="./assets/mapyandex.jpg" alt="Карта" />
+        <header class="city-map-header">
+          <button class="city-back city-map-back" type="button" data-city-go="list" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <div class="city-search city-map-search">
+            <img class="city-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+            <input class="city-search__input" type="search" placeholder="Поиск компании" aria-label="Поиск компании" />
+            <button class="city-search__clear" type="button" aria-label="Очистить" hidden>
+              <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+            </button>
+          </div>
+        </header>
+
+        <button class="map-pin map-pin--one" type="button" data-city-go="map-selected" aria-label="Eco Life"></button>
+        <button class="map-pin map-pin--two" type="button" data-city-go="map-selected" aria-label="Компания"></button>
+        <button class="map-pin map-pin--three" type="button" data-city-go="map-selected" aria-label="Компания"></button>
+        <button class="map-pin map-pin--four" type="button" data-city-go="map-selected" aria-label="Компания"></button>
+        <button class="map-pin map-pin--five" type="button" data-city-go="map-selected" aria-label="Компания"></button>
+        <button class="map-pin map-pin--six" type="button" data-city-go="map-selected" aria-label="Компания"></button>
+        <button class="map-pin map-pin--seven" type="button" data-city-go="map-selected" aria-label="Компания"></button>
+      </section>
+
+      <section class="city-screen city-screen--map city-screen--map-selected" data-city-page="map-selected" aria-label="Компания на карте">
+        <img class="city-map-image" src="./assets/mapyandex.jpg" alt="Карта" />
+        <header class="city-map-header">
+          <button class="city-back city-map-back" type="button" data-city-go="list" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+        </header>
+
+        <button class="map-pin map-pin--one map-pin--active" type="button" aria-label="Eco Life"></button>
+        <button class="map-pin map-pin--two" type="button" aria-label="Компания"></button>
+        <button class="map-pin map-pin--three" type="button" aria-label="Компания"></button>
+        <button class="map-pin map-pin--four" type="button" aria-label="Компания"></button>
+        <button class="map-pin map-pin--five" type="button" aria-label="Компания"></button>
+        <button class="map-pin map-pin--six" type="button" aria-label="Компания"></button>
+        <button class="map-pin map-pin--seven" type="button" aria-label="Компания"></button>
+
+        <article class="city-map-card">
+          <button class="city-map-card__close" type="button" data-city-go="map" aria-label="Закрыть">×</button>
+          <button class="map-company-head" type="button" data-city-go="company-catalog">
+            <img src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+            <span><strong>Eco Life</strong><small>Электроника</small><em>★ 10</em></span>
+          </button>
+          <div class="store-info-list store-info-list--map">
+            <div class="store-info-row"><i></i><div><b>Адрес</b><p>Московская обл., г. Москва, ул. Ленина, д. 123</p></div></div>
+            <div class="store-info-row"><i></i><div><b>Рабочий телефон</b><a href="tel:+79999999999">+7 (999) 999-99-99</a></div></div>
+            <div class="store-info-row"><i></i><div><b>График работы</b><p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p></div></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="city-screen city-screen--company" data-city-page="company" aria-label="Карточка компании">
+        <header class="company-topbar">
+          <button class="city-back" type="button" data-city-go="list" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <button class="company-more" type="button" data-city-go="actions" aria-label="Ещё"><span></span><span></span><span></span></button>
+        </header>
+
+        <div class="company-scroll">
+          <section class="company-hero">
+            <div class="company-profile">
+              <img class="company-profile__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+              <div>
+                <h1>Eco Life</h1>
+                <p>Электроника</p>
+              </div>
+            </div>
+
+            <div class="company-metrics" aria-label="Показатели компании">
+              <div class="company-metric"><span><b>★</b> 10</span><small>Рейтинг</small></div>
+              <div class="company-metric"><span>от 3% <em></em></span><small>Кэшбек</small></div>
+              <div class="company-metric"><span>744</span><small>Заказов</small></div>
+              <div class="company-metric"><span>6 месяцев</span><small>На Bigon</small></div>
+            </div>
+
+            <div class="company-actions">
+              <button class="company-message" type="button"><img src="./assets/city-chat.svg" alt="" />Написать продавцу</button>
+              <button class="company-round-action" type="button" aria-label="В избранное"><img src="./assets/city-heart.svg" alt="" /></button>
+              <button class="company-round-action" type="button" aria-label="Поделиться"><img src="./assets/city-share.svg" alt="" /></button>
+            </div>
+          </section>
+
+          <nav class="company-tabs" aria-label="Разделы компании">
+            <button type="button" data-city-go="company-catalog">Каталог</button>
+            <button type="button" data-city-go="company-shops">Магазины</button>
+            <button type="button" data-city-go="company-reviews">Отзывы</button>
+            <button type="button" data-city-go="company-info">Инфо</button>
+          </nav>
+
+          <section class="company-pane" data-company-pane="catalog" aria-label="Товары компании">
+            <h2 class="company-pane-title">Товары компании</h2>
+            <div class="company-filter-row">
+              <div class="company-filter-search">
+                <img class="company-filter-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+                <input class="company-filter-search__input" type="search" placeholder="Поиск" aria-label="Поиск товаров" />
+                <button class="company-filter-search__clear" type="button" aria-label="Очистить" hidden>
+                  <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+                </button>
+              </div>
+              <button type="button" aria-label="Фильтр"><span></span></button>
+              <button type="button" aria-label="Сортировка"><span></span></button>
+              <button type="button">Цена <b>⌄</b></button>
+            </div>
+
+            <div class="company-products-grid">
+              <article class="company-product-card">
+                <div class="company-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+                <button class="company-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                <div class="company-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+                <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+              </article>
+              <article class="company-product-card">
+                <div class="company-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+                <button class="company-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                <div class="company-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+                <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+              </article>
+              <article class="company-product-card">
+                <div class="company-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+                <button class="company-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                <div class="company-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+                <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+              </article>
+              <article class="company-product-card">
+                <div class="company-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+                <button class="company-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                <div class="company-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+                <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+              </article>
+              <article class="company-product-card">
+                <div class="company-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+                <button class="company-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                <div class="company-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+                <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+              </article>
+              <article class="company-product-card">
+                <div class="company-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+                <button class="company-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+                <div class="company-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+                <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+              </article>
+            </div>
+          </section>
+
+          <section class="company-pane" data-company-pane="shops" aria-label="Магазины">
+            <h2 class="company-pane-title company-pane-title--shops">Магазины:</h2>
+            <div class="store-card-list">
+              <article class="store-card">
+                <img class="store-card__photo" src="./assets/home/product-image.jpg" alt="Магазин" />
+                <div class="store-info-list">
+                  <div class="store-info-row"><i></i><div><b>Адрес</b><p>Московская обл., г. Москва, ул. Ленина, д. 123</p></div></div>
+                  <div class="store-info-row"><i></i><div><b>Рабочий телефон</b><a href="tel:+79999999999">+7 (999) 999-99-99</a></div></div>
+                  <div class="store-info-row"><i></i><div><b>График работы</b><p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p></div></div>
+                </div>
+              </article>
+              <article class="store-card">
+                <img class="store-card__photo" src="./assets/home/product-image.jpg" alt="Магазин" />
+                <div class="store-info-list">
+                  <div class="store-info-row"><i></i><div><b>Адрес</b><p>Московская обл., г. Москва, ул. Ленина, д. 123</p></div></div>
+                  <div class="store-info-row"><i></i><div><b>Рабочий телефон</b><a href="tel:+79999999999">+7 (999) 999-99-99</a></div></div>
+                  <div class="store-info-row"><i></i><div><b>График работы</b><p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p></div></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="company-pane" data-company-pane="reviews" aria-label="Отзывы">
+            <div class="reviews-head"><h2>Отзывы:</h2><span><b>★</b> 10 (5 Отзывов)</span></div>
+            <div class="reviews-list">
+              <article class="review-card">
+                <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                <div class="review-card__body"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time><span><img src="./assets/green-star.svg" alt="" />8 Отзывов</span><p>Отличный Продавец рекомендую 👍</p></div>
+              </article>
+              <article class="review-card">
+                <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                <div class="review-card__body"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time><span><img src="./assets/green-star.svg" alt="" />8 Отзывов</span><p>Отличный Продавец рекомендую 👍</p></div>
+              </article>
+              <article class="review-card review-card--company">
+                <img class="review-card__avatar" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+                <div class="review-card__body"><h3>Eco Life</h3><time>19.12.2025</time><p>Благодарим за высокую оценку! Для нас очень важно обратная связь от наших постоянных покупателей. С уважением, команда Eco Life</p></div>
+              </article>
+              <article class="review-card">
+                <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                <div class="review-card__body"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time><span><img src="./assets/green-star.svg" alt="" />8 Отзывов</span><p>Отличный Продавец рекомендую 👍</p></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="company-pane" data-company-pane="info" aria-label="Информация">
+            <h2 class="company-pane-title company-pane-title--info">ИНН</h2>
+            <p class="company-info-text">7203503069</p>
+            <h2 class="company-pane-title company-pane-title--info">Полное наименование</h2>
+            <p class="company-info-text">ООО «ECO Life»</p>
+            <h2 class="company-pane-title company-pane-title--info">ОГРН / ОГРНИП</h2>
+            <p class="company-info-text">120720009060</p>
+          </section>
+        </div>
+      </section>
+
+      <div class="city-action-overlay" data-city-go="company-catalog" hidden></div>
+      <section class="city-action-sheet" data-city-sheet="actions" hidden aria-label="Действия с компанией">
+        <button type="button">Добавить в избранное</button>
+        <button type="button">Поделиться</button>
+        <button class="is-danger" type="button">Пожаловаться</button>
+        <button type="button" data-city-go="company-catalog">Отменить</button>
+      </section>
+    </main>
+
+    <script src="./js/companies.js"></script>
+  </body>
+</html>

@@ -225,10 +225,13 @@ document.addEventListener("DOMContentLoaded", () => {
   app.querySelectorAll(".checkout-search").forEach((search) => {
     const input = search.querySelector(".checkout-search__input");
     const clearButton = search.querySelector(".checkout-search__clear");
-    if (!input || !clearButton) return;
+    const field = search.querySelector(".checkout-search__field");
+    if (!input || !clearButton || !field) return;
 
     const syncClearButton = () => {
-      clearButton.hidden = !(input.value || "").trim();
+      const hasValue = Boolean((input.value || "").trim());
+      clearButton.hidden = !hasValue;
+      field.classList.toggle("is-filled", hasValue);
     };
 
     clearButton.addEventListener("click", () => {

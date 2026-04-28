@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Отзывов пока нет</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/companies.css" />
+  </head>
+  <body>
+    <main class="city-app city-app--empty-reviews" data-screen="company-reviews-empty" aria-label="Пустые отзывы компании">
+      <section class="city-screen city-screen--company is-active" aria-label="Карточка компании">
+        <header class="company-topbar">
+          <a class="city-back" href="./companies.html#company-catalog" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></a>
+          <button class="company-more" type="button" aria-label="Ещё"><span></span><span></span><span></span></button>
+        </header>
+
+        <div class="company-scroll">
+          <section class="company-hero">
+            <div class="company-profile">
+              <img class="company-profile__logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+              <div><h1>Eco Life</h1><p>Электроника</p></div>
+            </div>
+
+            <div class="company-metrics" aria-label="Показатели компании">
+              <div class="company-metric"><span><b>★</b> 10</span><small>Рейтинг</small></div>
+              <div class="company-metric"><span>от 3% <em></em></span><small>Кэшбек</small></div>
+              <div class="company-metric"><span>744</span><small>Заказов</small></div>
+              <div class="company-metric"><span>6 месяцев</span><small>На Bigon</small></div>
+            </div>
+
+            <div class="company-actions">
+              <button class="company-message" type="button"><img src="./assets/city-chat.svg" alt="" />Написать продавцу</button>
+              <button class="company-round-action" type="button" aria-label="В избранное"><img src="./assets/city-heart.svg" alt="" /></button>
+              <button class="company-round-action" type="button" aria-label="Поделиться"><img src="./assets/city-share.svg" alt="" /></button>
+            </div>
+          </section>
+
+          <nav class="company-tabs company-tabs--static" aria-label="Разделы компании">
+            <a href="./companies.html#company-catalog">Каталог</a>
+            <a href="./companies.html#company-shops">Магазины</a>
+            <a class="is-active" href="./companies-reviews-empty.html">Отзывы</a>
+            <a href="./companies.html#company-info">Инфо</a>
+          </nav>
+
+          <section class="company-pane company-pane--empty-reviews" aria-label="Отзывы">
+            <h2 class="company-pane-title company-pane-title--reviews-empty">Отзывы:</h2>
+            <div class="reviews-empty-state">
+              <img src="./assets/reviews-empty.svg" alt="" />
+              <p>Отзывов пока нет</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

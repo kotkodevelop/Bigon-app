@@ -915,17 +915,27 @@ svg {
 .checkout-search__field {
   min-width: 0;
   height: 40px;
+  border: 1px solid transparent;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 20px 1fr auto;
+  grid-template-columns: 16px 1fr auto;
   align-items: center;
   gap: 8px;
-  padding: 0 14px 0 16px;
+  padding: 0 13px;
   background: var(--checkout-light);
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.checkout-search__field:focus-within,
+.checkout-search__field.is-filled {
+  border-color: var(--checkout-blue);
+  background: #ffffff;
 }
 
 .checkout-search__icon {
-  width: 20px;
+  width: 16px;
   height: 20px;
 }
 
@@ -955,6 +965,9 @@ svg {
 .checkout-search__clear {
   width: 16px;
   height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   flex: 0 0 16px;
 }
 

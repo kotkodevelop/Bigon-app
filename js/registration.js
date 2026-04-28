@@ -215,7 +215,10 @@ const getAddressConfig = (prefix) => {
 const syncAddressClearState = (prefix) => {
   const config = getAddressConfig(prefix);
   if (!config.clearButton || !config.searchInput) return;
-  config.clearButton.hidden = !(config.searchInput.value || '').trim();
+
+  const hasValue = Boolean((config.searchInput.value || '').trim());
+  config.clearButton.hidden = !hasValue;
+  config.searchInput.closest('.address-searchbar__input')?.classList.toggle('is-filled', hasValue);
 };
 
 const openAddressSearch = (prefix) => {

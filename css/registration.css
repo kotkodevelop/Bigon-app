@@ -518,13 +518,22 @@ img {
 
 .address-searchbar__input {
   height: 40px;
-  border: 1px solid #0066F5;
+  border: 1px solid transparent;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 16px 1fr 14px;
+  grid-template-columns: 16px 1fr 16px;
   align-items: center;
   gap: 8px;
   padding: 0 13px;
+  background: #f7f8fa;
+  transition:
+    border-color 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.address-searchbar__input:focus-within,
+.address-searchbar__input.is-filled {
+  border-color: #0066F5;
   background: #fff;
 }
 
@@ -795,6 +804,11 @@ img {
 .address-searchbar__input img,
 .field__clear img {
   flex: 0 0 auto;
+}
+
+.address-searchbar__input > img {
+  width: 16px;
+  height: 20px;
 }
 
 .field__clear {

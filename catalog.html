@@ -13,8 +13,11 @@
     <main class="catalog-app" data-screen="categories" aria-label="Каталог">
       <section class="catalog-page catalog-page--categories is-active" data-catalog-page="categories" aria-label="Категории каталога">
         <div class="catalog-search catalog-search--single">
-          <img src="./assets/search.svg" alt="" />
-          <input type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+          <img class="catalog-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+          <input class="catalog-search__input" type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+          <button class="catalog-search__clear" type="button" aria-label="Очистить" hidden>
+            <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+          </button>
         </div>
 
         <div class="catalog-grid" aria-label="Разделы каталога">
@@ -87,8 +90,11 @@
             <img src="./assets/back-btn.svg" alt="" />
           </a>
           <div class="catalog-search">
-            <img src="./assets/search.svg" alt="" />
-            <input type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+            <img class="catalog-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+            <input class="catalog-search__input" type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+            <button class="catalog-search__clear" type="button" aria-label="Очистить" hidden>
+              <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+            </button>
           </div>
         </header>
 
@@ -96,7 +102,9 @@
 
         <nav class="catalog-subcategory-list" aria-label="Подкатегории">
           <a class="catalog-subcategory" href="#products" data-catalog-go="products">
-            <span class="catalog-all-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span class="catalog-all-icon" aria-hidden="true">
+              <img src="./assets/catalog/catalog-widget.svg" alt="">
+            </span>
             <span>Все товары</span>
           </a>
           <a class="catalog-subcategory" href="#products" data-catalog-go="products">Аудио и видео</a>
@@ -112,8 +120,11 @@
             <img src="./assets/back-btn.svg" alt="" />
           </a>
           <div class="catalog-search">
-            <img src="./assets/search.svg" alt="" />
-            <input type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+            <img class="catalog-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+            <input class="catalog-search__input" type="search" placeholder="Поиск объявлений" aria-label="Поиск объявлений" />
+            <button class="catalog-search__clear" type="button" aria-label="Очистить" hidden>
+              <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+            </button>
           </div>
         </header>
 
@@ -247,7 +258,7 @@
           </div>
         </div>
 
-        <div class="catalog-filter-section">
+        <div class="catalog-filter-section catalog-filter-section-pricer">
           <h3>Цена, ₽</h3>
           <div class="catalog-price-fields">
             <label><span>от</span><input type="text" value="0" inputmode="numeric" /></label>
@@ -258,13 +269,13 @@
         <div class="catalog-toggle-list">
           <label class="catalog-toggle-row">
             <span>VIP объявления</span>
-            <input type="checkbox" />
-            <i></i>
+            <input class="switch__input" type="checkbox" />
+            <span class="switch__control"></span>
           </label>
           <label class="catalog-toggle-row">
             <span>Есть самовывоз</span>
-            <input type="checkbox" />
-            <i></i>
+            <input class="switch__input" type="checkbox" />
+            <span class="switch__control"></span>
           </label>
         </div>
 
@@ -281,22 +292,28 @@
           <h2>Тип продавца</h2>
         </header>
 
-        <fieldset class="catalog-radio-list">
+        <fieldset class="catalog-account-list">
           <legend class="sr-only">Тип продавца</legend>
-          <label class="catalog-radio-row">
-            <span>Все</span>
-            <input type="radio" name="seller-type" checked />
-            <i></i>
+          <label class="catalog-account-card is-selected">
+            <input class="catalog-account-card__input" type="radio" name="seller-type" checked />
+            <div class="catalog-account-card__content">
+              <p>Все</p>
+              <span class="catalog-account-card__radio"></span>
+            </div>
           </label>
-          <label class="catalog-radio-row">
-            <span>Компании</span>
-            <input type="radio" name="seller-type" />
-            <i></i>
+          <label class="catalog-account-card">
+            <input class="catalog-account-card__input" type="radio" name="seller-type" />
+            <div class="catalog-account-card__content">
+              <p>Компании</p>
+              <span class="catalog-account-card__radio"></span>
+            </div>
           </label>
-          <label class="catalog-radio-row">
-            <span>Частное лицо</span>
-            <input type="radio" name="seller-type" />
-            <i></i>
+          <label class="catalog-account-card">
+            <input class="catalog-account-card__input" type="radio" name="seller-type" />
+            <div class="catalog-account-card__content">
+              <p>Частное лицо</p>
+              <span class="catalog-account-card__radio"></span>
+            </div>
           </label>
         </fieldset>
 
