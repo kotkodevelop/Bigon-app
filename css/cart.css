@@ -402,10 +402,7 @@ svg {
   transition: transform var(--cart-ease), background var(--cart-ease);
 }
 
-.cart-main-btn:active {
-  transform: scale(0.985);
-  background: var(--cart-primary-active);
-}
+
 
 .cart-product--plain .cart-product__bottom {
   margin-top: 0;

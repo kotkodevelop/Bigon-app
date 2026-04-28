@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Оформление самовывоза</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/checkout.css" />
+  </head>
+  <body>
+    <main class="checkout-app" aria-label="Оформление заказа самовывозом">
+      <section class="checkout-screen checkout-screen--main is-active">
+        <header class="checkout-header">
+          <button class="checkout-header__back" type="button" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </button>
+          <h1>Оформление заказа</h1>
+        </header>
+
+        <div class="checkout-content checkout-content--main">
+          <button class="checkout-info-row" type="button">
+            <span class="checkout-info-row__text">
+              <strong>Получатель</strong>
+              <span>Иванова Елена Ивановна</span>
+              <span>+7 (999) 999-99-99</span>
+              <span>mail.mail@gmail.com</span>
+            </span>
+            <span class="checkout-row-arrow" aria-hidden="true">
+              <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="">
+            </span>
+          </button>
+
+          <button class="checkout-info-row checkout-info-row--with-thumb" type="button">
+            <span class="checkout-info-row__stack">
+              <strong>Способ получения</strong>
+              <span class="checkout-info-row__pickup-line">
+                <img class="checkout-info-row__thumb" src="./assets/cart/cart-product.svg" alt="" />
+                <span class="checkout-info-row__pickup-text">
+                  <span>Самовывоз</span>
+                  <span>Московская обл., г. Москва, ул. Ленина, д. 123</span>
+                </span>
+              </span>
+            </span>
+            <span class="checkout-row-arrow" aria-hidden="true">
+              <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="">
+            </span>
+          </button>
+
+          <section class="checkout-order-preview" aria-label="Ваш заказ">
+            <h2>Ваш заказ <span>(3 товара)</span></h2>
+            <div class="checkout-products-inline">
+              <img src="./assets/cart/cart-product.svg" alt="Товар 1" />
+              <img src="./assets/cart/cart-product.svg" alt="Товар 2" />
+              <img src="./assets/cart/cart-product.svg" alt="Товар 3" />
+            </div>
+          </section>
+
+          <section class="checkout-pay-later" aria-label="Оплата">
+            <span>Оплатить при получении</span>
+            <label class="switch">
+              <input class="switch__input" type="checkbox" checked />
+              <span class="switch__control"></span>
+            </label>
+          </section>
+
+          <section class="checkout-summary" aria-label="Сумма заказа">
+            <h2>Сумма заказа</h2>
+            <div class="checkout-summary__rows">
+              <div class="checkout-summary__row">
+                <span>Товары</span>
+                <strong>6 000 ₽</strong>
+              </div>
+              <div class="checkout-summary__row checkout-summary__row--total">
+                <span>Итого</span>
+                <strong>4 000 ₽</strong>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="checkout-sticky">
+          <button class="checkout-main-btn" type="button">Оформить заказ</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Оформление заказа</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/checkout.css" />
+  </head>
+  <body>
+    <main class="checkout-app" data-checkout-app data-screen="order" data-bonus="spend" aria-label="Оформление заказа">
+      <section class="checkout-screen checkout-screen--main is-active" data-screen-panel="order">
+        <header class="checkout-header">
+          <button class="checkout-header__back" type="button" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </button>
+          <h1>Оформление заказа</h1>
+        </header>
+
+        <div class="checkout-content checkout-content--main">
+          <button class="checkout-info-row" type="button" data-goto="recipient">
+            <span class="checkout-info-row__text">
+              <strong>Получатель</strong>
+              <span>Иванова Елена Ивановна</span>
+              <span>+7 (999) 999-99-99</span>
+              <span>mail.mail@gmail.com</span>
+            </span>
+            <span class="checkout-row-arrow" aria-hidden="true">
+              <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="">
+            </span>
+          </button>
+
+          <button class="checkout-info-row" type="button" data-goto="delivery">
+            <span class="checkout-info-row__text">
+              <strong>Способ получения</strong>
+              <span>СДЭК — пункт выдачи</span>
+              <span>Москва, ул. Дорожная, 120</span>
+            </span>
+            <span class="checkout-row-arrow" aria-hidden="true">
+              <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="">
+            </span>
+          </button>
+
+          <section class="checkout-order-preview" aria-label="Ваш заказ">
+            <h2>Ваш заказ <span>(3 товара)</span></h2>
+            <div class="checkout-products-inline">
+              <img src="./assets/cart/cart-product.svg" alt="Товар 1" />
+              <img src="./assets/cart/cart-product.svg" alt="Товар 2" />
+              <img src="./assets/cart/cart-product.svg" alt="Товар 3" />
+            </div>
+          </section>
+
+          <section class="checkout-points" aria-label="Баллы">
+            <h2>Баллы</h2>
+            <div class="checkout-points-toggle" role="group" aria-label="Выбор действия с баллами">
+              <button class="checkout-points-toggle__btn" type="button" data-bonus-toggle="earn"><p>Начислить</p> <span>500</span></button>
+              <button class="checkout-points-toggle__btn" type="button" data-bonus-toggle="spend"><p>Списать</p> <span>500</span></button>
+            </div>
+          </section>
+
+          <section class="checkout-summary" aria-label="Сумма заказа">
+            <h2>Сумма заказа</h2>
+            <div class="checkout-summary__rows">
+              <div class="checkout-summary__row">
+                <span>Товары</span>
+                <strong>6 000 ₽</strong>
+              </div>
+              <div class="checkout-summary__row checkout-summary__row--spend" data-bonus-only="spend">
+                <span>Оплата баллами</span>
+                <strong class="checkout-summary__green">-500 ₽</strong>
+              </div>
+              <div class="checkout-summary__row checkout-summary__row--total">
+                <span>Итого</span>
+                <strong>4 000 ₽</strong>
+              </div>
+            </div>
+
+            <div class="checkout-earned" data-bonus-only="earn">
+              <span>
+                <strong>Баллы за покупку</strong>
+                <small>Начислим после получения</small>
+              </span>
+              <b>+500 <img src="./assets/home/item-coin-mini.svg" alt="" /></b>
+            </div>
+          </section>
+        </div>
+
+        <div class="checkout-sticky">
+          <button class="checkout-main-btn" type="button">Оплатить</button>
+        </div>
+      </section>
+
+      <section class="checkout-screen checkout-screen--form" data-screen-panel="recipient" aria-label="Получатель">
+        <header class="checkout-header checkout-header--left">
+          <button class="checkout-header__back" type="button" data-goto="order" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </button>
+        </header>
+
+        <form class="checkout-content checkout-form" autocomplete="off">
+          <h1>Получатель</h1>
+
+          <label class="checkout-field">
+            <span>Фамилия <b>*</b></span>
+            <input type="text" value="Иванова" />
+          </label>
+
+          <label class="checkout-field">
+            <span>Имя <b>*</b></span>
+            <input type="text" value="Елена" />
+          </label>
+
+          <label class="checkout-field">
+            <span>Отчество</span>
+            <input type="text" value="Ивановна" />
+          </label>
+
+          <h2>Контакты</h2>
+
+          <label class="checkout-field">
+            <span>Телефон <b>*</b></span>
+            <input type="tel" value="+7 (999) 999-99-99" />
+          </label>
+
+          <label class="checkout-field">
+            <span>E-mail <small>(необходим для отправки чека)</small></span>
+            <input type="email" value="mail.mail@gmail.com" />
+          </label>
+        </form>
+
+        <div class="checkout-sticky">
+          <button class="checkout-main-btn" type="button" data-goto="order">Сохранить</button>
+        </div>
+      </section>
+
+      <section class="checkout-screen checkout-screen--form" data-screen-panel="delivery" aria-label="Способ доставки">
+        <header class="checkout-header checkout-header--left">
+          <button class="checkout-header__back" type="button" data-goto="order" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </button>
+        </header>
+
+        <form class="checkout-content checkout-form checkout-delivery-form" autocomplete="off">
+          <h1>Способ доставки</h1>
+
+          <div class="checkout-tabs" role="tablist" aria-label="Способ доставки">
+            <button class="is-active" type="button" data-delivery-tab="delivery">Доставка</button>
+            <button type="button" data-delivery-tab="pickup">Самовывоз</button>
+            <button type="button" data-delivery-tab="courier">Курьером</button>
+          </div>
+
+          <div class="checkout-delivery-panel is-active" data-delivery-panel="delivery">
+            <label class="checkout-field checkout-select-field">
+              <span>Пункт выдачи</span>
+              <button type="button" data-modal-open="pickup">
+                <span>5Post</span>
+                <i aria-hidden="true">
+                  <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="">
+                </i>
+              </button>
+            </label>
+
+            <label class="checkout-field checkout-select-field">
+              <span>Адрес доставки</span>
+              <button type="button" data-modal-open="address">
+                <span>А.Пушкина, 11А</span>
+                <i aria-hidden="true">
+                  <img src="./assets/catalog/catalog-filter-arrow-r.svg" alt="">
+                </i>
+              </button>
+            </label>
+          </div>
+
+          <div class="checkout-delivery-panel" data-delivery-panel="pickup" hidden>
+            <div class="checkout-pickup-cards" role="radiogroup" aria-label="Выберите точку самовывоза">
+              <label class="checkout-pickup-card">
+                <input type="radio" name="pickup-store" checked />
+                <span class="checkout-pickup-card__top">
+                  <img class="checkout-pickup-card__image" src="./assets/store-card-preview.png" alt="" />
+                  <i class="checkout-pickup-card__radio" aria-hidden="true"></i>
+                </span>
+                <span class="checkout-pickup-card__info">
+                  <span class="checkout-pickup-card__line">
+                    <img src="./assets/pin-sm-checkout.svg" alt="" />
+                    <span>
+                      <b>Адрес</b>
+                      <em>Московская обл., г. Москва, ул. Ленина, д. 123</em>
+                    </span>
+                  </span>
+                  <span class="checkout-pickup-card__line">
+                    <img src="./assets/phone-sm-checkout.svg" alt="" />
+                    <span>
+                      <b>Рабочий телефон</b>
+                      <em>+7 (999) 999-99-99</em>
+                    </span>
+                  </span>
+                  <span class="checkout-pickup-card__line">
+                    <img src="./assets/time-sm-checkout.svg" alt="" />
+                    <span>
+                      <b>График работы</b>
+                      <em>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</em>
+                    </span>
+                  </span>
+                </span>
+              </label>
+
+              <label class="checkout-pickup-card">
+                <input type="radio" name="pickup-store" />
+                <span class="checkout-pickup-card__top">
+                  <img class="checkout-pickup-card__image" src="./assets/store-card-preview.png" alt="" />
+                  <i class="checkout-pickup-card__radio" aria-hidden="true"></i>
+                </span>
+                <span class="checkout-pickup-card__info">
+                  <span class="checkout-pickup-card__line">
+                    <img src="./assets/pin-sm-checkout.svg" alt="" />
+                    <span>
+                      <b>Адрес</b>
+                      <em>Московская обл., г. Москва, ул. Ленина, д. 123</em>
+                    </span>
+                  </span>
+                  <span class="checkout-pickup-card__line">
+                    <img src="./assets/phone-sm-checkout.svg" alt="" />
+                    <span>
+                      <b>Рабочий телефон</b>
+                      <em>+7 (999) 999-99-99</em>
+                    </span>
+                  </span>
+                  <span class="checkout-pickup-card__line">
+                    <img src="./assets/time-sm-checkout.svg" alt="" />
+                    <span>
+                      <b>График работы</b>
+                      <em>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</em>
+                    </span>
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="checkout-delivery-panel" data-delivery-panel="courier" hidden>
+            <div class="checkout-courier-empty">
+              <p>Функция находится в разработке.<br />Пожалуйста, выберите другой<br />способ доставки.</p>
+            </div>
+          </div>
+        </form>
+
+        <div class="checkout-sticky">
+          <button class="checkout-main-btn" type="button" data-goto="order">Сохранить</button>
+        </div>
+      </section>
+
+      <div class="checkout-modal" data-modal="pickup" aria-hidden="true" hidden>
+        <button class="checkout-modal__backdrop" type="button" data-modal-close aria-label="Закрыть"></button>
+        <section class="checkout-sheet checkout-sheet--small" role="dialog" aria-modal="true" aria-label="Пункт выдачи">
+          <span class="checkout-sheet__drag" aria-hidden="true"></span>
+          <button class="checkout-sheet__close" type="button" data-modal-close aria-label="Закрыть">
+            <img src="./assets/close.svg" alt="" />
+          </button>
+          <h2>Пункт выдачи</h2>
+          <div class="checkout-radio-list">
+            <label class="checkout-radio-row">
+              <input type="radio" name="pickup" checked />
+              <span>5Post</span>
+              <i aria-hidden="true"></i>
+            </label>
+            <label class="checkout-radio-row">
+              <input type="radio" name="pickup" />
+              <span>СДЭК</span>
+              <i aria-hidden="true"></i>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <div class="checkout-modal" data-modal="address" aria-hidden="true" hidden>
+        <button class="checkout-modal__backdrop" type="button" data-modal-close aria-label="Закрыть"></button>
+        <section class="checkout-sheet checkout-sheet--address" role="dialog" aria-modal="true" aria-label="Адрес доставки">
+          <span class="checkout-sheet__drag" aria-hidden="true"></span>
+          <button class="checkout-sheet__close" type="button" data-modal-close aria-label="Закрыть">
+            <img src="./assets/close.svg" alt="" />
+          </button>
+          <h2>Адрес доставки</h2>
+          <div class="checkout-search">
+            <div class="checkout-search__field">
+              <img class="checkout-search__icon" src="./assets/search.svg" alt="" aria-hidden="true" />
+              <input class="checkout-search__input" type="search" placeholder="Найти адрес" autocomplete="off" />
+              <button class="checkout-search__clear" type="button" aria-label="Очистить" hidden>
+                <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
+              </button>
+            </div>
+            <button class="checkout-search__map" type="button" data-goto="delivery-map" aria-label="Открыть карту">
+              <img src="./assets/map-icon-checkout.svg" alt="" width="24" height="24" />
+            </button>
+          </div>
+          <div class="checkout-address-list">
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+            <button type="button" data-modal-close>
+              <strong>Москва, ул. Дорожная, 120</strong>
+              <span>стоимость — бесплатно</span>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <section class="checkout-screen checkout-screen--map" data-screen-panel="delivery-map" aria-label="Карта доставки">
+        <div class="checkout-map">
+          <button class="checkout-map__back" type="button" data-goto="delivery" aria-label="Назад">
+            <img src="./assets/back-btn.svg" alt="" />
+          </button>
+          <img class="checkout-map__image" src="./assets/mapyandex.jpg" alt="Карта с пунктами выдачи" />
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/checkout.js"></script>
+  </body>
+</html>
