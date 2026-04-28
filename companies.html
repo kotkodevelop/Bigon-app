@@ -133,48 +133,47 @@
         <img class="city-map-image" src="./assets/mapyandex.jpg" alt="Карта" />
         <header class="city-map-header">
           <button class="city-back city-map-back" type="button" data-city-go="list" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
-          <div class="city-search city-map-search">
-            <img class="city-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
-            <input class="city-search__input" type="search" placeholder="Поиск компании" aria-label="Поиск компании" />
-            <button class="city-search__clear" type="button" aria-label="Очистить" hidden>
-              <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
-            </button>
-          </div>
         </header>
 
-        <button class="map-pin map-pin--one" type="button" data-city-go="map-selected" aria-label="Eco Life"></button>
-        <button class="map-pin map-pin--two" type="button" data-city-go="map-selected" aria-label="Компания"></button>
-        <button class="map-pin map-pin--three" type="button" data-city-go="map-selected" aria-label="Компания"></button>
-        <button class="map-pin map-pin--four" type="button" data-city-go="map-selected" aria-label="Компания"></button>
-        <button class="map-pin map-pin--five" type="button" data-city-go="map-selected" aria-label="Компания"></button>
-        <button class="map-pin map-pin--six" type="button" data-city-go="map-selected" aria-label="Компания"></button>
-        <button class="map-pin map-pin--seven" type="button" data-city-go="map-selected" aria-label="Компания"></button>
-      </section>
-
-      <section class="city-screen city-screen--map city-screen--map-selected" data-city-page="map-selected" aria-label="Компания на карте">
-        <img class="city-map-image" src="./assets/mapyandex.jpg" alt="Карта" />
-        <header class="city-map-header">
-          <button class="city-back city-map-back" type="button" data-city-go="list" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
-        </header>
-
-        <button class="map-pin map-pin--one map-pin--active" type="button" aria-label="Eco Life"></button>
-        <button class="map-pin map-pin--two" type="button" aria-label="Компания"></button>
-        <button class="map-pin map-pin--three" type="button" aria-label="Компания"></button>
-        <button class="map-pin map-pin--four" type="button" aria-label="Компания"></button>
-        <button class="map-pin map-pin--five" type="button" aria-label="Компания"></button>
-        <button class="map-pin map-pin--six" type="button" aria-label="Компания"></button>
-        <button class="map-pin map-pin--seven" type="button" aria-label="Компания"></button>
-
-        <article class="city-map-card">
-          <button class="city-map-card__close" type="button" data-city-go="map" aria-label="Закрыть">×</button>
+        <article class="city-map-card" role="dialog" aria-modal="true" aria-labelledby="cityMapCardTitle">
+          <div class="city-map-card__handle" aria-hidden="true"></div>
+          <button class="city-map-card__close" type="button" data-city-go="list" aria-label="Закрыть">
+            <img src="./assets/close.svg" alt="" width="11" height="11" />
+          </button>
           <button class="map-company-head" type="button" data-city-go="company-catalog">
             <img src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
-            <span><strong>Eco Life</strong><small>Электроника</small><em>★ 10</em></span>
+            <span class="map-company-head__meta">
+              <strong id="cityMapCardTitle">Eco Life</strong>
+              <small>Электроника</small>
+              <span class="map-company-head__rating">
+                <img src="./assets/home/user-star.svg" alt="" width="12" height="12" />
+                <span>10 (5)</span>
+              </span>
+            </span>
           </button>
+          <div class="city-map-card__divider" aria-hidden="true"></div>
           <div class="store-info-list store-info-list--map">
-            <div class="store-info-row"><i></i><div><b>Адрес</b><p>Московская обл., г. Москва, ул. Ленина, д. 123</p></div></div>
-            <div class="store-info-row"><i></i><div><b>Рабочий телефон</b><a href="tel:+79999999999">+7 (999) 999-99-99</a></div></div>
-            <div class="store-info-row"><i></i><div><b>График работы</b><p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p></div></div>
+            <div class="store-info-row store-info-row--map">
+              <img class="store-info-row__icon" src="./assets/pin-sm-checkout.svg" alt="" width="12" height="14" />
+              <div>
+                <b>Адрес</b>
+                <p>Московская обл., г. Москва, ул. Ленина, д.<br />123</p>
+              </div>
+            </div>
+            <div class="store-info-row store-info-row--map companies-map-scr-ph">
+              <img class="store-info-row__icon" src="./assets/phone-sm-checkout.svg" alt="" width="13" height="13" />
+              <div class="companies-map-scr-ph-iner-div">
+                <b>Рабочий телефон</b>
+                <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+              </div>
+            </div>
+            <div class="store-info-row store-info-row--map">
+              <img class="store-info-row__icon" src="./assets/time-sm-checkout.svg" alt="" width="13" height="13" />
+              <div>
+                <b>График работы</b>
+                <p><span>пн - пт:</span> 08:00 - 18:00<br /><span>сб - вс:</span> 12:00 - 17:00</p>
+              </div>
+            </div>
           </div>
         </article>
       </section>
@@ -197,7 +196,7 @@
 
             <div class="company-metrics" aria-label="Показатели компании">
               <div class="company-metric"><span><b>★</b> 10</span><small>Рейтинг</small></div>
-              <div class="company-metric"><span>от 3% <em></em></span><small>Кэшбек</small></div>
+              <div class="company-metric"><span>от 3% <img src="assets/home/item-coin-mini.svg" alt=""></span><small>Кэшбек</small></div>
               <div class="company-metric"><span>744</span><small>Заказов</small></div>
               <div class="company-metric"><span>6 месяцев</span><small>На Bigon</small></div>
             </div>
@@ -220,15 +219,40 @@
             <h2 class="company-pane-title">Товары компании</h2>
             <div class="company-filter-row">
               <div class="company-filter-search">
-                <img class="company-filter-search__icon" src="./assets/search.svg" alt="" width="16" height="20" aria-hidden="true" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                  <g clip-path="url(#a)">
+                    <path fill="#757575" d="M14.908 15.758a.6.6 0 1 0 .849-.849l-.424.424-.425.425Zm-2.164-9.052h-.6a5.44 5.44 0 0 1-5.439 5.44v1.2a6.64 6.64 0 0 0 6.64-6.64h-.6Zm-6.039 6.04v-.6a5.44 5.44 0 0 1-5.439-5.44h-1.2a6.64 6.64 0 0 0 6.64 6.64v-.6ZM.666 6.705h.6a5.44 5.44 0 0 1 5.44-5.44v-1.2a6.64 6.64 0 0 0-6.64 6.64h.6Zm6.04-6.04v.6a5.44 5.44 0 0 1 5.438 5.44h1.2A6.64 6.64 0 0 0 6.705.066v.6Zm4.313 10.354-.424.424 4.313 4.314.425-.425.424-.424-4.314-4.314-.424.425Z"/>
+                  </g>
+                  <defs>
+                    <clipPath id="a">
+                      <path fill="#fff" d="M0 0h16v16H0z"/>
+                    </clipPath>
+                  </defs>
+                </svg>
                 <input class="company-filter-search__input" type="search" placeholder="Поиск" aria-label="Поиск товаров" />
                 <button class="company-filter-search__clear" type="button" aria-label="Очистить" hidden>
                   <img src="./assets/close-icon-find.svg" alt="" width="16" height="16" />
                 </button>
               </div>
-              <button type="button" aria-label="Фильтр"><span></span></button>
-              <button type="button" aria-label="Сортировка"><span></span></button>
-              <button type="button">Цена <b>⌄</b></button>
+              <button type="button" aria-label="Фильтр">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+                  <rect width="32" height="32" fill="#F7F8FA" rx="10"/>
+                  <path stroke="#757575" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M14.886 19.062h-4.2M16.76 12.6h4.2"/>
+                  <path stroke="#757575" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M13.817 12.564A1.57 1.57 0 0 0 12.24 11c-.87 0-1.575.7-1.575 1.564a1.57 1.57 0 0 0 1.575 1.564c.87 0 1.576-.7 1.576-1.564Zm7.515 6.472a1.57 1.57 0 0 0-1.574-1.564c-.87 0-1.576.7-1.576 1.564a1.57 1.57 0 0 0 1.576 1.564c.87 0 1.575-.7 1.575-1.564Z" clip-rule="evenodd"/>
+                </svg>
+
+              </button>
+              <button type="button" aria-label="Сортировка">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+                  <rect width="32" height="32" fill="#F7F8FA" rx="10"/>
+                  <path stroke="#757575" stroke-linecap="round" stroke-width="1.2" d="M18.667 10.667v10m-5.333.666v-10M16.667 20l1.529 1.529c.26.26.682.26.943 0L20.667 20m-9.333-8 1.529-1.529c.26-.26.682-.26.942 0L15.334 12"/>
+                </svg>
+              </button>
+              <button class="company-filter-row-pr-btn" type="button">Цена
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="none" viewBox="0 0 10 10">
+                  <path stroke="#757575" stroke-linecap="round" d="M7.5 4.14 5.295 6.347a.417.417 0 0 1-.59 0L2.5 4.141"/>
+                </svg>
+              </button>
             </div>
 
             <div class="company-products-grid">
@@ -275,19 +299,55 @@
             <h2 class="company-pane-title company-pane-title--shops">Магазины:</h2>
             <div class="store-card-list">
               <article class="store-card">
-                <img class="store-card__photo" src="./assets/home/product-image.jpg" alt="Магазин" />
+                <img class="store-card__photo" src="./assets/store-card-preview.png" alt="Магазин" />
                 <div class="store-info-list">
-                  <div class="store-info-row"><i></i><div><b>Адрес</b><p>Московская обл., г. Москва, ул. Ленина, д. 123</p></div></div>
-                  <div class="store-info-row"><i></i><div><b>Рабочий телефон</b><a href="tel:+79999999999">+7 (999) 999-99-99</a></div></div>
-                  <div class="store-info-row"><i></i><div><b>График работы</b><p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p></div></div>
+                  <div class="store-info-row">
+                    <img class="store-info-row__icon" src="./assets/pin-sm-checkout.svg" alt="" width="14" height="14" />
+                    <div>
+                      <b>Адрес</b>
+                      <p>Московская обл., г. Москва, ул. Ленина, д. 123</p>
+                    </div>
+                  </div>
+                  <div class="store-info-row">
+                    <img class="store-info-row__icon" src="./assets/phone-sm-checkout.svg" alt="" width="14" height="14" />
+                    <div>
+                      <b>Рабочий телефон</b>
+                      <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+                    </div>
+                  </div>
+                  <div class="store-info-row">
+                    <img class="store-info-row__icon" src="./assets/time-sm-checkout.svg" alt="" width="14" height="14" />
+                    <div>
+                      <b>График работы</b>
+                      <p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p>
+                    </div>
+                  </div>
                 </div>
               </article>
               <article class="store-card">
-                <img class="store-card__photo" src="./assets/home/product-image.jpg" alt="Магазин" />
+                <img class="store-card__photo" src="./assets/store-card-preview.png" alt="Магазин" />
                 <div class="store-info-list">
-                  <div class="store-info-row"><i></i><div><b>Адрес</b><p>Московская обл., г. Москва, ул. Ленина, д. 123</p></div></div>
-                  <div class="store-info-row"><i></i><div><b>Рабочий телефон</b><a href="tel:+79999999999">+7 (999) 999-99-99</a></div></div>
-                  <div class="store-info-row"><i></i><div><b>График работы</b><p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p></div></div>
+                  <div class="store-info-row">
+                    <img class="store-info-row__icon" src="./assets/pin-sm-checkout.svg" alt="" width="14" height="14" />
+                    <div>
+                      <b>Адрес</b>
+                      <p>Московская обл., г. Москва, ул. Ленина, д. 123</p>
+                    </div>
+                  </div>
+                  <div class="store-info-row">
+                    <img class="store-info-row__icon" src="./assets/phone-sm-checkout.svg" alt="" width="14" height="14" />
+                    <div>
+                      <b>Рабочий телефон</b>
+                      <a href="tel:+79999999999">+7 (999) 999-99-99</a>
+                    </div>
+                  </div>
+                  <div class="store-info-row">
+                    <img class="store-info-row__icon" src="./assets/time-sm-checkout.svg" alt="" width="14" height="14" />
+                    <div>
+                      <b>График работы</b>
+                      <p>пн - пт: 08:00 - 18:00<br />сб - вс: 12:00 - 17:00</p>
+                    </div>
+                  </div>
                 </div>
               </article>
             </div>
@@ -297,20 +357,62 @@
             <div class="reviews-head"><h2>Отзывы:</h2><span><b>★</b> 10 (5 Отзывов)</span></div>
             <div class="reviews-list">
               <article class="review-card">
-                <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
-                <div class="review-card__body"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time><span><img src="./assets/green-star.svg" alt="" />8 Отзывов</span><p>Отличный Продавец рекомендую 👍</p></div>
+                <div class="review-card__top">
+                  <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                  <div class="review-card__meta">
+                    <h3>Иванова Елена Ивановна</h3>
+                    <time>19.12.2025</time>
+                  </div>
+                </div>
+                <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+                <p>Отличный Продавец рекомендую 👍</p>
               </article>
+
               <article class="review-card">
-                <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
-                <div class="review-card__body"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time><span><img src="./assets/green-star.svg" alt="" />8 Отзывов</span><p>Отличный Продавец рекомендую 👍</p></div>
+                <div class="review-card__top">
+                  <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                  <div class="review-card__meta">
+                    <h3>Иванова Елена Ивановна</h3>
+                    <time>19.12.2025</time>
+                  </div>
+                </div>
+                <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+                <p>Отличный Продавец рекомендую 👍</p>
               </article>
-              <article class="review-card review-card--company">
-                <img class="review-card__avatar" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
-                <div class="review-card__body"><h3>Eco Life</h3><time>19.12.2025</time><p>Благодарим за высокую оценку! Для нас очень важно обратная связь от наших постоянных покупателей. С уважением, команда Eco Life</p></div>
-              </article>
+
               <article class="review-card">
-                <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
-                <div class="review-card__body"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time><span><img src="./assets/green-star.svg" alt="" />8 Отзывов</span><p>Отличный Продавец рекомендую 👍</p></div>
+                <div class="review-card__top">
+                  <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                  <div class="review-card__meta">
+                    <h3>Иванова Елена Ивановна</h3>
+                    <time>19.12.2025</time>
+                  </div>
+                </div>
+                <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+                <p>Отличный Продавец рекомендую 👍</p>
+
+                <div class="review-reply">
+                  <div class="review-reply__top">
+                    <img class="review-reply__avatar" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+                    <div class="review-reply__meta">
+                      <h3>Eco Life</h3>
+                      <time>12.11.2025</time>
+                    </div>
+                  </div>
+                  <p>Благодарим за высокую оценку! Для нас очень важна обратная связь от наших постоянных покупателей. С уважением, команда Eco Life</p>
+                </div>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__top">
+                  <img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" />
+                  <div class="review-card__meta">
+                    <h3>Иванова Елена Ивановна</h3>
+                    <time>19.12.2025</time>
+                  </div>
+                </div>
+                <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+                <p>Отличный Продавец рекомендую 👍</p>
               </article>
             </div>
           </section>
