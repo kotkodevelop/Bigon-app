@@ -6,6 +6,9 @@
   const deleteModal = app.querySelector('[data-delete-modal]');
   const deleteSheet = deleteModal?.querySelector('.profile-delete-sheet');
   const deleteBackdrop = deleteModal?.querySelector('.profile-delete-modal__backdrop');
+  const employeesModal = app.querySelector('[data-employees-modal]');
+  const employeesSheet = employeesModal?.querySelector('.profile-employee-sheet');
+  const employeesBackdrop = employeesModal?.querySelector('.profile-employees-modal__backdrop');
   const passwordFields = Array.from(app.querySelectorAll('.profile-field--password'));
   const profileTypeButtons = Array.from(app.querySelectorAll('[data-profile-type]'));
   const profileAvatar = app.querySelector('[data-profile-avatar]');
@@ -17,6 +20,7 @@
   let activePanel = app.dataset.screen || 'profile';
   let profileType = 'private';
   let deleteCloseTimer = null;
+  let employeesModalCloseTimer = null;
 
   const getPasswordMask = (value) => '*'.repeat(value.length);
 
@@ -95,8 +99,39 @@
 
     activePanel = name;
     app.dataset.screen = name;
+    closeEmployeesModal();
     closeDeleteModal();
   };
+
+  const openEmployeesModal = () => {
+    if (!employeesModal) return;
+    window.clearTimeout(employeesModalCloseTimer);
+    resetEmployeesModalStyles();
+    employeesModal.classList.add('is-open');
+    employeesModal.setAttribute('aria-hidden', 'false');
+  };
+
+  function closeEmployeesModal() {
+    if (!employeesModal) return;
+    window.clearTimeout(employeesModalCloseTimer);
+    employeesModal.classList.remove('is-open');
+    employeesModal.setAttribute('aria-hidden', 'true');
+
+    employeesModalCloseTimer = window.setTimeout(resetEmployeesModalStyles, 240);
+  }
+
+  function resetEmployeesModalStyles() {
+    if (employeesSheet) {
+      employeesSheet.style.opacity = '';
+      employeesSheet.style.transform = '';
+      employeesSheet.style.transition = '';
+    }
+
+    if (employeesBackdrop) {
+      employeesBackdrop.style.opacity = '';
+      employeesBackdrop.style.transition = '';
+    }
+  }
 
   const resetDeleteModalStyles = () => {
     if (deleteSheet) {
@@ -214,7 +249,144 @@
     deleteSheet.addEventListener('pointercancel', handlePointerEnd);
   };
 
+  const bindEmployeesModalSwipe = () => {
+    if (!employeesModal || !employeesSheet) return;
+
+    const swipeThreshold = 90;
+    let startY = 0;
+    let currentY = 0;
+    let dragging = false;
+    let pointerId = null;
+
+    const resetSheetPosition = () => {
+      employeesSheet.style.transition = '';
+      employeesSheet.style.opacity = '1';
+      employeesSheet.style.transform = 'translate3d(0, 0, 0)';
+
+      if (employeesBackdrop) {
+        employeesBackdrop.style.transition = '';
+        employeesBackdrop.style.opacity = '1';
+      }
+
+      window.setTimeout(() => {
+        if (employeesModal.classList.contains('is-open')) {
+          resetEmployeesModalStyles();
+        }
+      }, 240);
+    };
+
+    const finishSwipe = () => {
+      if (!dragging) return;
+
+      dragging = false;
+      pointerId = null;
+
+      if (currentY > swipeThreshold) {
+        employeesSheet.style.transition = 'transform var(--profile-ease), opacity var(--profile-ease)';
+        employeesSheet.style.opacity = '0';
+        employeesSheet.style.transform = `translate3d(0, ${Math.max(employeesSheet.offsetHeight + 40, currentY)}px, 0)`;
+
+        if (employeesBackdrop) {
+          employeesBackdrop.style.transition = 'opacity var(--profile-ease)';
+          employeesBackdrop.style.opacity = '0';
+        }
+
+        closeEmployeesModal();
+      } else {
+        resetSheetPosition();
+      }
+
+      currentY = 0;
+    };
+
+    employeesSheet.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      if (!employeesModal.classList.contains('is-open')) return;
+      if (event.target.closest('button, a, input, textarea, select')) return;
+
+      startY = event.clientY;
+      currentY = 0;
+      dragging = true;
+      pointerId = event.pointerId;
+      employeesSheet.setPointerCapture(event.pointerId);
+    });
+
+    employeesSheet.addEventListener('pointermove', (event) => {
+      if (!dragging || event.pointerId !== pointerId) return;
+
+      currentY = Math.max(0, event.clientY - startY);
+      employeesSheet.style.transition = 'none';
+      employeesSheet.style.opacity = String(Math.max(0.72, 1 - currentY / 360));
+      employeesSheet.style.transform = `translate3d(0, ${currentY}px, 0)`;
+
+      if (employeesBackdrop) {
+        employeesBackdrop.style.transition = 'none';
+        employeesBackdrop.style.opacity = String(Math.max(0, 1 - currentY / 180));
+      }
+    });
+
+    const handlePointerEnd = (event) => {
+      if (pointerId !== null && employeesSheet.hasPointerCapture(event.pointerId)) {
+        employeesSheet.releasePointerCapture(event.pointerId);
+      }
+
+      finishSwipe();
+    };
+
+    employeesSheet.addEventListener('pointerup', handlePointerEnd);
+    employeesSheet.addEventListener('pointercancel', handlePointerEnd);
+  };
+
+  const updateButtonTextTemporarily = (button, text) => {
+    const initialText = button.textContent.trim();
+    button.textContent = text;
+    window.setTimeout(() => {
+      button.textContent = initialText;
+    }, 1800);
+  };
+
+  const handleEmployeeShareRequest = async (button) => {
+    const shareData = {
+      title: button.dataset.shareTitle || document.title,
+      text: button.dataset.shareText || '',
+    };
+
+    if (button.dataset.shareUrl) {
+      shareData.url = new URL(button.dataset.shareUrl, window.location.href).href;
+    }
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (error) {
+        if (error?.name !== 'AbortError') {
+          updateButtonTextTemporarily(button, 'Не удалось отправить');
+        }
+      }
+      return;
+    }
+
+    if (navigator.clipboard && shareData.text) {
+      try {
+        await navigator.clipboard.writeText([shareData.text, shareData.url].filter(Boolean).join('\n'));
+        updateButtonTextTemporarily(button, 'Текст скопирован');
+      } catch {
+        updateButtonTextTemporarily(button, 'Поделиться недоступно');
+      }
+      return;
+    }
+
+    updateButtonTextTemporarily(button, 'Поделиться недоступно');
+  };
+
   app.addEventListener('click', (event) => {
+    const employeeShareRequestButton = event.target.closest('[data-employee-share-request]');
+    if (employeeShareRequestButton && app.contains(employeeShareRequestButton)) {
+      event.preventDefault();
+      handleEmployeeShareRequest(employeeShareRequestButton);
+      return;
+    }
+
     const typeButton = event.target.closest('[data-profile-type]');
     if (typeButton && app.contains(typeButton)) {
       event.preventDefault();
@@ -237,6 +409,18 @@
     if (gotoButton && app.contains(gotoButton)) {
       event.preventDefault();
       setPanel(gotoButton.dataset.profileGoto);
+      return;
+    }
+
+    if (event.target.closest('[data-employees-modal-open]')) {
+      event.preventDefault();
+      openEmployeesModal();
+      return;
+    }
+
+    if (event.target.closest('[data-employees-modal-close]')) {
+      event.preventDefault();
+      closeEmployeesModal();
       return;
     }
 
@@ -268,6 +452,7 @@
 
   app.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+      closeEmployeesModal();
       closeDeleteModal();
       return;
     }
@@ -280,4 +465,5 @@
   });
 
   bindDeleteModalSwipe();
+  bindEmployeesModalSwipe();
 })();

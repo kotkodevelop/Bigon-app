@@ -8,9 +8,118 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/profile.css" />
+    <style>
+      /* Static company invite state: local styles only for this file */
+      .profile-app--company-invite .profile-company-invite-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px;
+        background: rgba(0, 0, 0, 0.56);
+      }
+
+      .profile-company-invite-modal {
+        position: relative;
+        width: 100%;
+        max-width: 404px;
+        min-height: 373px;
+        padding: 40px 13px 40px;
+        border-radius: 20px;
+        background: #ffffff;
+      }
+
+      .profile-company-invite-close {
+        position: absolute;
+        top: 14px;
+        right: 13px;
+        width: 34px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #ffffff;
+        box-shadow: -1px 4px 4px 0px #00000029;
+        color: #565656;
+      }
+
+      .profile-company-invite-close svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .profile-company-invite-logo {
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 8px;
+        border-radius: 50%;
+        object-fit: cover;
+        background: #211307;
+      }
+
+      .profile-company-invite-title {
+        max-width: 310px;
+        margin: 0 auto;
+        color: #1f1f1f;
+        text-align: center;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .profile-company-invite-info {
+        margin: 46px 0 0;
+        padding: 13px;
+        border-radius: 10px;
+        background: #f7f8fa;
+        color: #1f1f1f;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 400;
+      }
+
+      .profile-company-invite-info p {
+        margin: 0;
+      }
+
+      .profile-company-invite-info p + p {
+        margin-top: 8px;
+      }
+
+      .profile-company-invite-info b {
+        font-weight: 600;
+      }
+
+      .profile-company-invite-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 40px;
+      }
+
+      .profile-company-invite-btn {
+        height: 44px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .profile-company-invite-btn--decline {
+        background: #f1f1f1;
+        color: #1F1F1F;
+      }
+
+      .profile-company-invite-btn--accept {
+        background: #917dfa;
+        color: #ffffff;
+      }
+
+    </style>
   </head>
   <body>
-    <main class="profile-app" data-profile-app data-screen="profile" aria-label="Профиль пользователя">
+    <main class="profile-app profile-app--company-invite" data-profile-app data-screen="profile" aria-label="Профиль пользователя">
       <section class="profile-screen profile-screen--main is-active" data-profile-panel="profile" aria-label="Профиль">
 
         <header class="profile-header profile-header-settings">
@@ -505,6 +614,25 @@
           <div class="profile-delete-sheet__actions">
             <button class="profile-modal-delete-btn" type="button">Удалить профиль</button>
             <button class="profile-primary-btn" type="button" data-delete-close>Отмена</button>
+          </div>
+        </section>
+      </div>
+      <div class="profile-company-invite-overlay" aria-hidden="false">
+        <section class="profile-company-invite-modal" role="dialog" aria-modal="true" aria-labelledby="companyInviteTitle">
+          <button class="profile-company-invite-close" type="button" aria-label="Закрыть">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M6.4 5.3 12 10.9l5.6-5.6 1.1 1.1-5.6 5.6 5.6 5.6-1.1 1.1-5.6-5.6-5.6 5.6-1.1-1.1 5.6-5.6-5.6-5.6 1.1-1.1Z"/>
+            </svg>
+          </button>
+          <img class="profile-company-invite-logo" src="./assets/profile/ecolife-logo.jpg" alt="Eco Life" />
+          <h2 class="profile-company-invite-title" id="companyInviteTitle">Компания «Eco Life» приглашает вас стать сотрудником</h2>
+          <div class="profile-company-invite-info">
+            <p><b>Роль:</b> Кассир</p>
+            <p><b>Функции:</b> Работа с оффлайн-покупками и возвратами на кассе</p>
+          </div>
+          <div class="profile-company-invite-actions">
+            <button class="profile-company-invite-btn profile-company-invite-btn--decline" type="button">Отклонить</button>
+            <button class="profile-company-invite-btn profile-company-invite-btn--accept" type="button">Принять</button>
           </div>
         </section>
       </div>

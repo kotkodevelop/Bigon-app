@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Сотрудники, пользователь найден</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/profile.css" />
+  </head>
+  <body>
+    <main class="profile-app profile-app--employees-variant" data-profile-app data-screen="employees" aria-label="Сотрудники">
+      <section class="profile-screen profile-screen--employees is-active" aria-label="Сотрудники">
+        <header class="profile-header profile-header--employees">
+          <button class="profile-back" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <h1>Сотрудники</h1>
+        </header>
+
+        <div class="profile-employees-empty">
+          <img class="profile-employees-empty__image" src="./assets/profile/profile-sotrudnik.svg" alt="" />
+          <p>Добавьте сотрудников, чтобы делегировать работу с заказами и покупателями</p>
+          <button class="profile-primary-btn profile-employees-add-btn" type="button" data-employees-modal-open>+ Добавить сотрудника</button>
+        </div>
+      </section>
+
+      <div class="profile-employees-modal profile-employees-modal--static is-open" data-employees-modal aria-hidden="false">
+        <button class="profile-employees-modal__backdrop" type="button" data-employees-modal-close aria-label="Закрыть"></button>
+        <section class="profile-employee-sheet profile-employee-sheet--result" role="dialog" aria-modal="true" aria-labelledby="employeeVariantTwoTitle">
+          <span class="profile-employee-sheet__handle" aria-hidden="true"></span>
+          <button class="profile-employee-sheet__close" type="button" data-employees-modal-close aria-label="Закрыть">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 5.3 12 10.9l5.6-5.6 1.1 1.1-5.6 5.6 5.6 5.6-1.1 1.1-5.6-5.6-5.6 5.6-1.1-1.1 5.6-5.6-5.6-5.6 1.1-1.1Z"/></svg>
+          </button>
+          <button class="profile-employee-sheet__back" type="button" data-employees-modal-close aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <h2 id="employeeVariantTwoTitle">Введите номер телефона сотрудника:</h2>
+          <p class="profile-employee-sheet__subtitle">По этому номеру сотрудник будет привязан к вашей компании</p>
+          <label class="profile-employee-phone-field">
+            <input type="tel" value="+7 (909) 909-99-99" readonly />
+          </label>
+          <article class="profile-employee-result-card">
+            <h3>Найден пользователь:</h3>
+            <div class="profile-employee-user-line">
+              <img src="./assets/profile/profile-avatar.jpg" alt="" />
+              <strong>Иванова Елена Ивановна</strong>
+            </div>
+            <p>Отправьте запрос, чтобы добавить пользователя в сотрудники. Пользователь должен подтвердить доступ.</p>
+          </article>
+          <button class="profile-primary-btn profile-employee-action-btn" type="button">Отправить Запрос</button>
+        </section>
+      </div>
+    </main>
+    <script src="./js/profile.js"></script>
+  </body>
+</html>

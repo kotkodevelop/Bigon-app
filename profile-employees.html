@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Сотрудники</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/profile.css" />
+    <link rel="stylesheet" href="./css/profile-employees.css" />
+  </head>
+  <body>
+    <main class="profile-app employees-page" aria-label="Сотрудники">
+      <section class="profile-screen profile-screen--employees employees-screen is-active" aria-label="Сотрудники">
+        <header class="profile-header profile-header--employees employees-header">
+          <button class="profile-back" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+          <h1>Сотрудники</h1>
+        </header>
+
+        <div class="employees-list" aria-label="Список сотрудников">
+          <article class="employee-row">
+            <img class="employee-row__avatar" src="./assets/profile/profile-avatar.jpg" alt="" />
+            <div class="employee-row__body">
+              <h2>Даниил Иванович</h2>
+              <span class="employee-status employee-status--active">Активен</span>
+            </div>
+            <div class="employee-row__actions">
+              <button class="employee-mini-btn" type="button" aria-label="Перейти в чат">
+                <img src="./assets/employ/chat-employ.svg" alt="" />
+              </button>
+              <button class="employee-mini-btn" type="button" data-employee-open="menu-active" aria-label="Действия сотрудника">
+                <img src="./assets/employ/edit-employ.svg" alt="" />
+              </button>
+            </div>
+          </article>
+
+          <article class="employee-row">
+            <img class="employee-row__avatar" src="./assets/profile/profile-avatar.jpg" alt="" />
+            <div class="employee-row__body">
+              <h2>Даниил Иванович</h2>
+              <span class="employee-status employee-status--active">Активен</span>
+            </div>
+            <div class="employee-row__actions">
+              <button class="employee-mini-btn" type="button" aria-label="Перейти в чат">
+                <img src="./assets/employ/chat-employ.svg" alt="" />
+              </button>
+              <button class="employee-mini-btn" type="button" data-employee-open="employee-card" aria-label="Карточка сотрудника">
+                <img src="./assets/employ/edit-employ.svg" alt="" />
+              </button>
+            </div>
+          </article>
+
+          <article class="employee-row">
+            <img class="employee-row__avatar" src="./assets/no-avatar.svg" alt="" />
+            <div class="employee-row__body">
+              <h2>+7 (909) 999-55-55</h2>
+              <span class="employee-status employee-status--pending">Приглашён</span>
+            </div>
+            <div class="employee-row__actions">
+              <button class="employee-mini-btn" type="button" aria-label="Перейти в чат">
+                <img src="./assets/employ/chat-employ.svg" alt="" />
+              </button>
+              <button class="employee-mini-btn" type="button" data-employee-open="menu-invite" aria-label="Действия приглашения">
+                <img src="./assets/employ/edit-employ.svg" alt="" />
+              </button>
+            </div>
+          </article>
+
+          <article class="employee-row">
+            <img class="employee-row__avatar" src="./assets/profile/profile-avatar.jpg" alt="" />
+            <div class="employee-row__body">
+              <h2>Даниил Иванович</h2>
+              <span class="employee-status employee-status--disabled">Отключён</span>
+            </div>
+            <div class="employee-row__actions">
+              <button class="employee-mini-btn" type="button" aria-label="Перейти в чат">
+                <img src="./assets/employ/chat-employ.svg" alt="" />
+              </button>
+              <button class="employee-mini-btn" type="button" data-employee-open="menu-grant" aria-label="Действия отключенного сотрудника">
+                <img src="./assets/employ/edit-employ.svg" alt="" />
+              </button>
+            </div>
+          </article>
+
+          <article class="employee-row">
+            <img class="employee-row__avatar" src="./assets/profile/profile-avatar.jpg" alt="" />
+            <div class="employee-row__body">
+              <h2>Даниил Иванович</h2>
+              <span class="employee-status employee-status--rejected">Отклонил приглашение</span>
+            </div>
+            <div class="employee-row__actions">
+              <button class="employee-mini-btn" type="button" aria-label="Перейти в чат">
+                <img src="./assets/employ/chat-employ.svg" alt="" />
+              </button>
+              <button class="employee-mini-btn" type="button" data-employee-open="menu-invite" aria-label="Действия приглашения">
+                <img src="./assets/employ/edit-employ.svg" alt="" />
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <button class="employees-list-add" type="button">+ Добавить сотрудника</button>
+      </section>
+
+      <div class="employee-overlay" data-employee-modal="menu-active" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-actions-sheet" role="dialog" aria-modal="true" aria-label="Действия сотрудника">
+          <span class="employee-sheet-handle" aria-hidden="true"></span>
+          <button class="employee-sheet-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <button class="employee-action-row" type="button">
+            <span class="employee-action-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19.071 19.07c-3.056 3.056-7.581 3.717-11.285 2.004-.546-.22-.995-.398-1.42-.398-1.188.007-2.665 1.158-3.433.391-.767-.768.384-2.246.384-3.44 0-.427-.17-.867-.39-1.415C1.212 12.51 1.873 7.982 4.93 4.927c3.902-3.903 10.24-3.903 14.141 0 3.909 3.908 3.902 10.241 0 14.143Z" clip-rule="evenodd"/>
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.939 12.413h.009m-4.017 0h.009m-4.019 0h.01"/>
+</svg>
+
+            </span>
+            <span>Перейти в чат</span>
+          </button>
+          <button class="employee-action-row" type="button" data-employee-open="employee-card">
+            <span class="employee-action-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="#1F1F1F" d="M22.55 11.943c0-1.842 0-3.282-.152-4.405-.154-1.15-.475-2.05-1.18-2.756-.705-.705-1.606-1.026-2.756-1.18-1.123-.151-2.563-.152-4.405-.152H9.943c-1.842 0-3.282 0-4.405.152-1.15.154-2.05.475-2.756 1.18-.705.705-1.026 1.606-1.18 2.756-.151 1.123-.152 2.563-.152 4.405v.114c0 1.842 0 3.282.152 4.405.154 1.15.475 2.05 1.18 2.756.705.705 1.606 1.026 2.756 1.18 1.123.151 2.563.152 4.405.152h4.114c1.842 0 3.282 0 4.405-.152 1.15-.154 2.05-.475 2.756-1.18.705-.705 1.026-1.606 1.18-2.756.151-1.123.152-2.563.152-4.405v-.114Zm-9 3.057c0-.872-.692-1.514-1.476-1.906-.815-.408-1.903-.644-3.074-.644-1.171 0-2.259.236-3.074.644-.784.392-1.476 1.034-1.476 1.906v.063c-.001.514.003 1.272.728 1.796.344.25.809.416 1.412.525.607.109 1.393.166 2.41.166 1.017 0 1.803-.057 2.41-.166.603-.109 1.069-.276 1.412-.525.725-.524.73-1.282.728-1.796V15Zm6 0a.55.55 0 0 0-.55-.55h-3a.55.55 0 1 0 0 1.1h3a.55.55 0 0 0 .55-.55Zm0-3a.55.55 0 0 0-.55-.55h-4a.55.55 0 1 0 0 1.1h4a.55.55 0 0 0 .55-.55Zm0-3a.55.55 0 0 0-.55-.55h-5a.55.55 0 1 0 0 1.1h5a.55.55 0 0 0 .55-.55Zm-7.1 6c0 .298-.01.497-.045.638a.563.563 0 0 1-.09.2.608.608 0 0 1-.137.13c-.157.114-.441.24-.963.334-.518.093-1.232.148-2.215.148-.983 0-1.697-.055-2.215-.148-.522-.094-.807-.22-.963-.333a.608.608 0 0 1-.136-.13.562.562 0 0 1-.091-.201c-.036-.14-.045-.34-.045-.638 0-.23.2-.588.868-.922.632-.316 1.544-.528 2.582-.528 1.038 0 1.95.212 2.582.528.669.335.868.693.868.922Zm9-3c0 1.9-.001 3.271-.141 4.315-.139 1.029-.403 1.658-.87 2.124-.466.467-1.095.731-2.124.87-1.044.14-2.414.141-4.315.141h-4c-1.9 0-3.271-.001-4.315-.141-1.029-.139-1.658-.403-2.124-.87-.467-.466-.731-1.095-.87-2.124-.14-1.044-.141-2.414-.141-4.315 0-1.9.001-3.271.141-4.315.139-1.029.403-1.658.87-2.124.466-.467 1.095-.731 2.124-.87C6.729 4.551 8.099 4.55 10 4.55h4c1.9 0 3.271.001 4.315.141 1.029.139 1.658.403 2.124.87.467.466.731 1.095.87 2.124.14 1.044.141 2.414.141 4.315Z"/>
+  <circle cx="9.03" cy="8.818" r="1.8" stroke="#1F1F1F"/>
+</svg>
+
+            </span>
+            <span>Карточка сотрудника</span>
+          </button>
+          <button class="employee-action-row" type="button">
+            <span class="employee-action-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16.424 9.448V7.3a4.552 4.552 0 0 0-4.551-4.551 4.55 4.55 0 0 0-4.57 4.53v2.168"/>
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M15.683 21.25H8.042a3.792 3.792 0 0 1-3.792-3.793v-4.289a3.792 3.792 0 0 1 3.792-3.792h7.641a3.792 3.792 0 0 1 3.792 3.793v4.288a3.792 3.792 0 0 1-3.792 3.793Z" clip-rule="evenodd"/>
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M11.863 14.203v2.22"/>
+</svg>
+
+            </span>
+            <span>Отключить доступ на время</span>
+          </button>
+          <button class="employee-action-row employee-action-row--danger" type="button" data-open-delete>
+            <span class="employee-action-icon">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="#EB001B" d="M10.6 10a.6.6 0 1 0-1.2 0h1.2Zm-1.2 8a.6.6 0 1 0 1.2 0H9.4Zm5.2-8a.6.6 0 1 0-1.2 0h1.2Zm-1.2 8a.6.6 0 1 0 1.2 0h-1.2Zm-6.308 2.782.272-.535-.272.535Zm-.874-.874.535-.272-.535.272Zm11.564 0-.535-.272.535.272Zm-.874.874-.272-.535.272.535ZM5 6.4a.6.6 0 0 0 0 1.2V6.4Zm14 1.2a.6.6 0 1 0 0-1.2v1.2ZM7.9 7a.6.6 0 0 0 1.2 0H7.9Zm7 0a.6.6 0 1 0 1.2 0h-1.2ZM10 10h-.6v8h1.2v-8H10Zm4 0h-.6v8h1.2v-8H14Zm4-3h-.6v10.8h1.2V7H18Zm-3.2 14v-.6H9.2v1.2h5.6V21ZM6 7h-.6v10.8h1.2V7H6Zm3.2 14v-.6c-.57 0-.961 0-1.265-.025-.296-.024-.455-.069-.57-.128l-.273.535-.272.535c.312.159.647.224 1.018.254.363.03.812.029 1.362.029V21ZM6 17.8h-.6c0 .55 0 .999.03 1.363.03.37.094.705.253 1.017l.535-.272.535-.272c-.06-.116-.104-.275-.128-.571C6.6 18.76 6.6 18.37 6.6 17.8H6Zm1.092 2.982.272-.535a1.4 1.4 0 0 1-.611-.611l-.535.272-.535.272a2.6 2.6 0 0 0 1.137 1.137l.272-.535ZM18 17.8h-.6c0 .57 0 .961-.025 1.265-.024.296-.069.455-.128.57l.535.273.535.272c.159-.312.224-.647.254-1.017.03-.364.029-.813.029-1.363H18ZM14.8 21v.6c.55 0 .999 0 1.363-.03.37-.03.705-.094 1.017-.253l-.272-.535-.272-.535c-.116.06-.275.104-.571.128-.304.024-.695.025-1.265.025v.6Zm2.982-1.092-.535-.272a1.4 1.4 0 0 1-.611.611l.272.535.272.535a2.6 2.6 0 0 0 1.137-1.137l-.535-.272ZM5 7v.6h1V6.4H5V7Zm1 0v.6h12V6.4H6V7Zm12 0v.6h1V6.4h-1V7Zm-9.5-.8h.6c0-1.386 1.247-2.6 2.9-2.6V2.4c-2.213 0-4.1 1.652-4.1 3.8h.6ZM12 3v.6c1.653 0 2.9 1.214 2.9 2.6h1.2c0-2.148-1.887-3.8-4.1-3.8V3ZM8.5 6.2h-.6V7h1.2v-.8h-.6Zm7 0h-.6V7h1.2v-.8h-.6Z"/>
+</svg>
+
+            </span>
+            <span>Удалить сотрудника</span>
+          </button>
+        </section>
+      </div>
+
+      <div class="employee-overlay" data-employee-modal="menu-grant" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-actions-sheet" role="dialog" aria-modal="true" aria-label="Действия сотрудника">
+          <span class="employee-sheet-handle" aria-hidden="true"></span>
+          <button class="employee-sheet-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <button class="employee-action-row" type="button"><span class="employee-action-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19.071 19.07c-3.056 3.056-7.581 3.717-11.285 2.004-.546-.22-.995-.398-1.42-.398-1.188.007-2.665 1.158-3.433.391-.767-.768.384-2.246.384-3.44 0-.427-.17-.867-.39-1.415C1.212 12.51 1.873 7.982 4.93 4.927c3.902-3.903 10.24-3.903 14.141 0 3.909 3.908 3.902 10.241 0 14.143Z" clip-rule="evenodd"/>
+  <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.939 12.413h.009m-4.017 0h.009m-4.019 0h.01"/>
+</svg>
+
+            </span>
+            <span>Перейти в чат</span></button>
+          <button class="employee-action-row" type="button" data-employee-open="employee-card">
+            <span class="employee-action-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="#1F1F1F" d="M22.55 11.943c0-1.842 0-3.282-.152-4.405-.154-1.15-.475-2.05-1.18-2.756-.705-.705-1.606-1.026-2.756-1.18-1.123-.151-2.563-.152-4.405-.152H9.943c-1.842 0-3.282 0-4.405.152-1.15.154-2.05.475-2.756 1.18-.705.705-1.026 1.606-1.18 2.756-.151 1.123-.152 2.563-.152 4.405v.114c0 1.842 0 3.282.152 4.405.154 1.15.475 2.05 1.18 2.756.705.705 1.606 1.026 2.756 1.18 1.123.151 2.563.152 4.405.152h4.114c1.842 0 3.282 0 4.405-.152 1.15-.154 2.05-.475 2.756-1.18.705-.705 1.026-1.606 1.18-2.756.151-1.123.152-2.563.152-4.405v-.114Zm-9 3.057c0-.872-.692-1.514-1.476-1.906-.815-.408-1.903-.644-3.074-.644-1.171 0-2.259.236-3.074.644-.784.392-1.476 1.034-1.476 1.906v.063c-.001.514.003 1.272.728 1.796.344.25.809.416 1.412.525.607.109 1.393.166 2.41.166 1.017 0 1.803-.057 2.41-.166.603-.109 1.069-.276 1.412-.525.725-.524.73-1.282.728-1.796V15Zm6 0a.55.55 0 0 0-.55-.55h-3a.55.55 0 1 0 0 1.1h3a.55.55 0 0 0 .55-.55Zm0-3a.55.55 0 0 0-.55-.55h-4a.55.55 0 1 0 0 1.1h4a.55.55 0 0 0 .55-.55Zm0-3a.55.55 0 0 0-.55-.55h-5a.55.55 0 1 0 0 1.1h5a.55.55 0 0 0 .55-.55Zm-7.1 6c0 .298-.01.497-.045.638a.563.563 0 0 1-.09.2.608.608 0 0 1-.137.13c-.157.114-.441.24-.963.334-.518.093-1.232.148-2.215.148-.983 0-1.697-.055-2.215-.148-.522-.094-.807-.22-.963-.333a.608.608 0 0 1-.136-.13.562.562 0 0 1-.091-.201c-.036-.14-.045-.34-.045-.638 0-.23.2-.588.868-.922.632-.316 1.544-.528 2.582-.528 1.038 0 1.95.212 2.582.528.669.335.868.693.868.922Zm9-3c0 1.9-.001 3.271-.141 4.315-.139 1.029-.403 1.658-.87 2.124-.466.467-1.095.731-2.124.87-1.044.14-2.414.141-4.315.141h-4c-1.9 0-3.271-.001-4.315-.141-1.029-.139-1.658-.403-2.124-.87-.467-.466-.731-1.095-.87-2.124-.14-1.044-.141-2.414-.141-4.315 0-1.9.001-3.271.141-4.315.139-1.029.403-1.658.87-2.124.466-.467 1.095-.731 2.124-.87C6.729 4.551 8.099 4.55 10 4.55h4c1.9 0 3.271.001 4.315.141 1.029.139 1.658.403 2.124.87.467.466.731 1.095.87 2.124.14 1.044.141 2.414.141 4.315Z"/>
+  <circle cx="9.03" cy="8.818" r="1.8" stroke="#1F1F1F"/>
+</svg>
+
+            </span>
+            <span>Карточка сотрудника</span></button>
+          <button class="employee-action-row" type="button" data-open-access-success>
+            <span class="employee-action-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16.425 5.562A4.554 4.554 0 0 0 12.123 2.5a4.551 4.551 0 0 0-4.57 4.531v2.167"/>
+  <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M15.933 21H8.292A3.793 3.793 0 0 1 4.5 17.207V12.92a3.793 3.793 0 0 1 3.792-3.793h7.641a3.793 3.793 0 0 1 3.792 3.793v4.288A3.793 3.793 0 0 1 15.933 21Z" clip-rule="evenodd"/>
+  <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M12.113 13.953v2.222"/>
+</svg>
+
+            </span>
+            <span>Предоставить доступ</span></button>
+          <button class="employee-action-row employee-action-row--danger" type="button" data-open-delete><span class="employee-action-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="#EB001B" d="M10.6 10a.6.6 0 1 0-1.2 0h1.2Zm-1.2 8a.6.6 0 1 0 1.2 0H9.4Zm5.2-8a.6.6 0 1 0-1.2 0h1.2Zm-1.2 8a.6.6 0 1 0 1.2 0h-1.2Zm-6.308 2.782.272-.535-.272.535Zm-.874-.874.535-.272-.535.272Zm11.564 0-.535-.272.535.272Zm-.874.874-.272-.535.272.535ZM5 6.4a.6.6 0 0 0 0 1.2V6.4Zm14 1.2a.6.6 0 1 0 0-1.2v1.2ZM7.9 7a.6.6 0 0 0 1.2 0H7.9Zm7 0a.6.6 0 1 0 1.2 0h-1.2ZM10 10h-.6v8h1.2v-8H10Zm4 0h-.6v8h1.2v-8H14Zm4-3h-.6v10.8h1.2V7H18Zm-3.2 14v-.6H9.2v1.2h5.6V21ZM6 7h-.6v10.8h1.2V7H6Zm3.2 14v-.6c-.57 0-.961 0-1.265-.025-.296-.024-.455-.069-.57-.128l-.273.535-.272.535c.312.159.647.224 1.018.254.363.03.812.029 1.362.029V21ZM6 17.8h-.6c0 .55 0 .999.03 1.363.03.37.094.705.253 1.017l.535-.272.535-.272c-.06-.116-.104-.275-.128-.571C6.6 18.76 6.6 18.37 6.6 17.8H6Zm1.092 2.982.272-.535a1.4 1.4 0 0 1-.611-.611l-.535.272-.535.272a2.6 2.6 0 0 0 1.137 1.137l.272-.535ZM18 17.8h-.6c0 .57 0 .961-.025 1.265-.024.296-.069.455-.128.57l.535.273.535.272c.159-.312.224-.647.254-1.017.03-.364.029-.813.029-1.363H18ZM14.8 21v.6c.55 0 .999 0 1.363-.03.37-.03.705-.094 1.017-.253l-.272-.535-.272-.535c-.116.06-.275.104-.571.128-.304.024-.695.025-1.265.025v.6Zm2.982-1.092-.535-.272a1.4 1.4 0 0 1-.611.611l.272.535.272.535a2.6 2.6 0 0 0 1.137-1.137l-.535-.272ZM5 7v.6h1V6.4H5V7Zm1 0v.6h12V6.4H6V7Zm12 0v.6h1V6.4h-1V7Zm-9.5-.8h.6c0-1.386 1.247-2.6 2.9-2.6V2.4c-2.213 0-4.1 1.652-4.1 3.8h.6ZM12 3v.6c1.653 0 2.9 1.214 2.9 2.6h1.2c0-2.148-1.887-3.8-4.1-3.8V3ZM8.5 6.2h-.6V7h1.2v-.8h-.6Zm7 0h-.6V7h1.2v-.8h-.6Z"/>
+</svg>
+</span><span>Удалить сотрудника</span></button>
+        </section>
+      </div>
+
+      <div class="employee-overlay" data-employee-modal="menu-invite" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-actions-sheet employee-actions-sheet--short" role="dialog" aria-modal="true" aria-label="Действия приглашения">
+          <span class="employee-sheet-handle" aria-hidden="true"></span>
+          <button class="employee-sheet-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <button class="employee-action-row" type="button"><span class="employee-action-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path stroke="#111" stroke-linecap="round" stroke-width="1.2" d="M12 4v16m8-8H4"/>
+</svg>
+</span><span>Отправить приглашение повторно</span></button>
+          <button class="employee-action-row employee-action-row--danger" type="button" data-open-delete><span class="employee-action-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="#EB001B" d="M10.6 10a.6.6 0 1 0-1.2 0h1.2Zm-1.2 8a.6.6 0 1 0 1.2 0H9.4Zm5.2-8a.6.6 0 1 0-1.2 0h1.2Zm-1.2 8a.6.6 0 1 0 1.2 0h-1.2Zm-6.308 2.782.272-.535-.272.535Zm-.874-.874.535-.272-.535.272Zm11.564 0-.535-.272.535.272Zm-.874.874-.272-.535.272.535ZM5 6.4a.6.6 0 0 0 0 1.2V6.4Zm14 1.2a.6.6 0 1 0 0-1.2v1.2ZM7.9 7a.6.6 0 0 0 1.2 0H7.9Zm7 0a.6.6 0 1 0 1.2 0h-1.2ZM10 10h-.6v8h1.2v-8H10Zm4 0h-.6v8h1.2v-8H14Zm4-3h-.6v10.8h1.2V7H18Zm-3.2 14v-.6H9.2v1.2h5.6V21ZM6 7h-.6v10.8h1.2V7H6Zm3.2 14v-.6c-.57 0-.961 0-1.265-.025-.296-.024-.455-.069-.57-.128l-.273.535-.272.535c.312.159.647.224 1.018.254.363.03.812.029 1.362.029V21ZM6 17.8h-.6c0 .55 0 .999.03 1.363.03.37.094.705.253 1.017l.535-.272.535-.272c-.06-.116-.104-.275-.128-.571C6.6 18.76 6.6 18.37 6.6 17.8H6Zm1.092 2.982.272-.535a1.4 1.4 0 0 1-.611-.611l-.535.272-.535.272a2.6 2.6 0 0 0 1.137 1.137l.272-.535ZM18 17.8h-.6c0 .57 0 .961-.025 1.265-.024.296-.069.455-.128.57l.535.273.535.272c.159-.312.224-.647.254-1.017.03-.364.029-.813.029-1.363H18ZM14.8 21v.6c.55 0 .999 0 1.363-.03.37-.03.705-.094 1.017-.253l-.272-.535-.272-.535c-.116.06-.275.104-.571.128-.304.024-.695.025-1.265.025v.6Zm2.982-1.092-.535-.272a1.4 1.4 0 0 1-.611.611l.272.535.272.535a2.6 2.6 0 0 0 1.137-1.137l-.535-.272ZM5 7v.6h1V6.4H5V7Zm1 0v.6h12V6.4H6V7Zm12 0v.6h1V6.4h-1V7Zm-9.5-.8h.6c0-1.386 1.247-2.6 2.9-2.6V2.4c-2.213 0-4.1 1.652-4.1 3.8h.6ZM12 3v.6c1.653 0 2.9 1.214 2.9 2.6h1.2c0-2.148-1.887-3.8-4.1-3.8V3ZM8.5 6.2h-.6V7h1.2v-.8h-.6Zm7 0h-.6V7h1.2v-.8h-.6Z"/>
+</svg>
+</span><span>Удалить</span></button>
+        </section>
+      </div>
+
+      <div class="employee-overlay" data-employee-modal="employee-card" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-card-sheet" role="dialog" aria-modal="true" aria-label="Карточка сотрудника">
+          <span class="employee-sheet-handle" aria-hidden="true"></span>
+          <button class="employee-sheet-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <div class="employee-card-head">
+            <img src="./assets/profile/profile-avatar.jpg" alt="" />
+            <h2>Даниил Иванович</h2>
+            <span class="employee-status employee-status--active">Активен</span>
+          </div>
+          <dl class="employee-card-info">
+            <div><dt>Роль</dt><dd class="employee-pos-in">Кассир</dd><dd class="employee-card-info__hint">Работа с оффлайн-покупками и возвратами на кассе</dd></div>
+            <div><dt>Телефон</dt><dd>+7 (909) 999-55-55</dd></div>
+            <div><dt>Дата присоединения:</dt><dd>12.02.2026</dd></div>
+          </dl>
+          <div class="employee-card-actions">
+            <button type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19.071 19.07c-3.056 3.056-7.581 3.717-11.285 2.004-.546-.22-.995-.398-1.42-.398-1.188.007-2.665 1.158-3.433.391-.767-.768.384-2.246.384-3.44 0-.427-.17-.867-.39-1.415C1.212 12.51 1.873 7.982 4.93 4.927c3.902-3.903 10.24-3.903 14.141 0 3.909 3.908 3.902 10.241 0 14.143Z" clip-rule="evenodd"/>
+                <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.939 12.413h.009m-4.017 0h.009m-4.019 0h.01"/>
+              </svg>
+              <span>Перейти в чат</span>
+            </button>
+            <button type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M16.424 9.448V7.3a4.552 4.552 0 0 0-4.551-4.551 4.55 4.55 0 0 0-4.57 4.53v2.168"/>
+                <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M15.683 21.25H8.042a3.792 3.792 0 0 1-3.792-3.793v-4.289a3.792 3.792 0 0 1 3.792-3.792h7.641a3.792 3.792 0 0 1 3.792 3.793v4.288a3.792 3.792 0 0 1-3.792 3.793Z" clip-rule="evenodd"/>
+                <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M11.863 14.203v2.22"/>
+              </svg>
+              <span>Отключить доступ на время</span></button>
+          </div>
+        </section>
+      </div>
+
+      <div class="employee-overlay" data-employee-modal="delete" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-delete-sheet" role="dialog" aria-modal="true" aria-label="Удалить сотрудника">
+          <span class="employee-sheet-handle" aria-hidden="true"></span>
+          <button class="employee-sheet-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <h2>Удалить сотрудника</h2>
+          <p>Вы уверены, что хотите удалить сотрудника?<br />Сотрудник будет отвязан от компании.</p>
+          <button class="employee-delete-btn" type="button" data-open-delete-success>Удалить сотрудника</button>
+          <button class="employee-cancel-btn" type="button" data-employee-close>Отмена</button>
+        </section>
+      </div>
+
+      <div class="employee-overlay employee-overlay--center" data-employee-modal="access-success" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-success-card" role="dialog" aria-modal="true" aria-label="Доступ предоставлен">
+          <button class="employee-success-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <div class="employee-success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 56 56">
+  <path fill="#EFE4FD" fill-rule="evenodd" d="M22.382 7.467c-.569.485-.853.727-1.156.93a6.33 6.33 0 0 1-2.298.952c-.359.07-.73.1-1.475.16-1.87.15-2.805.224-3.585.5a6.33 6.33 0 0 0-3.86 3.86c-.276.78-.35 1.715-.5 3.585-.06.744-.089 1.116-.16 1.474a6.33 6.33 0 0 1-.952 2.299c-.203.303-.445.587-.93 1.155-1.216 1.428-1.824 2.142-2.181 2.888a6.33 6.33 0 0 0 0 5.46c.357.746.965 1.46 2.182 2.888.484.568.726.852.93 1.156a6.33 6.33 0 0 1 .951 2.298c.071.358.1.73.16 1.475.15 1.87.224 2.804.5 3.584a6.33 6.33 0 0 0 3.86 3.86c.78.276 1.715.351 3.585.5.744.06 1.116.09 1.475.16a6.329 6.329 0 0 1 2.298.952c.303.203.587.445 1.156.93 1.427 1.216 2.141 1.825 2.888 2.182a6.33 6.33 0 0 0 5.46 0c.745-.357 1.46-.966 2.887-2.182.568-.485.852-.727 1.156-.93a6.329 6.329 0 0 1 2.298-.952c.358-.07.73-.1 1.475-.16 1.87-.149 2.805-.224 3.585-.5a6.33 6.33 0 0 0 3.86-3.86c.276-.78.35-1.715.5-3.584.059-.745.089-1.117.16-1.475a6.33 6.33 0 0 1 .951-2.298c.204-.304.446-.588.93-1.156 1.217-1.428 1.825-2.142 2.182-2.888a6.33 6.33 0 0 0 0-5.46c-.357-.746-.965-1.46-2.182-2.888-.484-.568-.726-.852-.93-1.155a6.33 6.33 0 0 1-.952-2.299c-.07-.358-.1-.73-.16-1.474-.149-1.87-.223-2.805-.499-3.585a6.33 6.33 0 0 0-3.86-3.86c-.78-.276-1.715-.35-3.585-.5-.744-.06-1.117-.09-1.475-.16a6.33 6.33 0 0 1-2.298-.952c-.304-.203-.588-.445-1.156-.93-1.428-1.216-2.141-1.825-2.888-2.181a6.33 6.33 0 0 0-5.46 0c-.746.356-1.46.965-2.887 2.181Z" clip-rule="evenodd"/>
+  <path fill="#917DFA" fill-rule="evenodd" d="M38.204 23.014a1.899 1.899 0 1 0-2.685-2.685L24.2 31.646l-3.72-3.721a1.899 1.899 0 0 0-2.687 2.685l5.064 5.064a1.899 1.899 0 0 0 2.686 0l12.66-12.66Z" clip-rule="evenodd"/>
+</svg>
+
+            </div>
+          <h2>Доступ успешно<br />предоставлен</h2>
+          <button class="profile-primary-btn" type="button" data-employee-close>Хорошо</button>
+        </section>
+      </div>
+
+      <div class="employee-overlay employee-overlay--center" data-employee-modal="delete-success" aria-hidden="true">
+        <button class="employee-overlay__backdrop" type="button" data-employee-close aria-label="Закрыть"></button>
+        <section class="employee-success-card" role="dialog" aria-modal="true" aria-label="Сотрудник удален">
+          <button class="employee-success-close" type="button" data-employee-close aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <div class="employee-success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 56 56">
+  <path fill="#EFE4FD" fill-rule="evenodd" d="M22.382 7.467c-.569.485-.853.727-1.156.93a6.33 6.33 0 0 1-2.298.952c-.359.07-.73.1-1.475.16-1.87.15-2.805.224-3.585.5a6.33 6.33 0 0 0-3.86 3.86c-.276.78-.35 1.715-.5 3.585-.06.744-.089 1.116-.16 1.474a6.33 6.33 0 0 1-.952 2.299c-.203.303-.445.587-.93 1.155-1.216 1.428-1.824 2.142-2.181 2.888a6.33 6.33 0 0 0 0 5.46c.357.746.965 1.46 2.182 2.888.484.568.726.852.93 1.156a6.33 6.33 0 0 1 .951 2.298c.071.358.1.73.16 1.475.15 1.87.224 2.804.5 3.584a6.33 6.33 0 0 0 3.86 3.86c.78.276 1.715.351 3.585.5.744.06 1.116.09 1.475.16a6.329 6.329 0 0 1 2.298.952c.303.203.587.445 1.156.93 1.427 1.216 2.141 1.825 2.888 2.182a6.33 6.33 0 0 0 5.46 0c.745-.357 1.46-.966 2.887-2.182.568-.485.852-.727 1.156-.93a6.329 6.329 0 0 1 2.298-.952c.358-.07.73-.1 1.475-.16 1.87-.149 2.805-.224 3.585-.5a6.33 6.33 0 0 0 3.86-3.86c.276-.78.35-1.715.5-3.584.059-.745.089-1.117.16-1.475a6.33 6.33 0 0 1 .951-2.298c.204-.304.446-.588.93-1.156 1.217-1.428 1.825-2.142 2.182-2.888a6.33 6.33 0 0 0 0-5.46c-.357-.746-.965-1.46-2.182-2.888-.484-.568-.726-.852-.93-1.155a6.33 6.33 0 0 1-.952-2.299c-.07-.358-.1-.73-.16-1.474-.149-1.87-.223-2.805-.499-3.585a6.33 6.33 0 0 0-3.86-3.86c-.78-.276-1.715-.35-3.585-.5-.744-.06-1.117-.09-1.475-.16a6.33 6.33 0 0 1-2.298-.952c-.304-.203-.588-.445-1.156-.93-1.428-1.216-2.141-1.825-2.888-2.181a6.33 6.33 0 0 0-5.46 0c-.746.356-1.46.965-2.887 2.181Z" clip-rule="evenodd"/>
+  <path fill="#917DFA" fill-rule="evenodd" d="M38.204 23.014a1.899 1.899 0 1 0-2.685-2.685L24.2 31.646l-3.72-3.721a1.899 1.899 0 0 0-2.687 2.685l5.064 5.064a1.899 1.899 0 0 0 2.686 0l12.66-12.66Z" clip-rule="evenodd"/>
+</svg>
+
+          </div>
+          <h2>Сотрудник успешно<br />удален</h2>
+          <button class="profile-primary-btn" type="button" data-employee-close>Хорошо</button>
+        </section>
+      </div>
+    </main>
+    <script src="./js/profile-employees.js"></script>
+  </body>
+</html>
