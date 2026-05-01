@@ -129,7 +129,7 @@ svg {
 .scan-qr-frame {
   position: absolute;
   z-index: 2;
-  top: 150px;
+  top: 120px;
   left: 50%;
   width: 323px;
   height: 323px;
@@ -186,7 +186,7 @@ svg {
 .scan-qr-hint {
   position: absolute;
   z-index: 3;
-  top: 510px;
+  top: 480px;
   left: 50%;
   height: 33px;
   padding: 0 19px;
@@ -532,7 +532,7 @@ svg {
   padding-top: 16px;
 }
 
-.purchase-balance-card::after {
+.purchase-balance-card::before {
   content: '';
   top: 0;
   height: 1px;
@@ -546,7 +546,7 @@ svg {
   position: relative;
   min-height: 96px;
   margin-bottom: 40px;
-  border: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px;
   padding-top: 16px;
   padding-bottom: 16px;
 }
@@ -742,7 +742,7 @@ svg {
   z-index: 1;
   width: 100%;
   min-height: 276px;
-  padding: 50px 13px calc(16px + env(safe-area-inset-bottom));
+  padding: 64px 13px calc(16px + env(safe-area-inset-bottom));
   border-radius: 24px 24px 0 0;
   background: #ffffff;
   transform: translateY(18px);
