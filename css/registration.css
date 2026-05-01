@@ -691,8 +691,23 @@ img {
   transition:
     background-color 0.18s ease,
     border-color 0.18s ease,
+    opacity 0.18s ease,
     transform 0.18s ease;
   cursor: pointer;
+}
+
+.button:disabled,
+.button[aria-disabled="true"] {
+  opacity: 0.8;
+  cursor: default;
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.button--primary:disabled:hover {
+  background: var(--primary);
 }
 
 
@@ -1012,6 +1027,51 @@ textarea {
 #storeAddressDefaultView {
   overflow-y: auto;
   max-height: calc(100% - 100px);
+}
+
+[data-screen="company-store-form"] {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+
+[data-screen="company-store-form"] .screen__body--address {
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 96px);
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+[data-screen="company-store-form"] .screen__body--address::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+[data-screen="company-store-form"] #storeAddressDefaultView {
+  overflow: visible;
+  max-height: none;
+}
+
+[data-screen="company-store-form"] .address-default-view,
+[data-screen="company-store-form"] .address-search-view {
+  min-height: auto;
+}
+
+[data-screen="company-store-form"] .screen__footer {
+  position: relative;
+  z-index: 2;
+  background: #ffffff;
+}
+
+[data-screen="company-store-form"].screen--search-active {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+[data-screen="company-store-form"].screen--search-active .screen__body--address {
+  padding-top: 16px;
+  padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
 }
 
 .photo_tochki_subtext {

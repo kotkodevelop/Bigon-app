@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Сканировать QR-код покупателя</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/scan-qr-cashier.css" />
+  </head>
+  <body>
+    <main class="scan-qr-app" aria-label="Сканирование QR-кода покупателя">
+      <header class="scan-qr-header">
+        <button class="scan-qr-back" type="button" data-scan-qr-back aria-label="Назад">
+          <img src="./assets/back-btn.svg" alt="" />
+        </button>
+        <h1>Сканировать QR-код</h1>
+      </header>
+
+      <section class="scan-qr-camera" aria-label="Камера сканирования QR-кода покупателя">
+        <div class="scan-qr-tools" aria-label="Инструменты камеры">
+          <button class="scan-qr-tool" type="button" aria-label="Открыть галерею" data-scan-qr-photo-open>
+            <img src="./assets/scan/image-scan.svg" alt="" />
+          </button>
+          <button class="scan-qr-tool" type="button" aria-label="Включить вспышку">
+            <img src="./assets/scan/light-scan.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="scan-qr-frame" aria-hidden="true">
+          <span class="scan-qr-frame__corner scan-qr-frame__corner--tl"></span>
+          <span class="scan-qr-frame__corner scan-qr-frame__corner--tr"></span>
+          <span class="scan-qr-frame__corner scan-qr-frame__corner--bl"></span>
+          <span class="scan-qr-frame__corner scan-qr-frame__corner--br"></span>
+        </div>
+
+        <div class="scan-qr-hint">Наведите телефон на QR-код</div>
+
+        <div class="scan-qr-bottom-action">
+          <button class="scan-qr-primary" type="button" data-code-sheet-open>Ввести код вручную</button>
+        </div>
+      </section>
+
+      <input type="file" accept="image/*" data-scan-qr-photo-input hidden />
+
+      <section class="scan-qr-code-sheet is-open" id="buyerCodeSheet" aria-hidden="false" role="dialog" aria-modal="true" aria-labelledby="buyerCodeTitle">
+        <div class="scan-qr-sheet-backdrop" data-code-sheet-close></div>
+        <div class="scan-qr-code-panel">
+          <div class="scan-qr-sheet-handle" aria-hidden="true"></div>
+          <button class="scan-qr-sheet-close" type="button" data-code-sheet-close aria-label="Закрыть">
+            <img src="./assets/close.svg" alt="" />
+          </button>
+          <h2 id="buyerCodeTitle">Введите код Покупателя:</h2>
+          <p class="scan-qr-code-error">Покупатель не найден. Попробуйте ещё раз</p>
+          <div class="scan-qr-code-fields" data-code-fields>
+            <input class="scan-qr-code-input" inputmode="numeric" maxlength="1" aria-label="Первая цифра" />
+            <input class="scan-qr-code-input" inputmode="numeric" maxlength="1" aria-label="Вторая цифра" />
+            <input class="scan-qr-code-input" inputmode="numeric" maxlength="1" aria-label="Третья цифра" />
+            <input class="scan-qr-code-input" inputmode="numeric" maxlength="1" aria-label="Четвертая цифра" />
+            <input class="scan-qr-code-input" inputmode="numeric" maxlength="1" aria-label="Пятая цифра" />
+            <input class="scan-qr-code-input" inputmode="numeric" maxlength="1" aria-label="Шестая цифра" />
+          </div>
+          <button class="scan-qr-primary scan-qr-code-submit" type="button" data-code-submit>Продолжить</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/scan-qr-cashier.js"></script>
+  </body>
+</html>

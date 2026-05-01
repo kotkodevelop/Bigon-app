@@ -23,7 +23,7 @@
         <div class="scan-receipt-view" aria-hidden="true"></div>
 
         <div class="scan-tools" aria-label="Инструменты камеры">
-          <button class="scan-tool-button" type="button" aria-label="Открыть галерею">
+          <button class="scan-tool-button" type="button" aria-label="Открыть галерею" data-scan-check-photo-open>
             <img src="./assets/scan/image-scan.svg" alt="" />
           </button>
           <button class="scan-tool-button" type="button" aria-label="Включить вспышку">
@@ -43,6 +43,8 @@
 
         <div class="scan-hint">Наведите телефон на чек</div>
       </section>
+
+      <input type="file" accept="image/*" data-scan-check-photo-input hidden />
     </main>
 
     <script src="./js/scan-check.js"></script>

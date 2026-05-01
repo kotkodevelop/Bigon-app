@@ -8,3 +8,12 @@ document.querySelectorAll('[data-scan-back]').forEach((button) => {
     window.location.href = './home.html';
   });
 });
+
+const photoInput = document.querySelector('[data-scan-check-photo-input]');
+document.querySelectorAll('[data-scan-check-photo-open]').forEach((button) => {
+  button.addEventListener('click', () => {
+    if (!photoInput) return;
+    photoInput.value = '';
+    photoInput.click();
+  });
+});

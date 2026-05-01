@@ -7,6 +7,14 @@ const cityActionSheet = document.querySelector('[data-city-sheet="actions"]');
 const cityMapCard = document.querySelector('.city-map-card');
 const ACTION_SHEET_TRANSITION_MS = 220;
 const CITY_PAGE_TRANSITION_MS = 220;
+const companyFavoriteIcon = {
+  inactive: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+  <path stroke="#0066F5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.07 10.169C.168 7.692.803 3.976 3.976 2.738c3.172-1.239 5.076 1.238 5.71 2.477.635-1.239 3.174-3.716 6.347-2.477 3.172 1.238 3.172 4.954 1.269 7.43-1.904 2.478-7.615 7.432-7.615 7.432s-5.711-4.954-7.615-7.431Z"/>
+</svg>`,
+  active: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+  <path fill="#EB001B" stroke="#EB001B" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.07 10.169C.168 7.692.803 3.976 3.976 2.738c3.172-1.239 5.076 1.238 5.71 2.477.635-1.239 3.174-3.716 6.347-2.477 3.172 1.238 3.172 4.954 1.269 7.43-1.904 2.478-7.615 7.432-7.615 7.432s-5.711-4.954-7.615-7.431Z"/>
+</svg>`,
+};
 let cityActionHideTimer = null;
 const cityPageHideTimers = new WeakMap();
 let currentCityScreen = '';
@@ -222,6 +230,18 @@ document.addEventListener('click', (event) => {
 
   event.preventDefault();
   setCityScreen(trigger.dataset.cityGo);
+});
+
+document.querySelectorAll('[data-company-favorite]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const isActive = button.getAttribute('aria-pressed') === 'true';
+    const nextActive = !isActive;
+
+    button.setAttribute('aria-pressed', String(nextActive));
+    button.setAttribute('aria-label', nextActive ? 'В избранном' : 'В избранное');
+    button.classList.toggle('is-active', nextActive);
+    button.innerHTML = nextActive ? companyFavoriteIcon.active : companyFavoriteIcon.inactive;
+  });
 });
 
 [

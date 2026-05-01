@@ -30,6 +30,18 @@ body {
   overflow-x: hidden;
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: env(safe-area-inset-bottom, 34px);
+  background: #fff;
+  z-index: 999999;
+  pointer-events: none;
+}
+
 button,
 input {
   font: inherit;

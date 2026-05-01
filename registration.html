@@ -33,7 +33,7 @@
             <div class="field-list field-list--compact">
               <label class="field">
                 <span class="sr-only">Телефон</span>
-                <input class="field__input" type="tel" placeholder="Телефон" inputmode="tel" />
+                <input class="field__input" type="tel" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" />
               </label>
               <label class="field">
                 <span class="sr-only">Пароль</span>
@@ -200,7 +200,7 @@
 
                 <label class="field field--labelled">
                   <span class="field__label">Квартира</span>
-                  <input class="field__input" type="text" />
+                  <input class="field__input" type="text" inputmode="numeric" />
                 </label>
               </div>
             </div>
@@ -271,7 +271,7 @@
               <label class="field field--labelled">
                 <span class="field__label">Дата рождения <em>*</em></span>
                 <span class="field__date-wrap">
-                  <input class="field__input" type="text" placeholder="ДД.ММ.ГГГГ" />
+                  <input class="field__input" type="text" inputmode="numeric" placeholder="ДД.ММ.ГГГГ" data-date-mask />
                   <img src="./assets/calendar.svg" alt="calendar" class="find-date-calendar">
                 </span>
               </label>
@@ -342,14 +342,14 @@
         <section class="screen" data-screen="company-address" aria-hidden="true">
           <header class="screen__top screen__top--steps"><button class="back-button" type="button" data-back aria-label="Назад"><img src="./assets/back-btn.svg" alt="back"></button><h2 class="screen__title-md">Компания</h2><button class="screen__skip" type="button" data-open-exit>Пропустить</button></header>
           <div class="progress progress--company"></div>
-          <div class="screen__body screen__body--address"><div class="address-default-view" id="companyAddressDefaultView"><h3 class="step-heading">2. Адрес проживания</h3><div class="field-list"><label class="field field--labelled"><span class="field__label">Введите адрес <em>*</em></span><input class="field__input" id="companyAddressInput" type="text" placeholder="Город, улица и дом" autocomplete="off" /></label><label class="field field--labelled"><span class="field__label">Квартира</span><input class="field__input" type="text" /></label></div></div><div class="address-search-view" id="companyAddressSearchView" hidden><div class="address-searchbar"><div class="address-searchbar__input"><img src="./assets/search.svg" alt="" width="16" height="20" /><input class="address-searchbar__field" id="companyAddressSearchInput" type="text" autocomplete="off" /><button class="field__clear" type="button" id="companyClearAddress" aria-label="Очистить"><img src="./assets/close-icon-find.svg" alt="" width="16" height="16" /></button></div><button class="address-searchbar__cancel" type="button" id="companyCancelAddressSearch">Отмена</button></div><div class="address-results"><button class="location-button" type="button"><img src="./assets/Send.svg" alt="" width="24" height="24" /><span><div class="location-button-strong">Моё местоположение</div><small>определить автоматически</small></span></button><div class="address-list"><button class="address-item company-address-item" type="button" data-address="улица Ленина, 2А">улица Ленина, 2А<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 57">улица Ленина, 57<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 16">улица Ленина, 16<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 16">улица Ленина, 16<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 16">улица Ленина, 16<small>Тюмень, Тюменская обл</small></button></div></div></div></div>
+          <div class="screen__body screen__body--address"><div class="address-default-view" id="companyAddressDefaultView"><h3 class="step-heading">2. Адрес проживания</h3><div class="field-list"><label class="field field--labelled"><span class="field__label">Введите адрес <em>*</em></span><input class="field__input" id="companyAddressInput" type="text" placeholder="Город, улица и дом" autocomplete="off" /></label><label class="field field--labelled"><span class="field__label">Квартира</span><input class="field__input" inputmode="numeric" type="text" /></label></div></div><div class="address-search-view" id="companyAddressSearchView" hidden><div class="address-searchbar"><div class="address-searchbar__input"><img src="./assets/search.svg" alt="" width="16" height="20" /><input class="address-searchbar__field" id="companyAddressSearchInput" type="text" autocomplete="off" /><button class="field__clear" type="button" id="companyClearAddress" aria-label="Очистить"><img src="./assets/close-icon-find.svg" alt="" width="16" height="16" /></button></div><button class="address-searchbar__cancel" type="button" id="companyCancelAddressSearch">Отмена</button></div><div class="address-results"><button class="location-button" type="button"><img src="./assets/Send.svg" alt="" width="24" height="24" /><span><div class="location-button-strong">Моё местоположение</div><small>определить автоматически</small></span></button><div class="address-list"><button class="address-item company-address-item" type="button" data-address="улица Ленина, 2А">улица Ленина, 2А<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 57">улица Ленина, 57<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 16">улица Ленина, 16<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 16">улица Ленина, 16<small>Тюмень, Тюменская обл</small></button><button class="address-item company-address-item" type="button" data-address="улица Ленина, 16">улица Ленина, 16<small>Тюмень, Тюменская обл</small></button></div></div></div></div>
           <footer class="screen__footer screen__footer--address" id="companyAddressFooter"><button class="button button--primary" type="button" data-go="company-details">Продолжить</button></footer>
         </section>
 
         <section class="screen" data-screen="company-details" aria-hidden="true">
           <header class="screen__top screen__top--steps"><button class="back-button" type="button" data-back aria-label="Назад"><img src="./assets/back-btn.svg" alt="back"></button><h2 class="screen__title-md">Компания</h2><button class="screen__skip" type="button" data-open-exit>Пропустить</button></header>
           <div class="progress progress--company"></div>
-          <div class="screen__body"><h3 class="step-heading">3. Личные данные</h3><div class="field-list field-list--details"><label class="field field--labelled"><span class="field__label">Дата рождения <em>*</em></span><span class="field__date-wrap"><input class="field__input" type="text" placeholder="ДД.ММ.ГГГГ" /><img src="./assets/calendar.svg" alt="calendar" class="find-date-calendar"></span></label><div class="choice-group"><div class="choice-group__label">Пол <em>*</em></div><label class="choice-row"><span>Мужской</span><input type="radio" name="companyGender" /><i></i></label><label class="choice-row"><span>Женский</span><input type="radio" name="companyGender" checked /><i></i></label></div><div class="choice-group"><div class="choice-group__label">Наличие автомобиля <em>*</em></div><label class="choice-row"><span>Есть</span><input type="radio" name="companyCar" /><i></i></label><label class="choice-row"><span>Нет</span><input type="radio" name="companyCar" checked /><i></i></label></div></div></div>
+          <div class="screen__body"><h3 class="step-heading">3. Личные данные</h3><div class="field-list field-list--details"><label class="field field--labelled"><span class="field__label">Дата рождения <em>*</em></span><span class="field__date-wrap"><input class="field__input" type="text" inputmode="numeric" placeholder="ДД.ММ.ГГГГ" data-date-mask /><img src="./assets/calendar.svg" alt="calendar" class="find-date-calendar"></span></label><div class="choice-group"><div class="choice-group__label">Пол <em>*</em></div><label class="choice-row"><span>Мужской</span><input type="radio" name="companyGender" /><i></i></label><label class="choice-row"><span>Женский</span><input type="radio" name="companyGender" checked /><i></i></label></div><div class="choice-group"><div class="choice-group__label">Наличие автомобиля <em>*</em></div><label class="choice-row"><span>Есть</span><input type="radio" name="companyCar" /><i></i></label><label class="choice-row"><span>Нет</span><input type="radio" name="companyCar" checked /><i></i></label></div></div></div>
           <footer class="screen__footer"><button class="button button--primary" type="button" data-go="company-requisites">Продолжить</button></footer>
         </section>
 
@@ -378,7 +378,7 @@
         <section class="screen" data-screen="company-bank" aria-hidden="true">
           <header class="screen__top screen__top--steps"><button class="back-button" type="button" data-back aria-label="Назад"><img src="./assets/back-btn.svg" alt="back"></button><h2 class="screen__title-md">Компания</h2><button class="screen__skip" type="button" data-open-exit>Пропустить</button></header>
           <div class="progress progress--company"></div>
-          <div class="screen__body"><h3 class="step-heading">5. Банковские реквизиты</h3><div class="field-list"><label class="field field--labelled"><span class="field__label">БИК банка</span><input class="field__input" type="text" value="7203503690" /></label><label class="field field--labelled field--icon-right"><span class="field__label">Банк</span><input class="field__input" type="text" value="ПАО Сбербанк" /><img class="field__inline-icon" src="./assets/search.svg" alt="" width="16" height="16"></label><label class="field field--labelled"><span class="field__label">Расчетный счет</span><input class="field__input" type="text" value="4322 5433 3333 2222 1111" /></label><label class="field field--labelled"><span class="field__label">Корреспондентский счет</span><input class="field__input" type="text" value="4322 5433 3333 2222 1111" /></label></div></div>
+          <div class="screen__body"><h3 class="step-heading">5. Банковские реквизиты</h3><div class="field-list"><label class="field field--labelled"><span class="field__label">БИК банка</span><input class="field__input" type="text" inputmode="numeric" value="7203503690" /></label><label class="field field--labelled field--icon-right"><span class="field__label">Банк</span><input class="field__input" type="text" value="ПАО Сбербанк" /><img class="field__inline-icon" src="./assets/search.svg" alt="" width="16" height="16"></label><label class="field field--labelled"><span class="field__label">Расчетный счет</span><input class="field__input" type="text" inputmode="numeric" value="4322 5433 3333 2222 1111" /></label><label class="field field--labelled"><span class="field__label">Корреспондентский счет</span><input class="field__input" type="text" inputmode="numeric" value="4322 5433 3333 2222 1111" /></label></div></div>
           <footer class="screen__footer"><button class="button button--primary" type="button" data-go="company-data">Продолжить</button></footer>
         </section>
 
@@ -446,7 +446,7 @@
           <div class="screen__body screen__body--address">
             <div class="address-default-view" id="storeAddressDefaultView">
               <div class="field-list"><label class="field field--labelled">
-                <span class="field__label">Адрес точки <em>*</em></span><input class="field__input" id="storeAddressInput" type="text" placeholder="Город, улица и дом" autocomplete="off" /></label><label class="field field--labelled"><span class="field__label">Рабочий телефон</span><input class="field__input" id="storePhoneInput" type="text" value="+7 (999) 999-99-99" /></label><div class="field field--labelled">
+                <span class="field__label">Адрес точки <em>*</em></span><input class="field__input" id="storeAddressInput" type="text" placeholder="Город, улица и дом" autocomplete="off" /></label><label class="field field--labelled"><span class="field__label">Рабочий телефон</span><input class="field__input" id="storePhoneInput" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" value="+7 (999) 999-99-99" /></label><div class="field field--labelled">
                   <span class="field__label">График работы <em>*</em></span>
                   <button class="button button--light-blue button--inline" type="button" id="openScheduleModal">+ Добавить график</button>
                   <div class="schedule-preview-wrap">
@@ -459,7 +459,7 @@
                   <span class="field__label">Фото точки <em>*</em></span>
                   <p class="photo_tochki_subtext">Добавьте фотографии (до 10 штук в формате JPG или PNG)</p>
             <input id="storePhotosInput" type="file" accept="image/png,image/jpeg,image/webp" multiple hidden /><div class="photo-upload" id="storePhotoPreview"></div><button class="button button--light-blue button--inline" type="button" id="addStorePhotosButton">Добавить фото точки</button></div></div></div><div class="address-search-view" id="storeAddressSearchView" hidden><div class="address-searchbar"><div class="address-searchbar__input"><img src="./assets/search.svg" alt="" width="16" height="20" /><input class="address-searchbar__field" id="storeAddressSearchInput" type="text" autocomplete="off" /><button class="field__clear" type="button" id="storeClearAddress" aria-label="Очистить"><img src="./assets/close-icon-find.svg" alt="" width="16" height="16" /></button></div><button class="address-searchbar__cancel" type="button" id="storeCancelAddressSearch">Отмена</button></div><div class="address-results"><button class="location-button" type="button"><img src="./assets/Send.svg" alt="" width="24" height="24" /><span><div class="location-button-strong">Моё местоположение</div><small>определить автоматически</small></span></button><div class="address-list"><button class="address-item store-address-item" type="button" data-address="Московская обл., г. Москва, ул. Ленина, д. 1, 123">Московская обл., г. Москва, ул. Ленина, д. 1, 123<small>Москва</small></button><button class="address-item store-address-item" type="button" data-address="Московская обл., г. Москва, ул. Ленина, д. 15">Московская обл., г. Москва, ул. Ленина, д. 15<small>Москва</small></button><button class="address-item store-address-item" type="button" data-address="Московская обл., г. Москва, ул. Ленина, д. 41">Московская обл., г. Москва, ул. Ленина, д. 41<small>Москва</small></button></div></div></div></div>
-          <footer class="screen__footer screen__footer--address" id="storeFormFooter"><button class="button button--primary" type="button" id="saveStoreButton">Сохранить</button></footer>
+          <footer class="screen__footer screen__footer--address" id="storeFormFooter"><button class="button button--primary" type="button" id="saveStoreButton" disabled aria-disabled="true">Сохранить</button></footer>
         </section>
 
         <section class="screen" data-screen="company-processing" aria-hidden="true">
@@ -555,11 +555,11 @@
           <h3 class="modal__title modal__title--left">График работы</h3>
           <label class="choice-toggle choice-toggle--line choice-toggle--space"><span>Время одно для всех рабочих дней<small>Чтобы настроить время для каждого рабочего дня выключите переключатель</small></span><input type="checkbox" checked id="sameTimeToggle" /><i></i></label>
           <div class="time-row" id="sameTimeRow"><div class="time-field"><span class="time-field__prefix">с</span>
-            <input type="text" class="time-field__value">
+            <input type="text" class="time-field__value" inputmode="numeric" placeholder="__:__" data-time-mask>
             <button class="time-field__clear" type="button" aria-label="Очистить">
               <img src="./assets/close-icon-find.svg" alt="close">
             </button></div><span class="time-row__divider">–</span><div class="time-field"><span class="time-field__prefix">до</span>
-              <input type="text" class="time-field__value">
+              <input type="text" class="time-field__value" inputmode="numeric" placeholder="__:__" data-time-mask>
               <button class="time-field__clear" type="button" aria-label="Очистить"><img src="./assets/close-icon-find.svg" alt="close"></button></div></div>
           <div class="schedule-days-label">Выберите рабочие дни:</div>
           <div class="week-chips"><button class="chip is-active" type="button">Пн</button><button class="chip is-active" type="button">Вт</button><button class="chip is-active" type="button">Ср</button><button class="chip is-active" type="button">Чт</button><button class="chip is-active" type="button">Пт</button><button class="chip" type="button">Сб</button><button class="chip" type="button">Вс</button></div>
@@ -609,6 +609,8 @@
         </div>
       </div>
 
+    <script src="https://unpkg.com/imask"></script>
+    <script src="./js/phone-mask.js"></script>
     <script src="./js/registration.js"></script>
   </body>
 </html>

@@ -9,6 +9,8 @@ const exitModal = document.getElementById('exitModal');
 const accountCards = Array.from(document.querySelectorAll('[data-account-card]'));
 const accountInputs = Array.from(document.querySelectorAll('input[name="accountType"]'));
 const roleTitles = Array.from(document.querySelectorAll('[data-role-title]'));
+const dateMaskInputs = Array.from(document.querySelectorAll('[data-date-mask]'));
+const timeMaskedInputs = new WeakMap();
 
 const logoModal = document.getElementById('logoModal');
 const openLogoModalButton = document.getElementById('openLogoModal');
@@ -114,6 +116,196 @@ const renderCompanyProgress = () => {
       return `<span class="progress__item${active}"></span>`;
     }).join('');
   });
+};
+
+const dateMask = '__.__.____';
+const dateMaskDigitPositions = [0, 1, 3, 4, 6, 7, 8, 9];
+
+const getDateDigits = (value) => (value || '').replace(/\D/g, '').slice(0, 8);
+
+const getMaskedDateValue = (digits) => {
+  const chars = dateMask.split('');
+
+  getDateDigits(digits)
+    .split('')
+    .forEach((digit, index) => {
+      chars[dateMaskDigitPositions[index]] = digit;
+    });
+
+  return chars.join('');
+};
+
+const getDateDigitIndex = (position) =>
+  dateMaskDigitPositions.filter((digitPosition) => digitPosition < position).length;
+
+const getDateCaretPosition = (digitIndex) =>
+  dateMaskDigitPositions[digitIndex] ?? dateMask.length;
+
+const setDateMaskValue = (input, digits, caretDigitIndex = getDateDigits(digits).length) => {
+  const value = getDateDigits(digits);
+  input.dataset.dateDigits = value;
+  input.value = getMaskedDateValue(value);
+
+  if (document.activeElement === input) {
+    const caretPosition = getDateCaretPosition(Math.min(caretDigitIndex, 8));
+    input.setSelectionRange(caretPosition, caretPosition);
+  }
+};
+
+const replaceDateMaskRange = (input, insertValue = '') => {
+  const digits = input.dataset.dateDigits || getDateDigits(input.value);
+  const selectionStart = input.selectionStart ?? 0;
+  const selectionEnd = input.selectionEnd ?? selectionStart;
+  let startIndex = getDateDigitIndex(selectionStart);
+  let endIndex = getDateDigitIndex(selectionEnd);
+  const insertDigits = getDateDigits(insertValue);
+
+  startIndex = Math.min(startIndex, digits.length);
+  endIndex = Math.min(Math.max(endIndex, startIndex), digits.length);
+
+  if (insertDigits.length && startIndex === endIndex && startIndex < digits.length) {
+    endIndex = Math.min(startIndex + insertDigits.length, digits.length);
+  }
+
+  const nextDigits = `${digits.slice(0, startIndex)}${insertDigits}${digits.slice(endIndex)}`.slice(0, 8);
+
+  setDateMaskValue(input, nextDigits, startIndex + insertDigits.length);
+};
+
+const removeDateMaskRange = (input, direction) => {
+  const digits = input.dataset.dateDigits || getDateDigits(input.value);
+  const selectionStart = input.selectionStart ?? 0;
+  const selectionEnd = input.selectionEnd ?? selectionStart;
+  let startIndex = Math.min(getDateDigitIndex(selectionStart), digits.length);
+  let endIndex = Math.min(getDateDigitIndex(selectionEnd), digits.length);
+
+  if (startIndex === endIndex) {
+    if (direction === 'backward' && startIndex > 0) {
+      startIndex -= 1;
+    } else if (direction === 'forward' && endIndex < digits.length) {
+      endIndex += 1;
+    }
+  }
+
+  const nextDigits = `${digits.slice(0, startIndex)}${digits.slice(endIndex)}`;
+  setDateMaskValue(input, nextDigits, startIndex);
+};
+
+const bindDateMask = (input) => {
+  input.addEventListener('focus', () => {
+    const digits = input.dataset.dateDigits || getDateDigits(input.value);
+    setDateMaskValue(input, digits);
+  });
+
+  input.addEventListener('blur', () => {
+    const digits = input.dataset.dateDigits || getDateDigits(input.value);
+
+    if (!digits.length) {
+      input.dataset.dateDigits = '';
+      input.value = '';
+      return;
+    }
+
+    setDateMaskValue(input, digits);
+  });
+
+  input.addEventListener('beforeinput', (event) => {
+    if (event.inputType === 'insertText') {
+      event.preventDefault();
+      if (getDateDigits(event.data).length) {
+        replaceDateMaskRange(input, event.data);
+      }
+      return;
+    }
+
+    if (event.inputType === 'insertFromPaste' && event.data) {
+      event.preventDefault();
+      replaceDateMaskRange(input, event.data);
+      return;
+    }
+
+    if (event.inputType === 'deleteContentBackward') {
+      event.preventDefault();
+      removeDateMaskRange(input, 'backward');
+      return;
+    }
+
+    if (event.inputType === 'deleteContentForward') {
+      event.preventDefault();
+      removeDateMaskRange(input, 'forward');
+    }
+  });
+
+  input.addEventListener('keydown', (event) => {
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+    if (/^\d$/.test(event.key)) {
+      event.preventDefault();
+      replaceDateMaskRange(input, event.key);
+      return;
+    }
+
+    if (event.key === 'Backspace') {
+      event.preventDefault();
+      removeDateMaskRange(input, 'backward');
+      return;
+    }
+
+    if (event.key === 'Delete') {
+      event.preventDefault();
+      removeDateMaskRange(input, 'forward');
+      return;
+    }
+
+    if (event.key.length === 1) {
+      event.preventDefault();
+    }
+  });
+
+  input.addEventListener('paste', (event) => {
+    event.preventDefault();
+    replaceDateMaskRange(input, event.clipboardData?.getData('text') || '');
+  });
+
+  input.addEventListener('input', () => {
+    setDateMaskValue(input, input.value);
+  });
+
+  input.addEventListener('click', () => {
+    const digits = input.dataset.dateDigits || getDateDigits(input.value);
+    const caretPosition = getDateCaretPosition(Math.min(digits.length, 8));
+    const selectionStart = input.selectionStart ?? 0;
+    const digitIndex = getDateDigitIndex(selectionStart);
+
+    if (!dateMaskDigitPositions.includes(selectionStart) || digitIndex > digits.length) {
+      input.setSelectionRange(caretPosition, caretPosition);
+    }
+  });
+};
+
+const bindTimeMask = (input) => {
+  input.placeholder = '__:__';
+  input.inputMode = 'numeric';
+  input.autocomplete = 'off';
+
+  if (!window.IMask || timeMaskedInputs.has(input)) {
+    return;
+  }
+
+  timeMaskedInputs.set(input, window.IMask(input, {
+    mask: '00:00',
+    lazy: false,
+    placeholderChar: '_',
+  }));
+};
+
+const bindTimeMasks = (root = document) => {
+  root.querySelectorAll('[data-time-mask]').forEach(bindTimeMask);
+};
+
+const getTimeValue = (input, fallback) => {
+  const value = input?.value?.trim() || '';
+  return /^\d{2}:\d{2}$/.test(value) ? value : fallback;
 };
 
 const openScreen = (target) => {
@@ -271,6 +463,7 @@ const bindAddressSearch = (prefix) => {
     if (config.searchInput) config.searchInput.value = '';
     if (config.input) config.input.value = '';
     syncAddressClearState(prefix);
+    if (prefix === 'store') syncStoreSaveButtonState();
     config.searchInput?.focus();
   });
 
@@ -281,6 +474,7 @@ const bindAddressSearch = (prefix) => {
       config.input.value = config.searchInput.value;
     }
     syncAddressClearState(prefix);
+    if (prefix === 'store') syncStoreSaveButtonState();
   });
 
   config.items.forEach((item) => {
@@ -289,6 +483,7 @@ const bindAddressSearch = (prefix) => {
       if (config.input) config.input.value = value;
       if (config.searchInput) config.searchInput.value = value;
       closeAddressSearch(prefix);
+      if (prefix === 'store') syncStoreSaveButtonState();
     });
   });
 };
@@ -393,7 +588,7 @@ const createScheduleRow = (label, from = '08:00', to = '18:00') => `
     <div class="schedule-item__inputs">
       <div class="time-field">
         <span class="time-field__prefix">с</span>
-        <input class="schedule-time-input" type="text" value="${from}" />
+        <input class="schedule-time-input" type="text" inputmode="numeric" placeholder="__:__" value="${from}" data-time-mask />
         <button class="time-field__clear" type="button" aria-label="Очистить время">
           <img src="./assets/close-icon-find.svg" alt="close" />
         </button>
@@ -403,7 +598,7 @@ const createScheduleRow = (label, from = '08:00', to = '18:00') => `
 
       <div class="time-field">
         <span class="time-field__prefix">до</span>
-        <input class="schedule-time-input" type="text" value="${to}" />
+        <input class="schedule-time-input" type="text" inputmode="numeric" placeholder="__:__" value="${to}" data-time-mask />
         <button class="time-field__clear" type="button" aria-label="Очистить время">
           <img src="./assets/close-icon-find.svg" alt="close" />
         </button>
@@ -417,10 +612,16 @@ document.addEventListener('click', (event) => {
   if (!clearButton) return;
 
   const field = clearButton.closest('.time-field');
-  const input = field?.querySelector('.schedule-time-input');
+  const input = field?.querySelector('[data-time-mask]');
   if (!input) return;
 
-  input.value = '';
+  const mask = timeMaskedInputs.get(input);
+  if (mask) {
+    mask.value = '';
+  } else {
+    input.value = '';
+  }
+
   input.focus();
 });
 
@@ -453,6 +654,8 @@ const buildScheduleRows = () => {
       )
     )
     .join('');
+
+  bindTimeMasks(scheduleList);
 };
 
 const getScheduleSummary = () => {
@@ -467,6 +670,9 @@ const getScheduleSummary = () => {
   };
 
   if (sameTimeToggle?.checked) {
+    const sameTimeInputs = sameTimeRow?.querySelectorAll('[data-time-mask]');
+    const sameTimeFrom = getTimeValue(sameTimeInputs?.[0], '08:00');
+    const sameTimeTo = getTimeValue(sameTimeInputs?.[1], '18:00');
     const active = weekChips
       .filter((chip) => chip.classList.contains('is-active'))
       .map((chip) => chip.textContent.trim());
@@ -479,7 +685,7 @@ const getScheduleSummary = () => {
     if (!activeIndexes.length) {
       return `
         <div class="store-schedule-summary">
-          <div><span>пн - пт:</span> 08:00 - 18:00</div>
+          <div><span>пн - пт:</span> ${sameTimeFrom} - ${sameTimeTo}</div>
         </div>
       `;
     }
@@ -508,7 +714,7 @@ const getScheduleSummary = () => {
       const toDay = allDays[to].toLowerCase();
       const daysText = from === to ? fromDay : `${fromDay} - ${toDay}`;
 
-      return `<div><span>${daysText}:</span> 08:00 - 18:00</div>`;
+      return `<div><span>${daysText}:</span> ${sameTimeFrom} - ${sameTimeTo}</div>`;
     });
 
     return `
@@ -523,8 +729,8 @@ const getScheduleSummary = () => {
   const normalized = rows.map((row) => {
     const label = row.querySelector('.schedule-item > span')?.textContent?.trim() || '';
     const inputs = row.querySelectorAll('.schedule-time-input');
-    const from = inputs[0]?.value?.trim() || '08:00';
-    const to = inputs[1]?.value?.trim() || '18:00';
+    const from = getTimeValue(inputs[0], '08:00');
+    const to = getTimeValue(inputs[1], '18:00');
 
     return {
       day: shortDayMap[label] || label.toLowerCase(),
@@ -569,11 +775,67 @@ const syncPickupState = () => {
   addStoreButton.hidden = !pickupToggle.checked;
 };
 
+const hasStoreSchedule = () =>
+  Boolean(savedScheduleData || (!storeSchedulePreview?.hidden && storeSchedulePreview?.innerHTML.trim()));
+
+const hasStorePhoto = () => storePhotoUrls.length > 0;
+
+const isStoreFormComplete = () =>
+  Boolean(storeAddressInput?.value.trim()) && hasStoreSchedule() && hasStorePhoto();
+
+const syncStoreSaveButtonState = () => {
+  if (!saveStoreButton) return;
+
+  const isComplete = isStoreFormComplete();
+  saveStoreButton.disabled = !isComplete;
+  saveStoreButton.setAttribute('aria-disabled', String(!isComplete));
+};
+
+const clearStorePhotos = () => {
+  storePhotoUrls.length = 0;
+};
+
+const resetStoreForm = () => {
+  if (storeAddressInput) {
+    storeAddressInput.value = '';
+  }
+
+  if (storePhoneInput) {
+    storePhoneInput.value = '+7 (999) 999-99-99';
+  }
+
+  savedScheduleData = null;
+
+  if (storeSchedulePreview) {
+    storeSchedulePreview.hidden = true;
+    storeSchedulePreview.innerHTML = '';
+  }
+
+  if (openScheduleModalButton) {
+    openScheduleModalButton.hidden = false;
+  }
+
+  if (editScheduleButton) {
+    editScheduleButton.hidden = true;
+  }
+
+  if (storePhotosInput) {
+    storePhotosInput.value = '';
+  }
+
+  clearStorePhotos();
+  renderStorePhotos();
+  syncStoreSaveButtonState();
+};
+
 const renderStorePhotos = () => {
   if (!storePhotoPreview) return;
 
   storePhotoPreview.innerHTML = '';
-  if (!storePhotoUrls.length) return;
+  if (!storePhotoUrls.length) {
+    syncStoreSaveButtonState();
+    return;
+  }
 
   storePhotoUrls.forEach((url, index) => {
     const div = document.createElement('div');
@@ -593,34 +855,41 @@ const renderStorePhotos = () => {
     div.appendChild(remove);
     storePhotoPreview.appendChild(div);
   });
+
+  syncStoreSaveButtonState();
 };
 
 const fillStoreForm = (data) => {
   if (storeAddressInput) {
-    storeAddressInput.value = 'Московская обл., г. Москва, ул. Ленина, д. 1, 123';
+    storeAddressInput.value = data?.address || '';
   }
 
   if (storePhoneInput) {
-    storePhoneInput.value = '+7 (999) 999-99-99';
+    storePhoneInput.value = data?.phone || '+7 (999) 999-99-99';
   }
 
+  savedScheduleData = data?.schedule || null;
+
   if (storeSchedulePreview) {
-    storeSchedulePreview.hidden = false;
-    storeSchedulePreview.innerHTML = `
-      <div class="store-schedule-summary">
-        <div><span>пн - пт:</span> 08:00 - 18:00</div>
-        <div><span>сб - вс:</span> 12:00 - 17:00</div>
-      </div>
-    `;
+    storeSchedulePreview.hidden = !savedScheduleData;
+    storeSchedulePreview.innerHTML = savedScheduleData || '';
   }
 
   if (openScheduleModalButton) {
-    openScheduleModalButton.hidden = true;
+    openScheduleModalButton.hidden = Boolean(savedScheduleData);
   }
 
   if (editScheduleButton) {
-    editScheduleButton.hidden = false;
+    editScheduleButton.hidden = !savedScheduleData;
   }
+
+  clearStorePhotos();
+  if (data?.photo) {
+    storePhotoUrls.push(data.photo);
+  }
+
+  renderStorePhotos();
+  syncStoreSaveButtonState();
 };
 
 setActiveTab('login');
@@ -630,6 +899,10 @@ renderCompanyProgress();
 bindAddressSearch('person');
 bindAddressSearch('company');
 bindAddressSearch('store');
+storeAddressInput?.addEventListener('input', syncStoreSaveButtonState);
+syncStoreSaveButtonState();
+dateMaskInputs.forEach(bindDateMask);
+bindTimeMasks();
 
 bindSwipeModal(exitModal);
 bindSwipeModal(scheduleModal);
@@ -659,6 +932,11 @@ goButtons.forEach((button) => {
 
     const ownerScreen = button.closest('.screen');
     if (!ownerScreen || ownerScreen.dataset.screen !== currentScreen) return;
+
+    if (button === addStoreButton) {
+      isEditingStore = false;
+      resetStoreForm();
+    }
 
     updateRoleTitles();
     pushAndOpen(routeTarget(button.dataset.go));
@@ -797,6 +1075,7 @@ saveScheduleButton?.addEventListener('click', () => {
     editScheduleButton.hidden = false;
   }
 
+  syncStoreSaveButtonState();
   closeModal(scheduleModal);
 });
 
@@ -824,20 +1103,23 @@ storePhotosInput?.addEventListener('change', () => {
 });
 
 saveStoreButton?.addEventListener('click', () => {
+  syncStoreSaveButtonState();
+  if (saveStoreButton.disabled) return;
+
+  const address = storeAddressInput?.value.trim() || '';
+  const phone = storePhoneInput?.value.trim() || '+7 (999) 999-99-99';
+  const schedule = savedScheduleData || storeSchedulePreview?.innerHTML || '';
+  const photo = storePhotoUrls[0] || './assets/store-card-preview.png';
+
   savedStoreData = {
-    address: 'Московская обл., г. Москва, ул. Ленина, д. 1, 123',
-    phone: '+7 (999) 999-99-99',
-    schedule: `
-      <div class="store-schedule-summary">
-        <div><span>пн - пт:</span> 08:00 - 18:00</div>
-        <div><span>сб - вс:</span> 12:00 - 17:00</div>
-      </div>
-    `,
-    photo: './assets/store-card-preview.png',
+    address,
+    phone,
+    schedule,
+    photo,
   };
 
   if (storeCardAddress) {
-    storeCardAddress.innerHTML = 'Московская обл., г. Москва, ул. Ленина, д. 1,<br>123';
+    storeCardAddress.textContent = savedStoreData.address;
   }
 
   if (storeCardPhone) {
@@ -849,7 +1131,7 @@ saveStoreButton?.addEventListener('click', () => {
   }
 
   if (storeCardThumb) {
-    storeCardThumb.style.backgroundImage = "url('./assets/store-card-preview.png')";
+    storeCardThumb.style.backgroundImage = `url('${savedStoreData.photo}')`;
     storeCardThumb.classList.add('store-card__thumb--image');
   }
 
@@ -905,4 +1187,5 @@ if (openScheduleModalButton && editScheduleButton && storeSchedulePreview) {
   const hasSchedulePreview = !storeSchedulePreview.hidden && storeSchedulePreview.innerHTML.trim().length > 0;
   openScheduleModalButton.hidden = hasSchedulePreview;
   editScheduleButton.hidden = !hasSchedulePreview;
+  syncStoreSaveButtonState();
 }

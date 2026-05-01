@@ -220,10 +220,12 @@
       <div class="catalog-overlay" data-catalog-go="products" hidden aria-hidden="true"></div>
 
       <section class="catalog-sheet catalog-sheet--filters" data-catalog-sheet="filters" aria-label="Фильтры" hidden>
-        <div class="catalog-sheet__handle" aria-hidden="true"></div>
-        <button class="catalog-sheet-close" type="button" data-catalog-go="products" aria-label="Закрыть">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
-        </button>
+        <header class="catalog-sheet-header catalog-sheet-header--filters">
+          <div class="catalog-sheet__handle" aria-hidden="true"></div>
+          <button class="catalog-sheet-close" type="button" data-catalog-go="products" aria-label="Закрыть">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+          </button>
+        </header>
 
         <h2>Фильтры</h2>
 

@@ -203,7 +203,11 @@
 
             <div class="company-actions">
               <button class="company-message" type="button"><img src="./assets/city-chat.svg" alt="" />Написать продавцу</button>
-              <button class="company-round-action" type="button" aria-label="В избранное"><img src="./assets/city-heart.svg" alt="" /></button>
+              <button class="company-round-action" type="button" aria-label="В избранное" aria-pressed="false" data-company-favorite>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+                  <path stroke="#0066F5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.07 10.169C.168 7.692.803 3.976 3.976 2.738c3.172-1.239 5.076 1.238 5.71 2.477.635-1.239 3.174-3.716 6.347-2.477 3.172 1.238 3.172 4.954 1.269 7.43-1.904 2.478-7.615 7.432-7.615 7.432s-5.711-4.954-7.615-7.431Z"/>
+                </svg>
+              </button>
               <button class="company-round-action" type="button" aria-label="Поделиться"><img src="./assets/city-share.svg" alt="" /></button>
             </div>
           </section>

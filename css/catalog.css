@@ -576,13 +576,13 @@ svg {
 }
 
 .catalog-sheet--filters {
-  height: calc(100dvh - 36px);
-  padding: 60px 13px 20px;
+  max-height: calc(100dvh - 36px);
+  padding: 0 13px calc(16px + env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-.catalog-sheet--filters h2 {
+.catalog-sheet--filters > h2 {
   margin: 0 0 25px;
   color: #1f1f1f;
   font-size: 17px;
@@ -755,9 +755,14 @@ svg {
 }
 
 .catalog-sheet-actions {
+  position: sticky;
+  z-index: 4;
+  bottom: 0;
   display: grid;
   gap: 8px;
   margin-top: 43px;
+  padding-top: 12px;
+  background: #ffffff;
 }
 
 .catalog-primary-button,
@@ -807,6 +812,16 @@ svg {
   font-size: 17px;
   line-height: 22px;
   font-weight: 600;
+}
+
+.catalog-sheet-header.catalog-sheet-header--filters {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  min-height: 60px;
+  margin: 0 -13px;
+  padding: 0 13px;
+  background: #ffffff;
 }
 
 .catalog-account-list {
