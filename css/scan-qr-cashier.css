@@ -526,7 +526,6 @@ svg {
 }
 
 .purchase-buyer-card {
-  min-height: 72px;
   border-radius: 10px 10px 0 0;
   padding-bottom: 16px;
   padding-top: 16px;
@@ -544,7 +543,6 @@ svg {
 
 .purchase-balance-card {
   position: relative;
-  min-height: 96px;
   margin-bottom: 40px;
   border-radius: 0 0 10px 10px;
   padding-top: 16px;

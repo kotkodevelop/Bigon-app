@@ -221,6 +221,30 @@ const purchaseSheet = document.querySelector('[data-purchase-sheet]');
 const purchasePanel = purchaseSheet?.querySelector('.purchase-sheet');
 const purchaseSumInput = purchaseSheet?.querySelector('[data-purchase-sum]');
 
+const formatPurchaseSum = (value) => {
+  const digits = value.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+  if (!digits) return '';
+
+  return `${digits.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`;
+};
+
+const placeCaretBeforeCurrency = (input) => {
+  const caretPosition = input.value.replace(/\s?₽$/, '').length;
+  input.setSelectionRange(caretPosition, caretPosition);
+};
+
+if (purchaseSumInput) {
+  const updatePurchaseSum = () => {
+    purchaseSumInput.value = formatPurchaseSum(purchaseSumInput.value);
+    placeCaretBeforeCurrency(purchaseSumInput);
+  };
+
+  purchaseSumInput.value = formatPurchaseSum(purchaseSumInput.value);
+  purchaseSumInput.addEventListener('input', updatePurchaseSum);
+  purchaseSumInput.addEventListener('focus', () => placeCaretBeforeCurrency(purchaseSumInput));
+  purchaseSumInput.addEventListener('click', () => placeCaretBeforeCurrency(purchaseSumInput));
+}
+
 const closePurchaseResult = (modal) => {
   if (!modal) return;
   modal.classList.remove('is-open');

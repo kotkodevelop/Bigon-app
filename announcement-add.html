@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Добавить объявление</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/announcements.css" />
+  </head>
+  <body>
+    <main class="ann-app ann-app--wizard" data-add-app aria-label="Добавить объявление">
+      <div class="ann-screen-stack">
+        <section class="ann-screen is-active" data-step="catalog" aria-hidden="false">
+          <header class="ann-step-header">
+            <a class="ann-back" href="./announcements.html" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></a>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 1 из 8"><span class="is-active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--catalog">
+            <h2 class="ann-section-title">Выберите раздел каталога:</h2>
+            <div class="ann-category-grid">
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-1.svg" alt="" /><span>Недвижимость</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-2.svg" alt="" /><span>Транспорт</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-4.svg" alt="" /><span>Для бизнеса</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-1.svg" alt="" /><span>Недвижимость</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-2.svg" alt="" /><span>Транспорт</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-4.svg" alt="" /><span>Для бизнеса</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Стройматериалы</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-4.svg" alt="" /><span>Для бизнеса</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+              <button class="ann-category-card" type="button" data-go-step="subcategories"><img src="./assets/catalog/catalog-item-3.svg" alt="" /><span>Услуги</span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="ann-screen" data-step="subcategories" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 2 из 8"><span class="is-active"></span><span class="is-active"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body">
+            <h2 class="ann-section-title">Электроника</h2>
+            <div class="ann-choice-list">
+              <button class="ann-choice-row" type="button" data-go-step="phones"><span>Телефоны</span><i></i></button>
+              <button class="ann-choice-row" type="button" data-go-step="phones"><span>Аудио и видео</span><i></i></button>
+              <button class="ann-choice-row" type="button" data-go-step="phones"><span>Товары для компьютера</span><i></i></button>
+              <button class="ann-choice-row" type="button" data-go-step="phones"><span>Ноутбуки</span><i></i></button>
+              <button class="ann-choice-row" type="button" data-go-step="phones"><span>Фототехника</span><i></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="ann-screen" data-step="phones" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 2 из 8"><span class="is-active"></span><span class="is-active"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body">
+            <h2 class="ann-section-title">Электроника, телефоны</h2>
+            <div class="ann-choice-list ann-choice-list--short">
+              <button class="ann-choice-row" type="button" data-go-step="info"><span>Мобильные телефоны</span><i></i></button>
+              <button class="ann-choice-row" type="button" data-go-step="info"><span>Аксессуары</span><i></i></button>
+              <button class="ann-choice-row" type="button" data-go-step="info"><span>Стационарные телефоны</span><i></i></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="ann-screen" data-step="info" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 3 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Основная информация</h2>
+            <div class="ann-fields">
+              <label class="ann-field">
+                <span>Название <em>*</em></span>
+                <input type="text" placeholder="Введите название объявления" />
+              </label>
+              <label class="ann-field ann-field--textarea">
+                <span>Описание <em>*</em></span>
+                <textarea placeholder=""></textarea>
+                <small>Символов 0 из 1000</small>
+              </label>
+            </div>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button" data-go-step="photos-empty">Продолжить</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="photos-empty" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 4 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Фотографии</h2>
+            <p class="ann-subtext">Первое фото будет отображаться в результатах поиска, остальные — в карточке товара. Вы можете загрузить до 20 фотографий в формате JPG или PNG. Максимальный размер фото — 15 МБ.</p>
+            <button class="ann-upload-empty" type="button" data-go-step="photos-filled" aria-label="Добавить фото">
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4.2 5.45h1.57l.77-1.25h3.3l.77 1.25h1.69c.92 0 1.67.74 1.67 1.66v4.15c0 .92-.75 1.67-1.67 1.67H4.2c-.92 0-1.67-.75-1.67-1.67V7.11c0-.92.75-1.66 1.67-1.66Z" stroke="#0066F5" stroke-width="1.2"/><circle cx="8.25" cy="9.08" r="2.05" stroke="#0066F5" stroke-width="1.2"/></svg>
+            </button>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button" data-go-step="chars">Продолжить</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="photos-filled" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 4 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Фотографии</h2>
+            <p class="ann-subtext">Первое фото будет отображаться в результатах поиска, остальные — в карточке товара. Вы можете загрузить до 20 фотографий в формате JPG или PNG. Максимальный размер фото — 15 МБ.</p>
+            <p class="ann-photo-count">Загружено 5</p>
+            <div class="ann-photo-grid">
+              <figure><img src="./assets/home/product-image.jpg" alt="" /><button type="button" aria-label="Удалить фото">×</button></figure>
+              <figure><img src="./assets/home/product-image.jpg" alt="" /><button type="button" aria-label="Удалить фото">×</button></figure>
+              <figure><img src="./assets/home/product-image.jpg" alt="" /><button type="button" aria-label="Удалить фото">×</button></figure>
+              <figure><img src="./assets/home/product-image.jpg" alt="" /><button type="button" aria-label="Удалить фото">×</button></figure>
+              <figure><img src="./assets/home/product-image.jpg" alt="" /><button type="button" aria-label="Удалить фото">×</button></figure>
+            </div>
+            <button class="ann-add-photo-btn" type="button">+ Добавить фото</button>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button" data-go-step="chars">Продолжить</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="chars" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 5 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Характеристики</h2>
+            <div class="ann-fields ann-fields--compact">
+              <label class="ann-field ann-field--select" data-open-os><span>Операционная система</span><button type="button">iOS</button></label>
+              <label class="ann-field ann-field--select"><span>Бренд</span><button type="button">iPhone</button></label>
+              <label class="ann-field ann-field--select"><span>Объем памяти, ГБ</span><button type="button">128 ГБ</button></label>
+              <label class="ann-field ann-field--select"><span>Состояние</span><button type="button">Новый</button></label>
+              <label class="ann-field ann-field--select"><span>Количество SIM-карт</span><button type="button"></button></label>
+            </div>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button" data-go-step="price-fixed">Продолжить</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="price-fixed" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 6 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Цена</h2>
+            <label class="ann-toggle-line">
+              <span>Фиксированная</span>
+              <input type="checkbox" checked data-price-toggle />
+              <i></i>
+            </label>
+            <p class="ann-price-help">Цены указаны окончательно или не меняются при обсуждении покупки.</p>
+            <label class="ann-field ann-field--price">
+              <input type="text" placeholder="Цена за 1 ед. товара" inputmode="numeric" />
+              <b>₽</b>
+            </label>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button" data-go-step="extra-empty">Продолжить</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="price-from" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 6 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Цена</h2>
+            <label class="ann-toggle-line">
+              <span>Фиксированная</span>
+              <input type="checkbox" data-price-toggle />
+              <i></i>
+            </label>
+            <p class="ann-price-help">Вы указываете минимальную стоимость, окончательная цена обсуждается с покупателем.</p>
+            <label class="ann-field ann-field--price">
+              <input type="text" placeholder="Цена от" inputmode="numeric" />
+              <b>₽</b>
+            </label>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button" data-go-step="extra-empty">Продолжить</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="extra-empty" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 7 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Дополнительная информация</h2>
+            <div class="ann-fields ann-fields--compact">
+              <label class="ann-field"><span>Количество</span><input type="text" placeholder="Можно не указывать" /></label>
+              <label class="ann-field"><span>Номер телефона для связи <em>*</em></span><input type="tel" placeholder="+7 (999) 999-99-99" /></label>
+            </div>
+            <div class="ann-delivery-block">
+              <h3>Возможные способы доставки:</h3>
+              <label class="ann-check-row"><span>Самовывоз</span><input type="checkbox" data-delivery-pickup /><i></i></label>
+              <label class="ann-check-row"><span>Доставка через пункт выдачи</span><input type="checkbox" data-delivery-pvz /><i></i></label>
+            </div>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button">Опубликовать</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="extra-delivery" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 7 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Дополнительная информация</h2>
+            <div class="ann-fields ann-fields--compact">
+              <label class="ann-field"><span>Количество</span><input type="text" placeholder="Можно не указывать" /></label>
+              <label class="ann-field"><span>Номер телефона для связи <em>*</em></span><input type="tel" value="+7 (900) 999-99-99" /></label>
+            </div>
+            <div class="ann-delivery-block">
+              <h3>Возможные способы доставки:</h3>
+              <label class="ann-check-row"><span>Самовывоз</span><input type="checkbox" checked /><i></i></label>
+              <label class="ann-field ann-field--map"><input type="text" placeholder="Введите адрес" /><button type="button" aria-label="Карта"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.25 7.65c0 3.65-5.25 7.1-5.25 7.1s-5.25-3.45-5.25-7.1A5.25 5.25 0 0 1 9 2.4a5.25 5.25 0 0 1 5.25 5.25Z" stroke="#0066F5" stroke-width="1.3"/><circle cx="9" cy="7.65" r="1.65" stroke="#0066F5" stroke-width="1.3"/></svg></button></label>
+              <label class="ann-check-row"><span>Доставка через пункт выдачи</span><input type="checkbox" checked /><i></i></label>
+              <p class="ann-small-label">Выберите ПВЗ</p>
+              <label class="ann-field ann-field--select ann-field--select-only"><button type="button">SPost</button></label>
+              <label class="ann-field ann-field--select ann-field--select-only"><button type="button">СДЭК</button></label>
+            </div>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button">Опубликовать</button></footer>
+        </section>
+
+        <section class="ann-screen" data-step="extra-store" aria-hidden="true">
+          <header class="ann-step-header">
+            <button class="ann-back" type="button" data-back-step aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+            <h1>Добавить объявление</h1>
+          </header>
+          <div class="ann-progress" aria-label="Шаг 7 из 8"><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span class="is-active"></span><span></span></div>
+          <div class="ann-step-body ann-step-body--with-footer">
+            <h2 class="ann-section-title">Дополнительная информация</h2>
+            <div class="ann-fields ann-fields--compact">
+              <label class="ann-field"><span>Количество</span><input type="text" placeholder="Можно не указывать" /></label>
+              <label class="ann-field"><span>Номер телефона для связи <em>*</em></span><input type="tel" value="+7 (900) 999-99-99" /></label>
+            </div>
+            <div class="ann-delivery-block">
+              <h3>Возможные способы доставки:</h3>
+              <label class="ann-check-row"><span>Самовывоз</span><input type="checkbox" checked /><i></i></label>
+              <p class="ann-small-label">Выберите магазин</p>
+              <label class="ann-store-row"><img src="./assets/store-card-preview.png" alt="" /><span><b>Адрес</b><small>Московская обл., г. Москва ул. Ленина, д. 123</small></span><input type="checkbox" /><i></i></label>
+              <label class="ann-store-row"><img src="./assets/store-card-preview.png" alt="" /><span><b>Адрес</b><small>Московская обл., г. Москва ул. Ленина, д. 123</small></span><input type="checkbox" checked /><i></i></label>
+              <label class="ann-check-row"><span>Доставка через пункт выдачи</span><input type="checkbox" checked /><i></i></label>
+              <p class="ann-small-label">Выберите ПВЗ</p>
+              <label class="ann-field ann-field--select ann-field--select-only"><button type="button">SPost</button></label>
+              <label class="ann-field ann-field--select ann-field--select-only"><button type="button">СДЭК</button></label>
+            </div>
+          </div>
+          <footer class="ann-step-footer"><button class="ann-primary-btn" type="button">Опубликовать</button></footer>
+        </section>
+      </div>
+
+      <div class="ann-modal" data-os-modal hidden>
+        <button class="ann-modal__backdrop" type="button" data-close-os aria-label="Закрыть"></button>
+        <section class="ann-modal-sheet" role="dialog" aria-modal="true" aria-labelledby="osModalTitle">
+          <button class="ann-modal-close" type="button" data-close-os aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+          <h2 id="osModalTitle">Операционная система</h2>
+          <div class="ann-choice-list ann-choice-list--modal">
+            <label class="ann-choice-row"><span>iOS</span><input type="radio" name="os" checked /><i></i></label>
+            <label class="ann-choice-row"><span>Android</span><input type="radio" name="os" /><i></i></label>
+            <label class="ann-choice-row"><span>Другая</span><input type="radio" name="os" /><i></i></label>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="./js/announcements.js"></script>
+  </body>
+</html>

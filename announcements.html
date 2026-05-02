@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Мои объявления</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/announcements.css" />
+  </head>
+  <body>
+    <main class="ann-app" aria-label="Мои объявления">
+      <section class="ann-main-screen">
+        <header class="ann-main-header">
+          <h1>Мои объявления</h1>
+        </header>
+
+        <nav class="ann-tabs" aria-label="Статусы объявлений">
+          <button class="ann-tab is-active" type="button">Опубликованные</button>
+          <button class="ann-tab" type="button">На модерации</button>
+          <button class="ann-tab" type="button">На доработке</button>
+        </nav>
+
+        <div class="ann-search-row">
+          <label class="ann-search">
+            <img src="./assets/search.svg" alt="" aria-hidden="true" />
+            <input type="search" placeholder="Название, артикул" aria-label="Поиск по объявлениям" />
+          </label>
+          <button class="ann-filter-btn" type="button" aria-label="Фильтры">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4.167 5.833h7.5" stroke="#2684FF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14.167 5.833h1.667" stroke="#2684FF" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12.917" cy="5.833" r="1.25" stroke="#2684FF" stroke-width="1.3"/>
+              <path d="M4.167 10h1.667" stroke="#2684FF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M8.333 10h7.5" stroke="#2684FF" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="7.083" cy="10" r="1.25" stroke="#2684FF" stroke-width="1.3"/>
+              <path d="M4.167 14.167h6.25" stroke="#2684FF" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M12.917 14.167h2.917" stroke="#2684FF" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="11.667" cy="14.167" r="1.25" stroke="#2684FF" stroke-width="1.3"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="ann-empty">
+          <p>У вас пока нет Объявлений</p>
+          <a class="ann-place-btn" href="./announcement-add.html">+ Разместить объявление</a>
+        </div>
+
+        <nav class="ann-bottom-nav" aria-label="Навигация приложения">
+          <button class="ann-nav-item" type="button">
+            <img src="./assets/home/menu-home.svg" alt="" />
+            <span>Товары</span>
+          </button>
+          <button class="ann-nav-item is-active" type="button">
+            <img src="./assets/home/menu-filter.svg" alt="" />
+            <span>Объявления</span>
+          </button>
+          <a class="ann-nav-add" href="./announcement-add.html" aria-label="Добавить объявление">+</a>
+          <button class="ann-nav-item" type="button">
+            <img src="./assets/home/menu-chat.svg" alt="" />
+            <span>Чат</span>
+          </button>
+          <button class="ann-nav-item" type="button">
+            <img src="./assets/home/menu-user.svg" alt="" />
+            <span>Профиль</span>
+          </button>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
