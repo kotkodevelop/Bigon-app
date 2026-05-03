@@ -136,7 +136,7 @@ svg {
 }
 
 .orders-content {
-  padding: 0 var(--orders-pad) 32px;
+  padding: 0 var(--orders-pad) 64px;
 }
 
 .orders-empty {

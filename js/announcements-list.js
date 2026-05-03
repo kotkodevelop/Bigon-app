@@ -7,6 +7,12 @@
   const modal = app.querySelector('[data-actions-modal]');
   const popup = app.querySelector('[data-copy-popup]');
   const readonlyTextareas = Array.from(editScreen?.querySelectorAll('.ann-field textarea[readonly]') || []);
+  const editPhotoInput = editScreen?.querySelector('[data-ann-edit-photo-input]');
+  const editPhotoGrid = editScreen?.querySelector('[data-ann-edit-photo-grid]');
+  const editAddPhotoButton = editScreen?.querySelector('[data-ann-edit-add-photo]');
+  const editPhotoMaxCount = 10;
+  const editPhotoMaxSize = 25 * 1024 * 1024;
+  const uploadedEditPhotos = [];
   const modalCloseDelay = 230;
   let actionsCloseTimer = null;
   let popupCloseTimer = null;
@@ -200,7 +206,117 @@
     sheet.addEventListener('pointercancel', handlePointerEnd);
   };
 
+  const removePhotoIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+      <rect width="24" height="24" fill="#F7F8FA" rx="6"></rect>
+      <path stroke="#757575" stroke-linecap="round" stroke-width="1.2" d="m16 8-8 8m8 0L8 8"></path>
+    </svg>
+  `;
+
+  const getEditPhotoCount = () => editPhotoGrid?.querySelectorAll('figure').length || 0;
+
+  const syncEditPhotoControls = () => {
+    if (!editAddPhotoButton) return;
+    editAddPhotoButton.hidden = getEditPhotoCount() >= editPhotoMaxCount;
+  };
+
+  const syncEditPhotoInputFiles = () => {
+    if (!editPhotoInput || typeof DataTransfer === 'undefined') return;
+
+    try {
+      const dataTransfer = new DataTransfer();
+      uploadedEditPhotos.forEach((item) => dataTransfer.items.add(item.file));
+      editPhotoInput.files = dataTransfer.files;
+    } catch {
+      // Some browsers do not allow assigning FileList programmatically.
+    }
+  };
+
+  const isAllowedEditPhoto = (file) =>
+    ['image/jpeg', 'image/png'].includes(file.type) || /\.(jpe?g|png)$/i.test(file.name);
+
+  const removeEditPhoto = (figure) => {
+    if (!figure) return;
+
+    const uploadedIndex = uploadedEditPhotos.findIndex((item) => item.figure === figure);
+    if (uploadedIndex !== -1) {
+      URL.revokeObjectURL(uploadedEditPhotos[uploadedIndex].url);
+      uploadedEditPhotos.splice(uploadedIndex, 1);
+      syncEditPhotoInputFiles();
+    }
+
+    figure.remove();
+    syncEditPhotoControls();
+  };
+
+  const createEditPhoto = (file) => {
+    const figure = document.createElement('figure');
+    const image = document.createElement('img');
+    const removeButton = document.createElement('button');
+    const url = URL.createObjectURL(file);
+
+    image.src = url;
+    image.alt = '';
+
+    removeButton.type = 'button';
+    removeButton.setAttribute('aria-label', 'Удалить фото');
+    removeButton.setAttribute('data-ann-edit-photo-remove', '');
+    removeButton.innerHTML = removePhotoIcon;
+
+    figure.append(image, removeButton);
+    uploadedEditPhotos.push({ file, figure, url });
+
+    return figure;
+  };
+
+  const addEditPhotos = (files) => {
+    if (!editPhotoGrid) return;
+
+    const selectedFiles = Array.from(files || []);
+    if (!selectedFiles.length) return;
+
+    let skippedCount = 0;
+
+    selectedFiles.forEach((file) => {
+      if (getEditPhotoCount() >= editPhotoMaxCount || !isAllowedEditPhoto(file) || file.size > editPhotoMaxSize) {
+        skippedCount += 1;
+        return;
+      }
+
+      editPhotoGrid.appendChild(createEditPhoto(file));
+    });
+
+    syncEditPhotoInputFiles();
+    syncEditPhotoControls();
+
+    if (skippedCount) {
+      window.alert('Можно загрузить до 10 фото в формате JPG или PNG. Максимальный размер фото — 25 МБ.');
+    }
+  };
+
+  editPhotoInput?.addEventListener('change', () => {
+    addEditPhotos(editPhotoInput.files);
+  });
+
+  window.addEventListener('beforeunload', () => {
+    uploadedEditPhotos.forEach((item) => URL.revokeObjectURL(item.url));
+  });
+
   app.addEventListener('click', (event) => {
+    const addPhotoButton = event.target.closest('[data-ann-edit-add-photo]');
+    if (addPhotoButton) {
+      event.preventDefault();
+      editPhotoInput?.click();
+      return;
+    }
+
+    const removePhotoButton = event.target.closest('[data-ann-edit-photo-remove]');
+    if (removePhotoButton) {
+      event.preventDefault();
+      removeEditPhoto(removePhotoButton.closest('figure'));
+      return;
+    }
+
     if (event.target.closest('[data-actions-open]')) {
       event.preventDefault();
       openActions();
@@ -246,5 +362,6 @@
 
   bindSwipeModal(modal, closeActions);
   bindSwipeModal(popup, closePopup);
+  syncEditPhotoControls();
   window.addEventListener('resize', syncReadonlyTextareas);
 })();
