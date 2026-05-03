@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Bigon.pro — Карточка объявления — магазин</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/announcement-card.css" />
+</head>
+<body>
+  <main class="ad-app ad-app--store" data-ad-app data-screen="product" aria-label="Карточка объявления — магазин">
+    <section class="ad-screen ad-screen--product is-active" data-screen="product" aria-label="Карточка объявления">
+      <header class="ad-topbar">
+        <button class="ad-icon-btn" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+        <div class="ad-topbar__actions">
+          <button class="ad-icon-btn ad-icon-bn" type="button" aria-label="В избранное">
+              <img src="assets/ad-icon-heart.svg" alt="">
+          </button>
+          <button class="ad-icon-btn" type="button" aria-label="Поделиться">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+              <path stroke="#1F1F1F" stroke-linecap="round" stroke-width="1.5" d="M16.5 7.802c1.957.01 3.017.097 3.709.789.79.79.79 2.064.79 4.61v.9c0 2.545 0 3.818-.79 4.608-.79.791-2.064.791-4.61.791H8.4c-2.545 0-3.817 0-4.608-.79C3 17.918 3 16.645 3 14.1v-.9c0-2.545 0-3.818.79-4.609.692-.692 1.752-.778 3.71-.79"/>
+              <path stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 13.2V1.5m0 0 2.7 3.15M12 1.5 9.3 4.65"/>
+            </svg>
+          </button>
+          <button class="ad-icon-btn" type="button" data-open-action aria-label="Ещё"><span class="ad-more-dot"></span></button>
+        </div>
+      </header>
+      <div class="ad-scroll">
+        <section class="ad-gallery">
+          <div class="ad-hero"><img src="./assets/new_product-wide.jpg" alt="Кроссовки Nike" /></div>
+          <div class="ad-thumbs" aria-label="Фотографии товара">
+            <button class="ad-thumb is-active" type="button"><img src="./assets/new_product.jpg" alt="" /></button>
+            <button class="ad-thumb" type="button"><img src="./assets/home/product-image.jpg" alt="" /></button>
+            <button class="ad-thumb" type="button"><img src="./assets/new_product.jpg" alt="" /></button>
+            <button class="ad-thumb" type="button"><img src="./assets/new_product.jpg" alt="" /></button>
+            <button class="ad-thumb" type="button"><img src="./assets/new_product.jpg" alt="" /></button>
+            <button class="ad-thumb" type="button"><img src="./assets/new_product.jpg" alt="" /></button>
+          </div>
+        </section>
+
+        <div class="ad-content">
+          <div class="ad-price-row"><div class="ad-price">2 000 ₽</div><button class="ad-bonus" type="button" data-open-points>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></button></div>
+          <h1 class="ad-title">Кроссовки Nike</h1>
+          <button class="ad-rating" type="button" data-go="reviews"><b><img src="assets/home/user-star.svg" alt=""></b> <span>7,5</span> (5 отзывов)</button>
+          <p class="ad-stock">В наличии: 5 штук</p>
+
+          <h2 class="ad-block-title">Магазин</h2>
+<article class="ad-seller-card">
+  <img class="ad-seller-logo" src="./assets/home/new-comp-logo-1.svg" alt="Eco Life" />
+  <div><h3>Eco Life</h3><p>Электроника</p><span><b>★</b> 10 (5)</span></div>
+  <button class="ad-seller-heart" type="button" aria-label="В избранное" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40"><rect width="40" height="40" fill="#F7F8FA" rx="10"/><path stroke="#0066F5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.07 20.17c-1.903-2.478-1.268-6.194 1.905-7.432 3.173-1.239 5.076 1.239 5.71 2.477.635-1.239 3.174-3.716 6.347-2.477 3.172 1.239 3.172 4.954 1.269 7.431-1.904 2.477-7.615 7.431-7.615 7.431s-5.711-4.954-7.615-7.43Z"/></svg></button>
+</article>
+          <div class="ad-contact-row"><button type="button">Написать продавцу</button><button type="button">Показать телефон</button></div>
+
+          <section class="ad-delivery" data-delivery>
+  <button class="ad-section-head" type="button" data-toggle-delivery>Способ доставки <span class="ad-chevron" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="#1F1F1F" stroke-linecap="round" stroke-width="1.5" d="m18 9.938-5.293 5.292a1 1 0 0 1-1.414 0L6 9.937"/></svg></span></button>
+  <div class="ad-delivery-list">
+    <div class="ad-delivery-item ad-delivery-item--no-divider"><svg class="ad-delivery-item__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path fill="#1F1F1F" d="m3.703 5.673 6.586-3.521L8 1 1.21 4.418l2.493 1.255Zm8.586-2.513L5.703 6.68 8 7.837l6.79-3.419-2.5-1.258ZM7.813 8.163 5.5 7v2.558l-1-1.007h-1V5.993L1 4.734v6.836L7.813 15V8.163Zm.375 0V15L15 11.57V4.734l-6.813 3.43Z"/></svg><div><h4>Доставка в пункт выдачи</h4></div><span></span></div>
+    <h4 class="ad-delivery-subtitle"><svg class="ad-delivery-item__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+      <path fill="#1F1F1F" fill-rule="evenodd" d="M2.333 6.878c0-3.066 2.563-5.545 5.662-5.545 3.109 0 5.671 2.479 5.671 5.545 0 1.545-.562 2.98-1.487 4.196a14.708 14.708 0 0 1-3.694 3.427c-.324.212-.616.228-.972 0a14.426 14.426 0 0 1-3.693-3.427c-.926-1.216-1.487-2.65-1.487-4.196Zm3.796.173c0 1.027.838 1.835 1.866 1.835 1.029 0 1.875-.808 1.875-1.835 0-1.02-.846-1.867-1.875-1.867A1.876 1.876 0 0 0 6.13 7.051Z" clip-rule="evenodd"/>
+    </svg>Самовывоз из магазина:</h4>
+      
+    <div class="ad-delivery-item ad-delivery-item-adres"><div><p>Московская обл., г. Москва, ул. Ленина, д. 123</p><div class="ad-delivery-schedule"><span>пн - пт: 08:00 - 18:00</span><span>сб - вс: 12:00 - 17:00</span></div></div><button class="ad-map-preview" type="button" data-go="map" aria-label="Открыть карту"><img src="./assets/ad-map-1.svg" alt="" /></button></div>
+    
+    <div class="ad-delivery-item ad-delivery-item-adres"><div><p>Московская обл., г. Москва, ул. Ленина, д. 123</p><div class="ad-delivery-schedule"><span>пн - пт: 08:00 - 18:00</span><span>сб - вс: 12:00 - 17:00</span></div></div><button class="ad-map-preview" type="button" data-go="map" aria-label="Открыть карту"><img src="./assets/ad-map-1.svg" alt="" /></button></div>
+  </div>
+</section>
+
+          <section class="ad-text-block ad-text-block--clamped">
+            <h2>Описание</h2>
+            <p>Мужские спортивные брюки VASMANI — тренд 2025 года в стиле нулевых и 90-х. Ищете широкие, стильные и удобные брюки для активного отдыха, тренировок и повседневной носки? Эти мужские спортивные брюки — идеальный выбор для тех, кто ценит свободу, форму и качество. Они созданы на собственном производстве из плотного трикотажа — прочного, износостойкого, отлично держащего форму.</p>
+            <button class="ad-show-more" type="button" aria-expanded="false"><span>Показать ещё</span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+  <path stroke="#0066F5" stroke-linecap="round" stroke-width="1.2" d="m12 6.625-3.529 3.529a.667.667 0 0 1-.942 0L4 6.625"/>
+</svg>
+</button>
+          </section>
+
+          <section class="ad-accordion " data-accordion>
+            <button class="ad-section-head" type="button" data-toggle-accordion>Характеристики <span class="ad-chevron" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="#1F1F1F" stroke-linecap="round" stroke-width="1.5" d="m18 9.938-5.293 5.292a1 1 0 0 1-1.414 0L6 9.937"/></svg></span></button>
+            <ul class="ad-feature-list ad-accordion-body">
+              <li><b>Операционная система:</b> IOS</li>
+              <li><b>Бренд:</b> Apple</li>
+              <li><b>Объем памяти:</b> 128 ГБ</li>
+              <li><b>Состояние:</b> Новый</li>
+            </ul>
+          </section>
+          <div class="ad-meta-line"><span>Размещено: 26 января 2026, 16:24</span><span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="none" viewBox="0 0 16 16"><path fill="#B6B6B6" d="M8 3.5c3 0 5.24 2.35 6 4.5-.76 2.15-3 4.5-6 4.5S2.76 10.15 2 8c.76-2.15 3-4.5 6-4.5Zm0 1.2C5.73 4.7 3.93 6.31 3.3 8c.63 1.69 2.43 3.3 4.7 3.3s4.07-1.61 4.7-3.3C12.07 6.31 10.27 4.7 8 4.7Zm0 1.3a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/></svg> 280</span></div>
+          <div class="ad-products-title-row"><h2>Другие товары этого магазина</h2><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40"><rect width="40" height="40" fill="#F7F8FA" rx="10"/><path stroke="#000" stroke-linecap="round" d="m20.5 27 6.573-6.134a.5.5 0 0 0-.341-.866H12m9.008-5.958 5.11 4.376"/></svg></div>
+          <div class="ad-products-grid"><article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article>
+<article class="ad-product-card">
+  <div class="ad-product-card__image"><img src="./assets/home/product-image.jpg" alt="Штаны мужские" /><span><img src="./assets/home/camera-icon.svg" alt="" />1</span></div>
+  <button class="ad-product-card__heart" type="button" aria-label="В избранное"><img src="./assets/home/item-heart-icon.svg" alt="" /></button>
+  <div class="ad-product-card__price">2 000 ₽ <mark>5% <img src="./assets/home/item-coin-mini.svg" alt="" /></mark></div>
+  <h3>Штаны мужские</h3><p>Ростов-на-Дону</p><time>4 ноября 2025</time>
+</article></div>
+        </div>
+      </div>
+      <div class="ad-bottom-bar"><div class="ad-counter" aria-label="Количество товара"><button type="button" aria-label="Уменьшить количество">−</button><span>1</span><button type="button" aria-label="Увеличить количество">+</button></div><button class="ad-cart-btn" type="button">В корзину</button></div>
+    </section>
+    <section class="ad-screen ad-screen--reviews" data-screen="reviews" aria-label="Отзывы">
+  <header class="ad-topbar">
+    <button class="ad-icon-btn" type="button" data-go="product" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+    <h1>Отзывы</h1>
+    <span class="ad-icon-btn" aria-hidden="true"></span>
+  </header>
+  <div class="ad-reviews-body">
+    <div class="ad-reviews-total"><b>★</b> 10 (5 отзывов)</div>
+    <div class="reviews-list">
+      <article class="review-card">
+        <div class="review-card__top"><img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" /><div class="review-card__meta"><h3>Иванова Елена Ивановна</h3><time>19.12.2025</time></div></div>
+        <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+        <p>Отличный товар рекомендую 👍</p>
+        <div class="review-gallery"><img src="./assets/home/product-image.jpg" alt="" /><img src="./assets/home/product-image.jpg" alt="" /></div>
+        <div class="review-reply"><div class="review-reply__top"><img class="review-reply__avatar" src="./assets/home/new-comp-logo-1.svg" alt="" /><div class="review-reply__meta"><h3>Eco Life</h3><time>12.11.2025</time></div></div><p>Благодарим за высокую оценку! Для нас очень важна обратная связь от наших постоянных покупателей. С уважением, команда Eco Life</p></div>
+      </article>
+      <article class="review-card">
+        <div class="review-card__top"><img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" /><div class="review-card__meta"><h3>Евгений</h3><time>19.12.2025</time></div></div>
+        <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+        <p>Это отличная инвестиция в базовый гардероб. Рекомендую всем, кто ищет стильные, удобные и долговечные штаны на каждый день. Буду заказывать ещё в другом цвете!</p>
+      </article>
+      <article class="review-card">
+        <div class="review-card__top"><img class="review-card__avatar" src="./assets/no-avatar.svg" alt="" /><div class="review-card__meta"><h3>Евгений</h3><time>19.12.2025</time></div></div>
+        <span class="review-card__rating"><img src="./assets/green-star.svg" alt="" />8 Отлично</span>
+        <p>Отличное качество, аккуратная упаковка и быстрая доставка. Товар полностью соответствует описанию.</p>
+      </article>
+    </div>
+  </div>
+</section>
+    <section class="ad-screen ad-screen--map" data-screen="map" aria-label="Карта">
+  <img class="ad-map-image" src="./assets/mapyandex.jpg" alt="Карта" />
+  <header class="ad-map-header"><button class="ad-icon-btn ad-map-back" type="button" data-go="product" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button></header>
+</section>
+    <div class="ad-action-overlay" data-close-action hidden></div>
+<section class="ad-action-sheet" data-action-sheet hidden aria-label="Действия с объявлением">
+  <div class="ad-action-group">
+    <button type="button">Добавить в избранное</button>
+    <button type="button">Поделиться</button>
+    <button class="is-danger" type="button">Пожаловаться</button>
+  </div>
+  <button type="button" data-close-action>Отменить</button>
+</section>
+<div class="ad-modal" data-points-modal hidden>
+  <div class="ad-modal__backdrop" data-close-points></div>
+  <section class="home-points-card" role="dialog" aria-modal="true" aria-labelledby="homePointsTitle">
+    <button class="home-modal-close" type="button" data-close-points aria-label="Закрыть"><img src="./assets/close.svg" alt="" /></button>
+    <h2 id="homePointsTitle">Как это работает?</h2>
+    <div class="home-rate-row"><span>1 <img src="./assets/home/home-coin-icon.svg" alt="" /></span><b>= 1 Рубль</b></div>
+    <h3>За что начисляются баллы:</h3>
+    <ul class="home-bonus-list">
+      <li><span>Бонус за регистрацию</span><b>+1000 <img src="./assets/home/item-coin-mini.svg" alt="" /></b></li>
+      <li><span>Бонус за приглашение друзей</span><b>от 40 <img src="./assets/home/item-coin-mini.svg" alt="" /></b></li>
+      <li><span>Кэшбэк за покупку</span><b>от 10% <img src="./assets/home/item-coin-mini.svg" alt="" /></b></li>
+      <li><span>Бонус за отзывы</span><b>от 40 <img src="./assets/home/item-coin-mini.svg" alt="" /></b></li>
+    </ul>
+    <button class="home-muted-button" type="button">Смотреть все правила</button>
+  </section>
+</div>
+  </main>
+
+<script>
+(() => {
+  const app = document.querySelector('[data-ad-app]');
+  const screens = Array.from(document.querySelectorAll('[data-screen]'));
+  const sheet = document.querySelector('[data-action-sheet]');
+  const overlay = document.querySelector('[data-close-action]');
+  const modal = document.querySelector('[data-points-modal]');
+  let actionTimer = null;
+  let modalTimer = null;
+
+  const showScreen = (name) => {
+    screens.forEach((screen) => screen.classList.toggle('is-active', screen.dataset.screen === name));
+    if (app) app.dataset.screen = name;
+    history.replaceState(null, '', `#${name}`);
+  };
+
+  const openActions = () => {
+    clearTimeout(actionTimer);
+    overlay.hidden = false;
+    sheet.hidden = false;
+    void sheet.offsetWidth;
+    requestAnimationFrame(() => {
+      overlay.classList.add('is-visible');
+      sheet.classList.add('is-visible');
+    });
+  };
+
+  const closeActions = () => {
+    overlay.classList.remove('is-visible');
+    sheet.classList.remove('is-visible');
+    actionTimer = setTimeout(() => {
+      overlay.hidden = true;
+      sheet.hidden = true;
+    }, 220);
+  };
+
+  const openPoints = () => {
+    clearTimeout(modalTimer);
+    modal.hidden = false;
+    void modal.offsetWidth;
+    requestAnimationFrame(() => modal.classList.add('is-open'));
+  };
+
+  const closePoints = () => {
+    modal.classList.remove('is-open');
+    modalTimer = setTimeout(() => { modal.hidden = true; }, 220);
+  };
+
+  const setShowMoreText = (button, text) => {
+    const label = button.querySelector('span');
+    if (label) {
+      label.textContent = text;
+    }
+  };
+
+  const toggleTextBlock = (button) => {
+    const block = button.closest('.ad-text-block--clamped');
+    const text = block?.querySelector('p');
+    if (!block || !text) return;
+
+    const isExpanded = block.classList.contains('is-expanded');
+
+    if (isExpanded) {
+      text.style.maxHeight = `${text.scrollHeight}px`;
+      block.classList.remove('is-expanded');
+      button.setAttribute('aria-expanded', 'false');
+      setShowMoreText(button, 'Показать ещё');
+
+      requestAnimationFrame(() => {
+        text.style.maxHeight = '';
+      });
+      return;
+    }
+
+    text.style.maxHeight = `${text.offsetHeight}px`;
+    block.classList.add('is-expanded');
+    button.setAttribute('aria-expanded', 'true');
+    setShowMoreText(button, 'Скрыть');
+
+    requestAnimationFrame(() => {
+      text.style.maxHeight = `${text.scrollHeight}px`;
+    });
+  };
+
+  document.querySelectorAll('.ad-text-block--clamped p').forEach((text) => {
+    text.addEventListener('transitionend', (event) => {
+      if (event.propertyName !== 'max-height') return;
+      if (text.closest('.ad-text-block--clamped')?.classList.contains('is-expanded')) {
+        text.style.maxHeight = 'none';
+      }
+    });
+  });
+
+		  document.addEventListener('click', (event) => {
+		    const favoriteButton = event.target.closest('.ad-icon-bn');
+		    if (favoriteButton) {
+	      event.preventDefault();
+	      const favoriteIcon = favoriteButton.querySelector('img');
+	      if (favoriteIcon) favoriteIcon.src = './assets/icon_hearth-red.svg';
+	      favoriteButton.setAttribute('aria-label', 'В избранном');
+	      return;
+	    }
+
+	    const sellerFavoriteButton = event.target.closest('.ad-seller-heart');
+	    if (sellerFavoriteButton) {
+	      event.preventDefault();
+	      sellerFavoriteButton.classList.add('is-active');
+	      sellerFavoriteButton.setAttribute('aria-label', 'В избранном');
+		      sellerFavoriteButton.setAttribute('aria-pressed', 'true');
+		      return;
+		    }
+
+		    const counterButton = event.target.closest('.ad-counter button');
+		    if (counterButton) {
+		      const counter = counterButton.closest('.ad-counter');
+		      const value = counter?.querySelector('span');
+		      const buttons = Array.from(counter?.querySelectorAll('button') || []);
+		      if (!value) return;
+
+		      const currentValue = Number(value.textContent || 1);
+		      const nextValue = buttons.indexOf(counterButton) === 0
+		        ? Math.max(1, currentValue - 1)
+		        : currentValue + 1;
+		      value.textContent = String(nextValue);
+		      return;
+		    }
+
+    const showMoreButton = event.target.closest('.ad-show-more');
+    if (showMoreButton) {
+      event.preventDefault();
+      toggleTextBlock(showMoreButton);
+      return;
+    }
+		
+		    const go = event.target.closest('[data-go]');
+    if (go) {
+      event.preventDefault();
+      showScreen(go.dataset.go);
+      closeActions();
+      return;
+    }
+
+    if (event.target.closest('[data-open-action]')) {
+      event.preventDefault();
+      openActions();
+      return;
+    }
+
+    if (event.target.closest('[data-close-action]')) {
+      event.preventDefault();
+      closeActions();
+      return;
+    }
+
+    if (event.target.closest('[data-open-points]')) {
+      event.preventDefault();
+      openPoints();
+      return;
+    }
+
+    if (event.target.closest('[data-close-points]')) {
+      event.preventDefault();
+      closePoints();
+      return;
+    }
+
+    const deliveryToggle = event.target.closest('[data-toggle-delivery]');
+    if (deliveryToggle) {
+      deliveryToggle.closest('[data-delivery]').classList.toggle('is-open');
+      return;
+    }
+
+    const accordionToggle = event.target.closest('[data-toggle-accordion]');
+    if (accordionToggle) {
+      accordionToggle.closest('[data-accordion]').classList.toggle('is-open');
+      return;
+    }
+  });
+
+  const start = location.hash.replace('#', '') || 'product';
+  if (screens.some((screen) => screen.dataset.screen === start)) showScreen(start);
+})();
+</script>
+
+</body>
+</html>

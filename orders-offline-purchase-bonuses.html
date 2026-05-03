@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Совершена покупка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/orders.css" />
+  </head>
+  <body>
+    <main class="orders-app orders-app--detail">
+<header class="orders-header">
+      <button class="orders-header__back" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+      <div class="orders-header__title"><h1>Совершена покупка</h1><p>25 января 2026</p></div>
+    </header>
+      <section class="orders-content offline-detail" aria-label="Совершена покупка">
+        <section class="offline-store">
+          <h2>Eco Life</h2>
+          <div class="offline-store__row">
+            <img src="./assets/store-card-preview.png" alt="Eco Life" />
+            <div class="offline-store__text"><span>Московская обл., г. Москва, ул. Ленина, д. 123</span></div>
+          </div>
+        </section>
+        <section class="order-summary" aria-label="Сумма покупки">
+          <div class="order-summary__top"><span class="orders-badge orders-badge--green orders-badge--wide">Списаны баллы</span></div>
+          <div class="order-summary__rows">
+            <div class="order-summary__row order-summary__row-fat"><span>Сумма покупки</span></div>
+            <div class="order-summary__row"><span>Товары</span><strong>6 000 ₽</strong></div>
+            <div class="order-summary__row"><span>Оплата баллами</span><strong class="is-green">-600 ₽</strong></div>
+            <div class="order-summary__row order-summary__row-fat"><span>Итого</span><strong>5 400 ₽</strong></div>
+          </div>
+        </section>
+        
+      </section>
+      <div class="orders-sticky">
+
+        <div class="orders-sticky__row" >
+          <button class="orders-secondary-btn" style="color: #EB001B;" type="button">Оформить возврат</button>
+          <button class="orders-secondary-btn" type="button">Чат с продавцом</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

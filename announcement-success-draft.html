@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Объявление сохранено</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/announcements.css" />
+    <link rel="stylesheet" href="./css/announcement-success.css" />
+  </head>
+  <body>
+    <main class="ann-app ann-success-shell" aria-label="Объявление сохранено в черновике">
+      <section class="ann-main-screen" aria-hidden="true">
+        <header class="ann-step-header">
+          <a class="ann-back" href="./announcements.html" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></a>
+          <h1>Объявления</h1>
+        </header>
+      </section>
+
+      <div class="ann-success-dim" aria-hidden="false">
+        <section class="ann-success-card ann-success-card--draft" role="dialog" aria-modal="true" aria-labelledby="annDraftTitle">
+          <button class="ann-success-close" type="button" aria-label="Закрыть недоступно"><img src="./assets/close.svg" alt="" /></button>
+          <img class="ann-success-illustration" src="./assets/announcement-success-draft.svg" alt="" aria-hidden="true" />
+          <h2 id="annDraftTitle">Объявление сохранено<br />в черновике</h2>
+          <p>Чтобы опубликовать объявление и показывать его покупателям, подключите тариф. После подключения тарифа объявление будет отправлено на модерацию автоматически.</p>
+          <button class="ann-success-button" type="button">Подключить тариф</button>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

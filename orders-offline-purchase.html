@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Совершена покупка</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/orders.css" />
+  </head>
+  <body>
+    <main class="orders-app orders-app--detail">
+<header class="orders-header">
+      <button class="orders-header__back" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+      <div class="orders-header__title"><h1>Совершена покупка</h1><p>25 января 2026</p></div>
+    </header>
+      <section class="orders-content offline-detail" aria-label="Совершена покупка">
+        <section class="offline-store">
+          <h2>Eco Life</h2>
+          <div class="offline-store__row">
+            <img src="./assets/store-card-preview.png" alt="Eco Life" />
+            <div class="offline-store__text"><span>Московская обл., г. Москва, ул. Ленина, д. 123</span></div>
+          </div>
+        </section>
+        <section class="order-summary" aria-label="Сумма покупки">
+          <div class="order-summary__top"><span class="orders-badge orders-badge--blue orders-badge--wide" style="width: auto;max-width: unset !important;">Отсканируйте чек</span></div>
+          <div class="order-summary__rows">
+            <div class="order-summary__row order-summary__row-fat"><span>Сумма покупки</span></div>
+            <div class="order-summary__row"><span>Товары</span><strong>6 000 ₽</strong></div>
+            <div class="order-summary__row order-summary__row-fat"><span>Итого</span><strong>6 000 ₽</strong></div>
+            <div class="order-summary__row order-summary__row-points">
+              <span>Баллы за покупку</span>
+              <span class="order-review-offer__bonus">+500 <img src="./assets/home/item-coin-mini.svg" alt=""></span>
+            </div>
+             <p class="offline-warning">Отсканируйте чек в течение 21 ч. 56 мин, и кэшбэк поступит на ваш счёт.</p>
+
+          </div>
+
+        </section>
+      </section>
+      <div class="orders-sticky">
+        <button class="orders-main-btn" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="#fff" d="M14.762 6.742c.605 0 1.186.239 1.61.663.425.429.661 1.005.66 1.604v1.245a.28.28 0 0 1-.273.269h-9.52a.278.278 0 0 1-.27-.27V9.01c-.011-1.24 1.005-2.254 2.27-2.267h5.523ZM17.193 3c2.197 0 3.983 1.752 3.983 3.906v1.857c0 .411-.34.747-.761.747a.755.755 0 0 1-.76-.747V6.906c0-1.33-1.105-2.413-2.462-2.413h-1.592a.755.755 0 0 1-.762-.746c0-.413.342-.747.762-.747h1.592ZM8.427 3c.42 0 .761.334.761.747 0 .412-.34.746-.761.746l-1.63.001c-1.35.002-2.45 1.082-2.45 2.408v1.86a.756.756 0 0 1-.763.747.755.755 0 0 1-.76-.747v-1.86c0-2.149 1.782-3.899 3.973-3.901L8.426 3Z" opacity=".4"/>
+  <path fill="#fff" d="M22.239 12.041H1.762a.755.755 0 0 0-.762.747c0 .412.342.745.762.745h1.061v3.564c0 2.15 1.784 3.9 3.975 3.902h1.629a.755.755 0 0 0 .762-.746.754.754 0 0 0-.761-.747H6.8c-1.353-.003-2.454-1.082-2.454-2.409v-3.564h2.623v.992c-.01 1.24 1.005 2.254 2.269 2.266h5.524c1.265-.012 2.28-1.026 2.27-2.266v-.992h2.623v3.56c0 1.332-1.104 2.413-2.461 2.413h-1.593a.754.754 0 0 0-.762.747c0 .412.341.747.762.747h1.593c2.196 0 3.983-1.752 3.983-3.907v-3.56h1.062c.42 0 .761-.333.761-.745a.754.754 0 0 0-.761-.747Z"/>
+</svg>
+Отсканировать чек</button>
+        <div class="orders-sticky__row" style="margin-top:8px;">
+          <button class="orders-secondary-btn" style="color: #EB001B;" type="button">Оформить возврат</button>
+          <button class="orders-secondary-btn" type="button">Чат с продавцом</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

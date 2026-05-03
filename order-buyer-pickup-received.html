@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Получен — самовывоз</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/orders.css" />
+    <link rel="stylesheet" href="./css/orders-more.css" />
+  </head>
+  <body>
+    <main class="orders-app orders-app--detail orders-app--compact-detail orders-app--three-actions">
+      <header class="orders-header">
+        <button class="orders-header__back" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+        <div class="orders-header__title"><h1>Заказ от 10.01.2026</h1><p>№ 5548641333</p></div>
+      </header>
+      <section class="orders-content order-detail-content" aria-label="Детали заказа">
+        <div class="order-final-status"><span class="order-final-status__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M7.67 2h8.67C19.73 2 22 4.38 22 7.92v8.171C22 19.62 19.73 22 16.34 22H7.67C4.28 22 2 19.62 2 16.091V7.92C2 4.38 4.28 2 7.67 2Zm3.76 12.99 4.75-4.75c.34-.34.34-.89 0-1.24a.881.881 0 0 0-1.24 0l-4.13 4.13-1.75-1.75a.881.881 0 0 0-1.24 0c-.34.34-.34.89 0 1.24l2.38 2.37c.17.17.39.25.61.25.23 0 .45-.08.62-.25Z" clip-rule="evenodd"/></svg></span><span>Получен</span></div>
+        <section class="order-section">
+          <h2>Ваш заказ <span>(2 товара)</span></h2>
+          <div class="order-products-row order-products-row--two">
+            <img class="order-product-img" src="./assets/cart/cart-product.svg" alt="" /><img class="order-product-img" src="./assets/cart/cart-product.svg" alt="" />
+          </div>
+        </section>
+        <section class="order-section order-section--tight">
+          <h2>Продавец</h2>
+          <div class="order-seller">
+            <img class="order-seller__logo" src="./assets/profile/ecolife-logo.jpg" alt="Eco Life" />
+            <div class="order-seller__text"><strong>Eco Life</strong><span class="order-seller__rating"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.63 1.02a.4.4 0 0 1 .74 0l1.2 2.52c.06.13.18.22.32.24l2.75.38a.4.4 0 0 1 .23.69L8.88 6.8a.4.4 0 0 0-.11.35l.48 2.74a.4.4 0 0 1-.58.42L6.2 9.02a.4.4 0 0 0-.38 0l-2.47 1.29a.4.4 0 0 1-.58-.42l.48-2.74a.4.4 0 0 0-.11-.35L1.13 4.85a.4.4 0 0 1 .23-.69l2.75-.38a.4.4 0 0 0 .32-.24l1.2-2.52Z" fill="#FFC24B"/></svg>10 (5)</span></div>
+          </div>
+        </section>
+        <section class="order-section order-delivery order-section--tight">
+          <h2>Способ получения</h2>
+          <div class="order-delivery-card">
+            <img class="order-delivery-card__icon" src="./assets/box-logo.jpg" alt="" />
+            <div class="order-delivery-card__body">
+              <h3>Самовывоз</h3>
+              <p>Московская обл., г. Москва, ул. Ленина, д. 123</p>
+              <div class="order-work-time">
+                <span>График работы:</span>
+                <span><b>пн - пт:</b> 08:00 - 18:00</span>
+                <span><b>сб - вс:</b> 12:00 - 17:00</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="order-summary " aria-label="Сумма заказа">
+          <div class="order-summary__top"><h2>Сумма заказа</h2><span class="orders-badge orders-badge--green orders-badge--wide">Оплачено</span></div>
+          <div class="order-summary__rows">
+            <div class="order-summary__row"><span>Товары</span><strong class="">6 000 ₽</strong></div>
+            <div class="order-summary__row"><span>Оплата баллами</span><strong class="is-green">-500 ₽</strong></div>
+            <div class="order-summary__row order-summary__row--total"><span>Итого</span><strong class="">5 500 ₽</strong></div>
+          </div>
+        </section>
+      </section>
+      <div class="orders-sticky orders-sticky--three">
+        <div class="order-received-bonus"><span>Получите до +80 <img src="./assets/home/item-coin-mini.svg" alt="" /></span></div>
+        <button class="orders-main-btn" type="button">Оставить отзыв</button>
+        <div class="orders-sticky__row"><button class="orders-secondary-btn" style="color: #EB001B;" type="button">Оформить возврат</button><button class="orders-secondary-btn" type="button">Чат с продавцом</button></div>
+      </div>
+    </main>
+  </body>
+</html>

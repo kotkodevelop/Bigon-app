@@ -1,0 +1,241 @@
+/* Дополнительные новые экраны заказов. Старые стили не меняем. */
+.orders-app--compact-detail {
+  padding-bottom: calc(100px + env(safe-area-inset-bottom));
+}
+
+.orders-app--compact-detail.orders-app--three-actions {
+  padding-bottom: calc(154px + env(safe-area-inset-bottom));
+}
+
+.order-track--pickup {
+  max-width: 124px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.order-track--manual {
+  max-width: 338px;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.order-track--manual .order-track__item {
+  font-size: 10px;
+  line-height: 11px;
+}
+
+.order-track--manual .order-track__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+}
+
+.order-track--manual .order-track__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.order-track--manual .order-track__item::before {
+  top: 18px;
+}
+
+.orders-badge--gray {
+  color: #757575;
+  background: #f2f3f5;
+}
+
+.order-products-row--two .order-product-img {
+  width: 64px;
+  height: 64px;
+}
+
+.order-delivery-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.order-delivery-card__icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f2f3f5;
+}
+
+.order-delivery-card__body h3 {
+  margin: 0 0 2px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #1f1f1f;
+}
+
+.order-delivery-card__body p,
+.order-delivery-card__body div {
+  margin: 0;
+  font-size: 11px;
+  line-height: 15px;
+  font-weight: 400;
+  color: #1f1f1f;
+}
+
+.order-delivery-card__body p {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.order-delivery-card__body .order-work-time {
+  margin-top: 7px;
+}
+
+.order-delivery-card__body .order-work-time span {
+  display: block;
+}
+.order-delivery-card__body .order-work-time span:first-child {
+  color: #757575;
+}
+.order-delivery-card__body .order-work-time span b {
+  font-weight: 500;
+}
+
+.order-summary__row--bonus {
+  align-items: flex-start;
+  padding-top: 8px;
+  border-top: 1px solid #ebebeb;
+}
+
+.order-summary__bonus-title {
+  display: flex !important;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start !important;
+}
+
+.order-summary__bonus-title small {
+  color: #b0b0b0;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+}
+
+.order-bonus-pill {
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #efe4fd;
+  color: #1f1f1f !important;
+  font-size: 11px !important;
+  line-height: 18px !important;
+  font-weight: 600 !important;
+}
+
+.order-bonus-pill img {
+  width: 16px;
+  height: 16px;
+}
+
+.orders-sticky--three {
+  display: grid;
+  gap: 8px;
+}
+
+.orders-sticky--three .orders-main-btn {
+  width: 100%;
+}
+
+.orders-sticky--three .orders-sticky__row {
+  margin-top: 0;
+}
+
+.orders-sticky--primary-secondary {
+  display: grid;
+  gap: 8px;
+}
+
+.orders-sticky--primary-secondary .orders-main-btn {
+  width: 100%;
+}
+
+.orders-sticky--primary-secondary .orders-sticky__row {
+  margin-top: 0;
+}
+
+
+
+.orders-modal-layer--visible {
+  display: flex;
+}
+
+.orders-bottom-sheet--bonuses {
+  min-height: 310px;
+  padding-top: 42px;
+}
+
+.orders-bottom-sheet--bonuses h2 {
+  margin: 0 0 16px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.orders-bonus-switch {
+  height: 44px;
+  padding: 4px;
+  border-radius: 9px;
+  background: #f2f3f5;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 22px;
+}
+
+.orders-bonus-switch button {
+  border-radius: 7px;
+  color: #1f1f1f;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.orders-bonus-switch button.is-active {
+  color: #ffffff;
+  background: #246bff;
+}
+
+.orders-bottom-sheet--bonuses .order-summary {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.orders-bottom-sheet--bonuses .orders-main-btn {
+  width: 100%;
+}
+
+.orders-bottom-sheet--bonuses .orders-badge--gray {
+  font-size: 10px;
+}
+
+.order-section--tight {
+  margin-top: 20px;
+}
+
+@media (max-width: 360px) {
+  .order-track--manual {
+    max-width: 314px;
+  }
+  .order-track--manual .order-track__icon {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.order-track--manual .order-track__item.is-active > span:not(.order-track__icon) {
+  max-width: 62px;
+  color: #1f1f1f;
+  text-wrap: wrap;
+}

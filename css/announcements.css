@@ -171,7 +171,7 @@ svg {
   min-width: 0;
   height: 40px;
   display: grid;
-  grid-template-columns: 16px 1fr;
+  grid-template-columns: 20px 1fr;
   align-items: center;
   gap: 8px;
   padding: 0 13px;
@@ -1001,6 +1001,13 @@ button.ann-choice-row[aria-pressed="true"] i::after {
   font-weight: 400;
 }
 
+.ann-edit-delivery .ann-small-label {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.ann-edit-form .ann-field {
+  margin-top: 0;
+}
 .ann-field--map {
   position: relative;
   display: block;
