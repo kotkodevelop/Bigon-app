@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Завершенные заказы компании</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/cashier-offline.css" />
+    <link rel="stylesheet" href="./css/company-orders.css" />
+  </head>
+  <body>
+    <main class="home-app cashier-offline-app company-orders-app" aria-label="Заказы компании">
+      <section class="home-screen cashier-offline-screen" aria-label="Заказы компании">
+        <header class="cashier-offline-hero company-orders-hero">
+  <div class="cashier-offline-userbar">
+    <div class="home-user"><img class="home-user__avatar" src="./assets/home/user.png" alt="Даниил" /><div class="home-user__meta"><div class="home-user-name-title">Даниил</div></div></div>
+    <button class="cashier-offline-notify" type="button" aria-label="Уведомления: 1 новое"><img src="./assets/home/home-notification.svg" alt="" /><span aria-hidden="true">1</span></button>
+  </div>
+  <a class="cashier-offline-scan" href="./scan-qr-cashier.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#fff" d="M4 4h6v6H4V4Zm2 2v2h2V6H6Zm8-2h6v6h-6V4Zm2 2v2h2V6h-2ZM4 14h6v6H4v-6Zm2 2v2h2v-2H6Zm8-2h2v2h-2v-2Zm2 2h2v2h-2v-2Zm-2 2h2v2h-2v-2Zm4-4h2v2h-2v-2Zm0 4h2v2h-2v-2Z"/></svg><span>Сканировать QR-код</span></a>
+  <article class="cashier-offline-company" aria-label="Компания Eco Life"><img class="cashier-offline-company__logo" src="./assets/profile/ecolife-logo.jpg" alt="Eco Life" /><div class="cashier-offline-company__content"><h1>Eco Life</h1><p><img src="./assets/home/user-star.svg" alt="" />10 (5)</p></div><button class="cashier-offline-share" type="button" aria-label="Поделиться"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.334 6.001c1.45.008 2.235.073 2.748.585.585.586.585 1.528.585 3.414v.667c0 1.885 0 2.828-.585 3.414-.586.586-1.53.586-3.415.586H5.334c-1.886 0-2.828 0-3.414-.586-.586-.586-.586-1.529-.586-3.414V10c0-1.886 0-2.828.586-3.414.512-.512 1.297-.577 2.747-.585" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M8 10V1.333m0 0 2 2.334M8 1.333 6 3.667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Поделиться</span></button></article>
+</header>
+        <div class="cashier-offline-content company-orders-content">
+  <div class="home-tabs" role="tablist" aria-label="Переключатель профиля"><button class="home-tab" type="button">Я Частное лицо</button><button class="home-tab is-active" type="button">Я Компания</button></div>
+  <div class="cashier-offline-title-row"><h2>Мои заказы</h2></div>
+  <div class="home-cashier-tabs" role="tablist" aria-label="Раздел заказов"><a class="" href="./company-orders-current.html">Текущие</a><a class="is-active" href="./company-orders-completed.html">Завершенные</a><a class="" href="./company-orders-offline.html">Оффлайн-продажи</a></div>
+  <label class="cashier-offline-search"><img src="./assets/search.svg" alt="" /><input type="text" placeholder="Номер заказа" /></label>
+          <div class="company-orders-list">
+            <article class="company-order-card">
+  <div class="company-order-card__top"><div class="company-order-card__title"><h3>Заказ от 10.11.2024</h3><p>№ 5548641333</p></div><div class="company-order-card__status"><span class="company-order-badge company-order-badge--green">Завершен</span><a href="#">Чат с покупателем</a></div></div>
+  <div class="company-order-products"><img src="./assets/employ/product.jpg" alt="" /></div>
+  
+</article>
+<article class="company-order-card">
+  <div class="company-order-card__top"><div class="company-order-card__title"><h3>Заказ от 10.11.2024</h3><p>№ 5548641333</p></div><div class="company-order-card__status"><span class="company-order-badge company-order-badge--gray">Отменён</span><a href="#">Чат с покупателем</a></div></div>
+  <div class="company-order-products"><img src="./assets/employ/product.jpg" alt="" /></div>
+  
+</article>
+<article class="company-order-card">
+  <div class="company-order-card__top"><div class="company-order-card__title"><h3>Заказ от 10.11.2024</h3><p>№ 5548641333</p></div><div class="company-order-card__status"><span class="company-order-badge company-order-badge--green">Завершен</span><a href="#">Чат с покупателем</a></div></div>
+  <div class="company-order-products"><img src="./assets/employ/product.jpg" alt="" /></div>
+  
+</article>
+<article class="company-order-card">
+  <div class="company-order-card__top"><div class="company-order-card__title"><h3>Заказ от 10.11.2024</h3><p>№ 5548641333</p></div><div class="company-order-card__status"><span class="company-order-badge company-order-badge--green">Завершен</span><a href="#">Чат с покупателем</a></div></div>
+  <div class="company-order-products"><img src="./assets/employ/product.jpg" alt="" /></div>
+  
+</article>
+          </div>
+        </div>
+        <nav class="state-bottom-nav" aria-label="Навигация приложения">
+  <button class="state-nav-item is-active" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#858585" fill-rule="evenodd" d="M1.289 2.763a.75.75 0 0 1 .948-.474l.265.088.04.013c.626.209 1.155.385 1.572.579.442.206.826.46 1.117.865.291.404.412.849.467 1.333.052.456.052 1.014.052 1.675V9.5c0 1.436.002 2.437.103 3.192.099.734.28 1.122.556 1.4.277.276.666.456 1.4.555.755.102 1.756.103 3.191.103h7a.75.75 0 0 1 0 1.5h-7.055c-1.367 0-2.47 0-3.337-.116-.9-.121-1.658-.38-2.26-.982-.601-.602-.86-1.36-.981-2.26-.117-.867-.117-1.97-.117-3.337V6.883c0-.713 0-1.185-.042-1.546-.04-.341-.107-.506-.194-.626-.086-.12-.221-.237-.533-.382-.33-.153-.777-.304-1.453-.529l-.265-.088a.75.75 0 0 1-.474-.949Z" clip-rule="evenodd"/><path fill="#858585" d="M5.745 6c.005.26.005.54.005.841V9.5c0 1.435.002 2.437.103 3.192.015.11.032.213.05.308h10.12c.959 0 1.438 0 1.814-.248.376-.248.565-.688.942-1.57l.43-1c.809-1.89 1.213-2.833.769-3.508C19.533 6 18.506 6 16.45 6H5.745Z" opacity=".5"/><path fill="#858585" d="M7.5 18a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM18 19.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z"/></svg><span>Заказы</span></button>
+  <button class="state-nav-item" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#858585" d="M20.208 15.957h-6.575c-.832 0-1.508.664-1.508 1.481 0 .817.676 1.482 1.508 1.482h6.575c.833 0 1.508-.665 1.508-1.482s-.675-1.481-1.508-1.481ZM22 6.379c0-.817-.675-1.48-1.507-1.48h-6.575c-.832 0-1.508.663-1.508 1.48s.676 1.481 1.508 1.481h6.575c.832 0 1.507-.664 1.507-1.481Z" opacity=".4"/><path fill="#858585" d="M8.878 6.379c0 1.866-1.54 3.38-3.44 3.38C3.54 9.758 2 8.244 2 6.378 2 4.513 3.54 3 5.439 3c1.9 0 3.439 1.513 3.439 3.379ZM9.003 17.4c0 1.865-1.54 3.378-3.44 3.378-1.898 0-3.438-1.513-3.438-3.379 0-1.867 1.54-3.38 3.439-3.38 1.9 0 3.439 1.514 3.439 3.38Z"/></svg><span>Объявления</span></button>
+  <button class="state-nav-item" type="button"><span class="state-nav-plus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="#fff" stroke-linecap="round" stroke-width="1.2" d="M8 2.667v10.666M13.334 8H2.667"/></svg></span></button>
+  <button class="state-nav-item" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#858585" d="M12.02 2C6.21 2 2 6.74 2 12c0 1.68.49 3.41 1.35 4.99.16.26.18.59.07.9l-.67 2.24c-.15.54.31.94.82.78l2.02-.6c.55-.18.98.05 1.491.36 1.46.86 3.279 1.3 4.919 1.3 4.96 0 10-3.83 10-10C22 6.65 17.7 2 12.02 2Z" opacity=".4"/><path fill="#858585" fill-rule="evenodd" d="M7.37 10.73c.71 0 1.28.57 1.28 1.28 0 .7-.57 1.27-1.28 1.28-.7 0-1.28-.58-1.28-1.28 0-.71.57-1.28 1.28-1.28Zm4.61 0c.71 0 1.28.57 1.28 1.28 0 .7-.57 1.28-1.28 1.28-.71-.01-1.28-.58-1.28-1.29 0-.7.58-1.28 1.28-1.27Zm4.61 0c.71 0 1.28.57 1.28 1.28 0 .7-.57 1.28-1.28 1.28-.71 0-1.28-.58-1.28-1.28 0-.71.57-1.28 1.28-1.28Z" clip-rule="evenodd"/></svg><span>Чат</span></button>
+  <button class="state-nav-item" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="6" r="4" fill="#0066F5"/><path fill="#0066F5" d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5Z" opacity=".5"/></svg><span>Профиль</span></button>
+</nav>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+/* Детальные экраны заказа продавца. Новые стили без правок старых файлов. */
+.orders-app--seller-detail {
+  padding-bottom: calc(118px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-detail.orders-app--seller-primary {
+  padding-bottom: calc(168px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-detail .orders-header {
+  min-height: 70px;
+}
+
+.orders-app--seller-detail .order-detail-content {
+  padding-top: 18px;
+  padding-bottom: 34px;
+}
+
+.order-track--seller {
+  max-width: 220px;
+  margin-top: 2px;
+  margin-bottom: 24px;
+}
+
+.order-track--seller .order-track__item {
+  gap: 8px;
+}
+
+.order-track--seller .order-track__item.is-active > span:not(.order-track__icon) {
+  max-width: 82px;
+  white-space: normal;
+  text-wrap: nowrap;
+}
+
+.order-products-row--seller {
+  gap: 8px;
+}
+
+.order-products-row--seller .order-product-img {
+  width: 64px;
+  height: 64px;
+  flex-basis: 64px;
+}
+
+.order-section--seller {
+  margin-top: 22px;
+}
+
+.order-section--seller h2 {
+  margin-bottom: 8px;
+}
+
+.seller-buyer-row {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seller-buyer-row__avatar {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #dce5f2;
+}
+
+.seller-buyer-row span {
+  color: #1f1f1f;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+.seller-delivery h3 {
+  margin: 0 0 2px;
+  color: #1f1f1f;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+.seller-delivery p {
+  margin: 0;
+  color: #1f1f1f;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+.order-summary--seller {
+  margin-top: 20px;
+}
+
+.order-summary--seller .order-summary__top h2 {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.order-summary--seller .order-summary__rows {
+  padding-top: 8px;
+}
+
+.orders-sticky--seller {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+  box-shadow: 0px 8px 20px 0px #00000040;
+}
+
+.orders-sticky--seller .orders-main-btn {
+  width: 100%;
+}
+
+.orders-sticky--seller .orders-sticky__row {
+  margin-top: 0;
+}
+
+.orders-sticky--seller-single {
+  padding-top: 12px;
+}
+
+@media (max-width: 360px) {
+  .seller-buyer-row span,
+  .seller-delivery h3,
+  .seller-delivery p {
+    font-size: 13px;
+  }
+}

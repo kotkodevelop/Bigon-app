@@ -1,0 +1,133 @@
+/* Новые экраны заказа продавца при самовывозе. Старые стили не изменяем. */
+.orders-app--seller-pickup {
+  padding-bottom: calc(166px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-pickup.orders-app--seller-pickup-ready {
+  padding-bottom: calc(166px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-pickup.orders-app--seller-pickup-complete {
+  padding-bottom: calc(102px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-pickup .orders-header {
+  min-height: 70px;
+}
+
+.orders-app--seller-pickup .order-detail-content {
+  padding-top: 18px;
+  padding-bottom: 28px;
+}
+
+.order-track--seller-pickup {
+  max-width: 124px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 0;
+  margin-bottom: 28px;
+}
+
+.order-track--seller-pickup .order-track__item::before {
+  top: 20px;
+}
+
+.order-track--seller-pickup .order-track__item.is-active > span:not(.order-track__icon) {
+  color: #1f1f1f;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
+.order-section--seller-pickup {
+  margin-top: 22px;
+}
+
+.order-products-row--seller-pickup {
+  gap: 8px;
+}
+
+.order-products-row--seller-pickup .order-product-img {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  border-radius: 10px;
+}
+
+.seller-pickup-delivery .order-delivery-card__icon {
+  border-radius: 8px;
+}
+
+.seller-pickup-delivery .order-delivery-card__body p {
+  max-width: 260px;
+  line-height: 16px;
+}
+
+.order-summary--seller-pickup {
+  margin-top: 26px;
+}
+
+.order-summary--seller-pickup .order-summary__top h2 {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.order-summary--seller-pickup .order-summary__rows {
+  padding-top: 8px;
+}
+
+.orders-sticky--seller-pickup {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+  box-shadow: 0px 8px 20px 0px #00000040;
+}
+
+.orders-sticky--seller-pickup .orders-main-btn {
+  width: 100%;
+}
+
+.orders-sticky--seller-pickup .orders-sticky__row {
+  margin-top: 0;
+}
+
+.orders-main-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.seller-pickup-modal-page .purchase-sheet {
+  min-height: calc(100dvh - 88px);
+  max-height: calc(100dvh - 88px);
+  border-radius: 28px 28px 0 0;
+  padding-top: 50px;
+}
+
+.seller-pickup-modal-page .purchase-sheet h1 {
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.seller-pickup-modal-page .purchase-date {
+  margin-bottom: 34px;
+}
+
+.seller-pickup-modal-page .purchase-balance-card {
+  margin-bottom: 26px;
+}
+
+.seller-pickup-modal-page .purchase-percent-grid {
+  margin-bottom: 26px;
+}
+
+.seller-pickup-modal-page .purchase-sheet-modal {
+  z-index: 80;
+}
+
+.seller-pickup-modal-page .scan-qr-sheet-backdrop {
+  background: rgba(0, 0, 0, 0.58);
+}
+
+@media (max-width: 360px) {
+  .seller-pickup-delivery .order-delivery-card__body p {
+    font-size: 12px;
+  }
+}

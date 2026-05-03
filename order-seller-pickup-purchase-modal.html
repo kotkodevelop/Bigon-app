@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Bigon.pro — Совершена покупка — продавец самовывоз</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/orders.css" />
+    <link rel="stylesheet" href="./css/orders-more.css" />
+    <link rel="stylesheet" href="./css/order-seller.css" />
+    <link rel="stylesheet" href="./css/order-seller-pickup.css" />
+    <link rel="stylesheet" href="./css/scan-qr-cashier.css" />
+  </head>
+  <body>
+    <main class="orders-app orders-app--detail orders-app--seller-detail orders-app--seller-pickup orders-app--seller-primary orders-app--seller-pickup-ready seller-pickup-modal-page">
+      <header class="orders-header">
+        <button class="orders-header__back" type="button" aria-label="Назад"><img src="./assets/back-btn.svg" alt="" /></button>
+        <div class="orders-header__title"><h1>Заказ от 10.01.2026</h1><p>№ 5548641333</p></div>
+      </header>
+      <section class="orders-content order-detail-content" aria-label="Детали заказа продавца">
+        <div class="order-track order-track--seller-pickup" aria-label="Статус заказа">
+          <div class="order-track__item is-done">
+            <span class="order-track__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="m17.578 4.432-2-1.05C13.822 2.461 12.944 2 12 2s-1.822.46-3.578 1.382l-.321.169 8.923 5.099 4.016-2.01c-.646-.732-1.688-1.279-3.462-2.21Zm4.17 3.532-3.998 2V13a.75.75 0 0 1-1.5 0v-2.287l-3.5 1.75v9.441c.718-.179 1.535-.607 2.828-1.286l2-1.05c2.151-1.129 3.227-1.693 3.825-2.708.597-1.014.597-2.277.597-4.8v-.117c0-1.893 0-3.076-.252-3.978ZM11.25 21.904v-9.44l-8.998-4.5C2 8.866 2 10.05 2 11.941v.117c0 2.525 0 3.788.597 4.802.598 1.015 1.674 1.58 3.825 2.709l2 1.049c1.293.679 2.11 1.107 2.828 1.286ZM2.96 6.641l9.04 4.52 3.411-1.705-8.886-5.078-.103.054c-1.773.93-2.816 1.477-3.462 2.21Z"/></svg></span>
+            <span>Создан</span>
+          </div>
+          <div class="order-track__item is-active">
+            <span class="order-track__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M16.528 2H7.472c-1.203 0-1.804 0-2.288.299-.483.298-.752.836-1.29 1.912L2.491 7.76c-.325.82-.608 1.786-.062 2.479A2 2 0 0 0 6 9a2 2 0 1 0 4 0 2 2 0 1 0 4 0 2 2 0 1 0 4 0 2 2 0 0 0 3.571 1.238c.546-.693.262-1.659-.062-2.479l-1.404-3.548c-.538-1.076-.806-1.614-1.29-1.912C18.332 2 17.73 2 16.528 2Z"/><path fill="currentColor" fill-rule="evenodd" d="M20 21.25h2a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1 0-1.5h2V12.5c.744 0 1.433-.232 2-.627a3.484 3.484 0 0 0 2 .627c.744 0 1.433-.232 2-.627a3.484 3.484 0 0 0 2 .627c.744 0 1.433-.232 2-.627a3.484 3.484 0 0 0 2 .627c.744 0 1.433-.232 2-.627a3.484 3.484 0 0 0 2 .627v8.75Zm-10.5 0h5V18.5c0-.934 0-1.401-.201-1.75a1.5 1.5 0 0 0-.549-.549c-.348-.2-.815-.2-1.75-.2s-1.402 0-1.75.2a1.5 1.5 0 0 0-.549.55c-.201.348-.201.815-.201 1.75v2.75Z" clip-rule="evenodd"/></svg></span>
+            <span>Готов к выдаче</span>
+          </div>
+        </div>
+        <section class="order-section order-section--seller-pickup">
+          <h2>Заказ <span>(3 товара)</span></h2>
+          <div class="order-products-row order-products-row--seller-pickup">
+            <img class="order-product-img" src="./assets/cart/cart-product.svg" alt="" />
+            <img class="order-product-img" src="./assets/cart/cart-product.svg" alt="" />
+            <img class="order-product-img" src="./assets/cart/cart-product.svg" alt="" />
+          </div>
+        </section>
+        <section class="order-section order-section--seller-pickup">
+          <h2>Покупатель</h2>
+          <div class="seller-buyer-row">
+            <img class="seller-buyer-row__avatar" src="./assets/no-avatar.svg" alt="" />
+            <span>Иванова Елена Ивановна</span>
+          </div>
+        </section>
+        <section class="order-section order-section--seller-pickup seller-pickup-delivery">
+          <h2>Способ получения</h2>
+          <div class="order-delivery-card">
+            <img class="order-delivery-card__icon" src="./assets/store-card-preview.png" alt="" />
+            <div class="order-delivery-card__body">
+              <h3>Самовывоз</h3>
+              <p>Московская обл., г. Москва, ул. Ленина, д. 123</p>
+              <div class="order-work-time">
+                <span>График работы:</span>
+                <span><b>пн - пт:</b> 08:00 - 18:00</span>
+                <span><b>сб - вс:</b> 12:00 - 17:00</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="order-summary order-summary--seller-pickup" aria-label="Сумма заказа">
+          <div class="order-summary__top">
+            <h2>Сумма заказа</h2>
+            <span class="orders-badge orders-badge--gray orders-badge--wide">Оплата при получении</span>
+          </div>
+          <div class="order-summary__rows">
+            <div class="order-summary__row"><span>Товары</span><strong>6 000 ₽</strong></div>
+            <div class="order-summary__row order-summary__row--total"><span>Итого</span><strong>6 000 ₽</strong></div>
+          </div>
+        </section>
+      </section>
+      <div class="orders-sticky orders-sticky--seller-pickup">
+        <button class="orders-main-btn" type="button"><svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.4" d="M13.7622 3.74219C14.3672 3.74219 14.9486 3.98074 15.3716 4.40527C15.7976 4.83379 16.0337 5.40966 16.0327 6.00879V7.25391C16.0277 7.40002 15.9083 7.51854 15.7593 7.52246H6.23975C6.09175 7.51756 5.97224 7.39903 5.96924 7.25391V6.00879C5.95826 4.76835 6.97478 3.75494 8.23877 3.74219H13.7622ZM16.1938 0C18.3907 0.000115542 20.1763 1.75194 20.1763 3.90625V5.7627C20.1761 6.17437 19.8364 6.50977 19.4155 6.50977C18.9957 6.50971 18.655 6.17433 18.6548 5.7627V3.90625C18.6548 2.57565 17.5507 1.49328 16.1938 1.49316H14.6011C14.1811 1.49316 13.8394 1.15892 13.8394 0.74707C13.8396 0.334441 14.1812 0 14.6011 0H16.1938ZM7.42725 0C7.8472 0 8.18888 0.334305 8.18896 0.74707C8.18896 1.15892 7.84825 1.49316 7.42725 1.49316L5.79834 1.49414C4.44667 1.49631 3.34741 2.57592 3.34717 3.90234V5.76172C3.34717 6.17357 3.00447 6.50879 2.58447 6.50879C2.16459 6.50865 1.82373 6.17349 1.82373 5.76172V3.90234C1.82398 1.75319 3.60668 0.00313282 5.79736 0.000976562L7.42627 0H7.42725Z" fill="white"/><path d="M21.239 9.04126H0.762C0.342 9.04126 0 9.37564 0 9.78848C0 10.2003 0.342 10.5337 0.762 10.5337H1.823V14.0972C1.823 16.2467 3.607 17.9971 5.798 17.999L7.427 18C7.848 18 8.188 17.6656 8.189 17.2528C8.189 16.841 7.848 16.5066 7.428 16.5066L5.8 16.5056C4.447 16.5036 3.346 15.424 3.346 14.0972V10.5337H5.969V11.5251C5.959 12.7656 6.974 13.7795 8.238 13.7913H13.762C15.027 13.7795 16.042 12.7656 16.032 11.5251V10.5337H18.655V14.0933C18.655 15.425 17.551 16.5066 16.194 16.5066H14.601C14.18 16.5066 13.839 16.841 13.839 17.2528C13.839 17.6656 14.18 18 14.601 18H16.194C18.39 18 20.177 16.2487 20.177 14.0933V10.5337H21.239C21.659 10.5337 22 10.2003 22 9.78848C22 9.37564 21.659 9.04126 21.239 9.04126Z" fill="white"/></svg> Сканировать QR-код</button>
+        <div class="orders-sticky__row">
+          <button class="orders-secondary-btn" type="button">Отменить</button>
+          <button class="orders-secondary-btn" type="button">Чат с покупателем</button>
+        </div>
+      </div>
+
+      <div class="purchase-sheet-modal is-open" data-purchase-sheet aria-hidden="false">
+        <div class="scan-qr-sheet-backdrop" data-purchase-sheet-close></div>
+        <section class="purchase-sheet" role="dialog" aria-modal="true" aria-labelledby="sellerPickupPurchaseTitle">
+          <div class="scan-qr-sheet-handle" aria-hidden="true"></div>
+          <button class="scan-qr-sheet-close" type="button" data-purchase-sheet-close aria-label="Закрыть">
+            <img src="./assets/close.svg" alt="" />
+          </button>
+
+          <h1 id="sellerPickupPurchaseTitle">Совершена покупка</h1>
+          <p class="purchase-date">25 января 2026</p>
+
+          <div class="purchase-buyer-card">
+            <span class="purchase-label">Покупатель:</span>
+            <div class="purchase-person">
+              <img src="./assets/no-avatar.svg" alt="" />
+              <b>Иванова Елена Ивановна</b>
+            </div>
+          </div>
+
+          <div class="purchase-balance-card">
+            <span class="purchase-label">Доступно для списания баллов:</span>
+            <strong>2 000 <img src="./assets/home/home-coin-icon.svg" alt="" /></strong>
+            <p><img src="./assets/home/home-fire.svg" alt="" />1000 баллов сгорит 20.02.2026</p>
+          </div>
+
+          <label class="purchase-field">
+            <span>Сумма покупки:</span>
+            <input type="text" inputmode="numeric" value="6 000" placeholder="0 ₽" data-purchase-sum />
+          </label>
+
+          <div class="purchase-field">
+            <span>Установите размер баллов для оплаты заказа:</span>
+            <div class="purchase-percent-input" data-purchase-percent-value>10%</div>
+          </div>
+
+          <div class="purchase-percent-grid" data-purchase-percent-grid>
+            <button type="button">5%</button>
+            <button class="is-active" type="button">10%</button>
+            <button type="button">15%</button>
+            <button type="button">20%</button>
+          </div>
+
+          <div class="purchase-actions">
+            <button class="purchase-main-button" type="button" data-result-open="spent">Списать - 600 баллов</button>
+            <button class="purchase-secondary-button" type="button" data-result-open="request">Начислить кэшбек&nbsp; <b>+ 600</b> <img src="./assets/home/home-coin-icon.svg" alt="" /></button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="./js/scan-qr-cashier.js"></script>
+  </body>
+</html>

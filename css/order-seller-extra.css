@@ -1,0 +1,379 @@
+/* Дополнительные экраны заказа продавца. Старые стили не меняем. */
+.orders-app--seller-extra-page {
+  padding-bottom: calc(112px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-extra-page.orders-app--seller-extra-primary {
+  padding-bottom: calc(168px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-reviews-page {
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
+}
+
+.orders-app--seller-extra-page .orders-header {
+  min-height: 70px;
+}
+
+.orders-app--seller-extra-page .order-detail-content {
+  padding-top: 18px;
+  padding-bottom: 30px;
+}
+
+.order-track--seller-manual {
+  max-width: 338px;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.order-track--seller-manual .order-track__item {
+  font-size: 10px;
+  line-height: 11px;
+}
+
+.order-track--seller-manual .order-track__item.is-active > span:not(.order-track__icon) {
+  max-width: 68px;
+  color: #1f1f1f;
+  text-wrap: wrap;
+}
+
+.order-section--seller-extra {
+  margin-top: 22px;
+}
+
+.order-products-row--seller-extra .order-product-img {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.order-summary--seller-extra {
+  margin-top: 22px;
+}
+
+.order-summary--seller-extra .order-summary__top h2 {
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.seller-summary-bonus {
+  margin-top: 10px !important;
+}
+
+.seller-summary-bonus .order-summary__bonus-title {
+  color: #1f1f1f;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.orders-sticky--seller-extra {
+  padding-top: 10px;
+  box-shadow: 0px 8px 20px 0px #00000040;
+}
+
+.orders-sticky--chat-only {
+  padding-top: 12px;
+  box-shadow: 0px 8px 20px 0px #00000040;
+}
+
+.orders-sticky--chat-only > .orders-secondary-btn {
+  width: 100%;
+}
+
+.seller-reviews-section {
+  margin-top: 22px;
+  display: grid;
+  gap: 8px;
+}
+
+.seller-reviews-section h2 {
+  margin: 0 0 2px;
+  color: #1f1f1f;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 600;
+}
+
+.seller-review-card {
+  padding: 10px;
+  border-radius: 10px;
+  background: #f7f8fa;
+}
+
+.seller-review-product {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+
+.seller-review-product img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  border-radius: 7px;
+  object-fit: cover;
+  background: #fff;
+}
+
+.seller-review-product span {
+  min-width: 0;
+  color: #757575;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.seller-review-product--long span {
+  max-width: 250px;
+}
+
+.seller-review-rating {
+  margin-top: 8px;
+}
+
+.seller-review-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #1f1f1f;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.seller-review-stars svg {
+  width: 16px;
+  height: 16px;
+}
+
+.seller-review-card > p,
+.seller-review-reply p {
+  margin: 6px 0 0;
+  color: #1f1f1f;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.seller-review-photos {
+  margin-top: 8px;
+  display: flex;
+  gap: 5px;
+}
+
+.seller-review-photos img {
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
+.seller-review-actions {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.seller-review-actions .orders-main-btn,
+.seller-review-actions .orders-secondary-btn {
+  height: 36px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.seller-review-reply {
+  margin-top: 20px;
+  padding-left: 10px;
+  border-left: 1px solid #adb5bd;
+}
+
+.seller-review-reply .seller-review-product {
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.seller-review-reply .seller-review-product img {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+  border-radius: 50%;
+  object-position: center;
+}
+
+.seller-review-reply .seller-review-product span {
+  color: #0066f5;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.seller-review-reply p {
+  margin-top: 8px;
+  color: #3c3c3c;
+  line-height: 150%;
+}
+
+.seller-review-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.seller-review-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.seller-review-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .58);
+}
+
+.seller-review-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 330px;
+  padding: 43px 13px 16px;
+  border-radius: 28px 28px 0 0;
+  background: #fff;
+  transform: translateY(16px);
+  transition: transform 220ms ease;
+  touch-action: none;
+}
+
+.seller-review-overlay.is-open .seller-review-sheet {
+  transform: translateY(0);
+}
+
+.seller-review-handle {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: #aeb4bc;
+  transform: translateX(-50%);
+}
+
+.seller-review-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: -1px 4px 4px rgba(0, 0, 0, .14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seller-review-close img {
+  width: 11px;
+  height: 11px;
+}
+
+.seller-review-sheet h2 {
+  margin: 0 0 22px;
+  color: #1f1f1f;
+  font-size: 17px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.seller-review-sheet textarea {
+  width: 100%;
+  height: 166px;
+  padding: 15px 13px;
+  border: 0;
+  outline: none;
+  resize: none;
+  border-radius: 10px;
+  background: #f7f8fa;
+  color: #1f1f1f;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.seller-review-sheet textarea::placeholder {
+  color: #9a9a9a;
+}
+
+.seller-review-sheet .orders-main-btn {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.seller-review-popup {
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  top: 50%;
+  min-height: 188px;
+  padding: 39px 16px 16px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 54px rgba(0, 0, 0, .14);
+  transform: translate3d(0, -50%, 0);
+  transition: transform 220ms ease;
+  touch-action: none;
+}
+
+.seller-review-popup-close {
+  top: 6px;
+  right: 6px;
+  box-shadow: none;
+}
+
+.seller-review-popup-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 12px;
+}
+
+.seller-review-popup p {
+  max-width: 270px;
+  margin: 0 auto 18px;
+  color: #575757;
+  text-align: center;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+.seller-review-popup .orders-main-btn {
+  width: 100%;
+  height: 42px;
+}
+
+@media (max-width: 360px) {
+  .order-track--seller-manual {
+    max-width: 314px;
+  }
+
+  .seller-review-card > p,
+  .seller-review-reply p {
+    font-size: 11px;
+    line-height: 15px;
+  }
+}

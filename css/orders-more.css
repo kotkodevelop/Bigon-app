@@ -65,7 +65,7 @@
 }
 
 .order-delivery-card__body h3 {
-  margin: 0 0 2px;
+  margin: 0 0 8px;
   font-size: 14px;
   line-height: 17px;
   font-weight: 400;
@@ -87,23 +87,27 @@
 }
 
 .order-delivery-card__body .order-work-time {
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 .order-delivery-card__body .order-work-time span {
   display: block;
+  font-size: 14px;
+  line-height: 21px;
 }
 .order-delivery-card__body .order-work-time span:first-child {
   color: #757575;
+  font-size: 12px;
+  line-height: 12px;
+  margin-bottom: 4px;
 }
 .order-delivery-card__body .order-work-time span b {
   font-weight: 500;
 }
 
 .order-summary__row--bonus {
-  align-items: flex-start;
-  padding-top: 8px;
-  border-top: 1px solid #ebebeb;
+  align-items: center;
+  padding-top: 6px;
 }
 
 .order-summary__bonus-title {
@@ -121,16 +125,16 @@
 }
 
 .order-bonus-pill {
-  height: 18px;
-  padding: 0 5px;
-  border-radius: 999px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 16px;
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  background: #efe4fd;
+  gap: 4px;
+  background: #EFE4FD;
   color: #1f1f1f !important;
-  font-size: 11px !important;
-  line-height: 18px !important;
+  font-size: 14px !important;
+  line-height: 24px !important;
   font-weight: 600 !important;
 }
 
