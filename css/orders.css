@@ -350,7 +350,7 @@ svg {
 .orders-badge--blue {
     color: var(--orders-blue);
     background: var(--orders-blue-soft);
-    max-width: 108px !important;
+    max-width: unset !important;
     white-space: unset;
     text-wrap: wrap;
     height: fit-content;
