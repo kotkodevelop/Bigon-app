@@ -639,8 +639,7 @@ svg {
 }
 
 .purchase-percent-input {
-  display: flex;
-  align-items: center;
+  display: block;
 }
 
 .purchase-percent-grid {
@@ -776,4 +775,3 @@ svg {
 .purchase-result__sheet--small .scan-qr-primary {
   margin-top: 40px;
 }
-

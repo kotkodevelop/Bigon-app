@@ -286,12 +286,47 @@ bindSwipeToClose({
   close: closePurchaseSheet,
 });
 
-const percentValue = document.querySelector('[data-purchase-percent-value]');
-document.querySelectorAll('[data-purchase-percent-grid] button').forEach((button) => {
+const purchasePercentInput = purchaseSheet?.querySelector('[data-purchase-percent-value]');
+const purchasePercentButtons = Array.from(purchaseSheet?.querySelectorAll('[data-purchase-percent-grid] button') ?? []);
+
+const formatPurchasePercent = (value) => {
+  const digits = value.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+  if (!digits) return '%';
+  return `${Math.min(Number(digits), 100)}%`;
+};
+
+const placeCaretBeforePercent = (input) => {
+  const caretPosition = input.value.replace(/%$/, '').length;
+  input.setSelectionRange(caretPosition, caretPosition);
+};
+
+const syncPurchasePercentButtons = () => {
+  if (!purchasePercentInput) return;
+  purchasePercentButtons.forEach((button) => {
+    button.classList.toggle('is-active', button.textContent.trim() === purchasePercentInput.value);
+  });
+};
+
+if (purchasePercentInput) {
+  const updatePurchasePercent = () => {
+    purchasePercentInput.value = formatPurchasePercent(purchasePercentInput.value);
+    syncPurchasePercentButtons();
+    placeCaretBeforePercent(purchasePercentInput);
+  };
+
+  purchasePercentInput.value = formatPurchasePercent(purchasePercentInput.value);
+  syncPurchasePercentButtons();
+  purchasePercentInput.addEventListener('input', updatePurchasePercent);
+  purchasePercentInput.addEventListener('focus', () => placeCaretBeforePercent(purchasePercentInput));
+  purchasePercentInput.addEventListener('click', () => placeCaretBeforePercent(purchasePercentInput));
+}
+
+purchasePercentButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('[data-purchase-percent-grid] button').forEach((item) => item.classList.remove('is-active'));
-    button.classList.add('is-active');
-    if (percentValue) percentValue.textContent = button.textContent.trim();
+    if (!purchasePercentInput) return;
+    purchasePercentInput.value = formatPurchasePercent(button.textContent);
+    syncPurchasePercentButtons();
+    placeCaretBeforePercent(purchasePercentInput);
   });
 });
 
