@@ -830,7 +830,7 @@ svg {
   left: 0;
   right: 0;
   z-index: 10;
-  height: 50px !important;
+  height: 64px !important;
   padding: 0 !important;
   background: #ffffff;
   border-radius: inherit;
@@ -843,7 +843,7 @@ svg {
 .seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-handle,
 .scan-qr-app--found .purchase-sheet__header .scan-qr-sheet-handle {
   position: absolute !important;
-  top: 16px !important;
+  top: 10px !important;
   left: 50% !important;
   width: 40px;
   height: 4px;
@@ -877,7 +877,7 @@ svg {
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
-  padding: 52px 13px 0 !important;
+  padding: 66px 13px 0 !important;
 }
 
 .seller-pickup-modal-page .purchase-actions,

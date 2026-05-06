@@ -525,8 +525,8 @@ svg {
   bottom: 0;
   overflow: hidden;
   background: #ffffff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.08);
   opacity: 0;
   pointer-events: none;

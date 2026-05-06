@@ -97,7 +97,7 @@
 .seller-pickup-modal-page .purchase-sheet {
   min-height: calc(100dvh - 88px);
   max-height: calc(100dvh - 88px);
-  border-radius: 28px 28px 0 0;
+  border-radius: 32px 32px 0 0;
 }
 
 .seller-pickup-modal-page .purchase-sheet h1 {
