@@ -9,21 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/scan-qr-cashier.css" />
   </head>
+
   <body>
     <main class="scan-qr-app scan-qr-app--found" aria-label="QR-код покупателя найден">
       <header class="scan-qr-header">
         <button class="scan-qr-back" type="button" data-scan-qr-back aria-label="Назад">
           <img src="./assets/back-btn.svg" alt="" />
         </button>
+
         <h1>Сканировать QR-код</h1>
       </header>
 
       <section class="scan-qr-camera" aria-label="QR-код покупателя найден">
         <div class="scan-qr-receipt-bg" aria-hidden="true"></div>
+
         <div class="scan-qr-tools" aria-label="Инструменты камеры">
           <button class="scan-qr-tool" type="button" aria-label="Открыть галерею" data-scan-qr-photo-open>
             <img src="./assets/scan/image-scan.svg" alt="" />
           </button>
+
           <button class="scan-qr-tool" type="button" aria-label="Включить вспышку">
             <img src="./assets/scan/light-scan.svg" alt="" />
           </button>
@@ -33,6 +37,7 @@
           <div class="scan-qr-card">
             <img src="./assets/home/qr-code.svg" alt="" />
           </div>
+
           <span class="scan-qr-frame__corner scan-qr-frame__corner--tl"></span>
           <span class="scan-qr-frame__corner scan-qr-frame__corner--tr"></span>
           <span class="scan-qr-frame__corner scan-qr-frame__corner--bl"></span>
@@ -40,6 +45,7 @@
         </button>
 
         <div class="scan-qr-hint">Наведите телефон на QR-код</div>
+
         <div class="scan-qr-bottom-action">
           <button class="scan-qr-primary" type="button" data-purchase-sheet-open>Ввести код вручную</button>
         </div>
@@ -49,74 +55,92 @@
 
       <div class="purchase-sheet-modal" data-purchase-sheet aria-hidden="true">
         <div class="scan-qr-sheet-backdrop" data-purchase-sheet-close></div>
+
         <section class="purchase-sheet" role="dialog" aria-modal="true" aria-labelledby="purchaseTitle">
-          <div class="scan-qr-sheet-handle" aria-hidden="true"></div>
-          <button class="scan-qr-sheet-close" type="button" data-purchase-sheet-close aria-label="Закрыть">
-            <img src="./assets/close.svg" alt="" />
-          </button>
+          <div class="purchase-sheet__header">
+            <div class="scan-qr-sheet-handle" aria-hidden="true"></div>
 
-          <h1 id="purchaseTitle">Оформить покупку</h1>
-          <p class="purchase-date">25 января 2026</p>
+            <button class="scan-qr-sheet-close" type="button" data-purchase-sheet-close aria-label="Закрыть">
+              <img src="./assets/close.svg" alt="" />
+            </button>
+          </div>
 
-          <div class="purchase-buyer-card">
-            <span class="purchase-label">Покупатель:</span>
-            <div class="purchase-person">
-              <img src="./assets/no-avatar.svg" alt="" />
-              <b>Иванова Елена Ивановна</b>
+          <div class="purchase-sheet__body">
+            <h1 id="purchaseTitle">Оформить покупку</h1>
+            <p class="purchase-date">25 января 2026</p>
+
+            <div class="purchase-buyer-card">
+              <span class="purchase-label">Покупатель:</span>
+
+              <div class="purchase-person">
+                <img src="./assets/no-avatar.svg" alt="" />
+                <b>Иванова Елена Ивановна</b>
+              </div>
             </div>
-          </div>
 
-          <div class="purchase-balance-card">
-            <span class="purchase-label">Доступно для списания баллов:</span>
-            <strong>2 000 <img src="./assets/home/home-coin-icon.svg" alt="" /></strong>
-            <p><img src="./assets/home/home-fire.svg" alt="" />1000 баллов сгорит 20.02.2026</p>
-          </div>
+            <div class="purchase-balance-card">
+              <span class="purchase-label">Доступно для списания баллов:</span>
+              <strong>2 000 <img src="./assets/home/home-coin-icon.svg" alt="" /></strong>
+              <p><img src="./assets/home/home-fire.svg" alt="" />1000 баллов сгорит 20.02.2026</p>
+            </div>
 
-          <label class="purchase-field">
-            <span>Сумма покупки:</span>
-            <input type="text" inputmode="numeric" value="6 000" placeholder="0 ₽" data-purchase-sum />
-          </label>
+            <label class="purchase-field">
+              <span>Сумма покупки:</span>
+              <input type="text" inputmode="numeric" value="6 000" placeholder="0 ₽" data-purchase-sum />
+            </label>
 
-          <label class="purchase-field">
-            <span>Установите размер баллов для оплаты заказа:</span>
-            <input class="purchase-percent-input" type="text" inputmode="numeric" value="10%" placeholder="0%" data-purchase-percent-value />
-          </label>
+            <label class="purchase-field">
+              <span>Установите размер баллов для оплаты заказа:</span>
+              <input class="purchase-percent-input" type="text" inputmode="numeric" value="10%" placeholder="0%" data-purchase-percent-value />
+            </label>
 
-          <div class="purchase-percent-grid" data-purchase-percent-grid>
-            <button type="button">5%</button>
-            <button class="is-active" type="button">10%</button>
-            <button type="button">15%</button>
-            <button type="button">20%</button>
-          </div>
+            <div class="purchase-percent-grid" data-purchase-percent-grid>
+              <button type="button">5%</button>
+              <button class="is-active" type="button">10%</button>
+              <button type="button">15%</button>
+              <button type="button">20%</button>
+            </div>
 
-          <div class="purchase-actions">
-            <button class="purchase-main-button" type="button" data-result-open="spent">Списать - 600 баллов</button>
-            <button class="purchase-secondary-button" type="button" data-result-open="request">Начислить кэшбек&nbsp; <b>+ 600</b> <img src="./assets/home/home-coin-icon.svg" alt="" /></button>
+            <div class="purchase-actions">
+              <button class="purchase-main-button" type="button" data-result-open="spent">Списать - 600 баллов</button>
+
+              <button class="purchase-secondary-button" type="button" data-result-open="request">
+                Начислить кэшбек&nbsp; <b>+ 600</b> <img src="./assets/home/home-coin-icon.svg" alt="" />
+              </button>
+            </div>
           </div>
         </section>
       </div>
 
       <div class="purchase-result" data-result-modal="request" aria-hidden="true">
         <div class="purchase-result__backdrop" data-result-close></div>
+
         <section class="purchase-result__sheet" role="dialog" aria-modal="true" aria-labelledby="requestTitle">
           <div class="scan-qr-sheet-handle" aria-hidden="true"></div>
+
           <button class="scan-qr-sheet-close" type="button" data-result-close aria-label="Закрыть">
             <img src="./assets/close.svg" alt="" />
           </button>
+
           <h2 id="requestTitle">Отправлен запрос<br />Покупателю</h2>
           <p>Для зачисления кэшбека<br />покупателю необходимо<br />отсканировать чек в приложении</p>
+
           <a class="scan-qr-primary" href="./home-cashier-offline.html">Готово</a>
         </section>
       </div>
 
       <div class="purchase-result" data-result-modal="spent" aria-hidden="true">
         <div class="purchase-result__backdrop" data-result-close></div>
+
         <section class="purchase-result__sheet purchase-result__sheet--small" role="dialog" aria-modal="true" aria-labelledby="spentTitle">
           <div class="scan-qr-sheet-handle" aria-hidden="true"></div>
+
           <button class="scan-qr-sheet-close" type="button" data-result-close aria-label="Закрыть">
             <img src="./assets/close.svg" alt="" />
           </button>
+
           <h2 id="spentTitle">Баллы успешно списаны</h2>
+
           <a class="scan-qr-primary" href="./home-cashier-offline.html">Готово</a>
         </section>
       </div>
