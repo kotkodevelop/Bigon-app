@@ -1,4 +1,5 @@
 const backButtons = document.querySelectorAll('[data-scan-qr-back]');
+
 backButtons.forEach((button) => {
   button.addEventListener('click', () => {
     if (window.history.length > 1) {
@@ -11,9 +12,11 @@ backButtons.forEach((button) => {
 });
 
 const photoInput = document.querySelector('[data-scan-qr-photo-input]');
+
 document.querySelectorAll('[data-scan-qr-photo-open]').forEach((button) => {
   button.addEventListener('click', () => {
     if (!photoInput) return;
+
     photoInput.value = '';
     photoInput.click();
   });
@@ -22,6 +25,7 @@ document.querySelectorAll('[data-scan-qr-photo-open]').forEach((button) => {
 const codeSheet = document.querySelector('#buyerCodeSheet');
 const codePanel = codeSheet?.querySelector('.scan-qr-code-panel');
 const codeInputs = Array.from(document.querySelectorAll('.scan-qr-code-input'));
+
 const swipeCloseDuration = 220;
 const swipeCloseThreshold = 90;
 const swipeVelocityThreshold = 0.45;
@@ -70,6 +74,7 @@ const bindSwipeToClose = ({ modal, sheet, backdrop, close }) => {
       }
 
       close();
+
       window.setTimeout(() => {
         resetSwipeStyles(sheet, backdrop);
       }, swipeCloseDuration);
@@ -98,6 +103,7 @@ const bindSwipeToClose = ({ modal, sheet, backdrop, close }) => {
     canDrag = false;
     currentY = 0;
     velocityY = 0;
+
     resetSwipeStyles(sheet, backdrop);
   };
 
@@ -109,6 +115,7 @@ const bindSwipeToClose = ({ modal, sheet, backdrop, close }) => {
       if (sheet.scrollTop > 0) return;
 
       const touch = event.touches[0];
+
       startX = touch.clientX;
       startY = touch.clientY;
       currentY = 0;
@@ -137,11 +144,13 @@ const bindSwipeToClose = ({ modal, sheet, backdrop, close }) => {
 
       if (!dragging) {
         if (deltaY <= 0 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
+
         dragging = true;
       }
 
       const now = performance.now();
       const elapsed = now - lastTime;
+
       if (elapsed > 0) {
         velocityY = (touch.clientY - lastY) / elapsed;
       }
@@ -169,13 +178,16 @@ const bindSwipeToClose = ({ modal, sheet, backdrop, close }) => {
 
 const openCodeSheet = () => {
   if (!codeSheet) return;
+
   codeSheet.classList.add('is-open');
   codeSheet.setAttribute('aria-hidden', 'false');
+
   window.setTimeout(() => codeInputs[0]?.focus(), 180);
 };
 
 const closeCodeSheet = () => {
   if (!codeSheet) return;
+
   codeSheet.classList.remove('is-open');
   codeSheet.setAttribute('aria-hidden', 'true');
   codePanel?.classList.remove('is-error');
@@ -217,9 +229,7 @@ document.querySelector('[data-code-submit]')?.addEventListener('click', () => {
   codePanel?.classList.add('is-error');
 });
 
-
 const purchaseSheet = document.querySelector('[data-purchase-sheet]');
-
 const purchasePanel = purchaseSheet?.querySelector('.purchase-sheet');
 const purchaseScrollBody = purchaseSheet?.querySelector('.purchase-sheet__body');
 const purchaseSumInput = purchaseSheet?.querySelector('[data-purchase-sum]');
@@ -234,6 +244,7 @@ const stopPurchaseBodySwipe = (event) => {
 
 const formatPurchaseSum = (value) => {
   const digits = value.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+
   if (!digits) return '';
 
   return `${digits.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')} ₽`;
@@ -251,6 +262,7 @@ if (purchaseSumInput) {
   };
 
   purchaseSumInput.value = formatPurchaseSum(purchaseSumInput.value);
+
   purchaseSumInput.addEventListener('input', updatePurchaseSum);
   purchaseSumInput.addEventListener('focus', () => placeCaretBeforeCurrency(purchaseSumInput));
   purchaseSumInput.addEventListener('click', () => placeCaretBeforeCurrency(purchaseSumInput));
@@ -258,6 +270,7 @@ if (purchaseSumInput) {
 
 const closePurchaseResult = (modal) => {
   if (!modal) return;
+
   modal.classList.remove('is-open');
   modal.setAttribute('aria-hidden', 'true');
 };
@@ -270,15 +283,19 @@ const closePurchaseResults = () => {
 
 const openPurchaseSheet = () => {
   if (!purchaseSheet) return;
+
   purchaseSheet.classList.add('is-open');
   purchaseSheet.setAttribute('aria-hidden', 'false');
+
   window.setTimeout(() => purchaseSumInput?.focus(), 180);
 };
 
 const closePurchaseSheet = () => {
   if (!purchaseSheet) return;
+
   purchaseSheet.classList.remove('is-open');
   purchaseSheet.setAttribute('aria-hidden', 'true');
+
   closePurchaseResults();
 };
 
@@ -302,7 +319,9 @@ const purchasePercentButtons = Array.from(purchaseSheet?.querySelectorAll('[data
 
 const formatPurchasePercent = (value) => {
   const digits = value.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
+
   if (!digits) return '%';
+
   return `${Math.min(Number(digits), 100)}%`;
 };
 
@@ -313,6 +332,7 @@ const placeCaretBeforePercent = (input) => {
 
 const syncPurchasePercentButtons = () => {
   if (!purchasePercentInput) return;
+
   purchasePercentButtons.forEach((button) => {
     button.classList.toggle('is-active', button.textContent.trim() === purchasePercentInput.value);
   });
@@ -327,6 +347,7 @@ if (purchasePercentInput) {
 
   purchasePercentInput.value = formatPurchasePercent(purchasePercentInput.value);
   syncPurchasePercentButtons();
+
   purchasePercentInput.addEventListener('input', updatePurchasePercent);
   purchasePercentInput.addEventListener('focus', () => placeCaretBeforePercent(purchasePercentInput));
   purchasePercentInput.addEventListener('click', () => placeCaretBeforePercent(purchasePercentInput));
@@ -335,6 +356,7 @@ if (purchasePercentInput) {
 purchasePercentButtons.forEach((button) => {
   button.addEventListener('click', () => {
     if (!purchasePercentInput) return;
+
     purchasePercentInput.value = formatPurchasePercent(button.textContent);
     syncPurchasePercentButtons();
     placeCaretBeforePercent(purchasePercentInput);
@@ -344,8 +366,10 @@ purchasePercentButtons.forEach((button) => {
 document.querySelectorAll('[data-result-open]').forEach((button) => {
   button.addEventListener('click', () => {
     if (button.disabled) return;
+
     const name = button.getAttribute('data-result-open');
     const modal = document.querySelector(`[data-result-modal="${name}"]`);
+
     modal?.classList.add('is-open');
     modal?.setAttribute('aria-hidden', 'false');
   });
