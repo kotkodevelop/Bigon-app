@@ -857,7 +857,7 @@ svg {
 .seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-close,
 .scan-qr-app--found .purchase-sheet__header .scan-qr-sheet-close {
   position: absolute !important;
-  top: 8px !important;
+  top: 13px !important;
   right: 14px !important;
   z-index: 11;
   width: 34px;
