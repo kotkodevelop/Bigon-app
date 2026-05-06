@@ -426,7 +426,6 @@ svg {
   outline: 0;
   height: 48px;
   border-radius: 10px;
-  outline: 0;
   background: #F7F8FA;
   color: #1f1f1f;
   text-align: center;
@@ -815,16 +814,17 @@ svg {
   margin-top: 40px;
 }
 
-
 /* FIX: purchase modal fixed header + safe inner scroll */
 
-.seller-pickup-modal-page .purchase-sheet {
+.seller-pickup-modal-page .purchase-sheet,
+.scan-qr-app--found .purchase-sheet {
   padding: 0 !important;
   overflow: hidden !important;
   touch-action: pan-y;
 }
 
-.seller-pickup-modal-page .purchase-sheet__header {
+.seller-pickup-modal-page .purchase-sheet__header,
+.scan-qr-app--found .purchase-sheet__header {
   position: absolute !important;
   top: 0;
   left: 0;
@@ -833,12 +833,15 @@ svg {
   height: 50px !important;
   padding: 0 !important;
   background: #ffffff;
-  border-radius: 28px 28px 0 0;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   pointer-events: auto;
   touch-action: none;
 }
 
-.seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-handle {
+.seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-handle,
+.scan-qr-app--found .purchase-sheet__header .scan-qr-sheet-handle {
   position: absolute !important;
   top: 16px !important;
   left: 50% !important;
@@ -851,7 +854,8 @@ svg {
   pointer-events: auto;
 }
 
-.seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-close {
+.seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-close,
+.scan-qr-app--found .purchase-sheet__header .scan-qr-sheet-close {
   position: absolute !important;
   top: 8px !important;
   right: 14px !important;
@@ -862,7 +866,8 @@ svg {
   pointer-events: auto;
 }
 
-.seller-pickup-modal-page .purchase-sheet__body {
+.seller-pickup-modal-page .purchase-sheet__body,
+.scan-qr-app--found .purchase-sheet__body {
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -875,6 +880,7 @@ svg {
   padding: 52px 13px 0 !important;
 }
 
-.seller-pickup-modal-page .purchase-actions {
+.seller-pickup-modal-page .purchase-actions,
+.scan-qr-app--found .purchase-actions {
   z-index: 5;
 }
