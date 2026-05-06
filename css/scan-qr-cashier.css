@@ -503,15 +503,16 @@ svg {
 .purchase-sheet__header {
   position: relative;
   z-index: 5;
-  flex: 0 0 58px;
-  height: 58px;
+  flex: 0 0 54px;
+  height: 54px;
+  padding: 16px 13px;
   background: #ffffff;
   border-radius: 32px 32px 0 0;
 }
 
 .purchase-sheet__header .scan-qr-sheet-handle {
   position: absolute;
-  top: 12px;
+  top: 16px;
   left: 50%;
   width: 40px;
   height: 4px;
@@ -523,7 +524,7 @@ svg {
 
 .purchase-sheet__header .scan-qr-sheet-close {
   position: absolute;
-  top: 12px;
+  top: 8px;
   right: 14px;
   z-index: 6;
   width: 34px;
