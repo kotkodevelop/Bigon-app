@@ -389,3 +389,4 @@ document.querySelectorAll('[data-result-close]').forEach((button) => {
     closePurchaseResult(button.closest('.purchase-result'));
   });
 });
+
