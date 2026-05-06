@@ -577,7 +577,7 @@ svg {
 
 .catalog-sheet--filters {
   max-height: calc(100dvh - 36px);
-  padding: 0 13px calc(16px + env(safe-area-inset-bottom, 0px));
+  padding: 0 13px 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -762,6 +762,7 @@ svg {
   gap: 8px;
   margin-top: 43px;
   padding-top: 12px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   background: #ffffff;
 }
 
@@ -772,7 +773,7 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 400;
 }
