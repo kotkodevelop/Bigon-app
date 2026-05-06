@@ -814,3 +814,56 @@ svg {
 .purchase-result__sheet--small .scan-qr-primary {
   margin-top: 40px;
 }
+
+/* FIX: убираем большое белое пространство сверху в purchase modal */
+
+.seller-pickup-modal-page .purchase-sheet {
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.seller-pickup-modal-page .purchase-sheet__header {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 36px !important;
+  padding: 0 !important;
+  background: #ffffff;
+  border-radius: 32px 32px 0 0;
+  pointer-events: none;
+}
+
+.seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-handle {
+  position: absolute !important;
+  top: 16px !important;
+  left: 50% !important;
+  width: 40px;
+  height: 4px;
+  margin: 0 !important;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  background: #aaaaaa;
+}
+
+.seller-pickup-modal-page .purchase-sheet__header .scan-qr-sheet-close {
+  position: absolute !important;
+  top: 8px !important;
+  right: 14px !important;
+  z-index: 11;
+  width: 34px;
+  height: 34px;
+  margin: 0 !important;
+  pointer-events: auto;
+}
+
+.seller-pickup-modal-page .purchase-sheet__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 52px 13px 0 !important;
+}
