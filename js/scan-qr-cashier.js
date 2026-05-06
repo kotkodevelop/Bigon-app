@@ -217,9 +217,20 @@ document.querySelector('[data-code-submit]')?.addEventListener('click', () => {
   codePanel?.classList.add('is-error');
 });
 
+
 const purchaseSheet = document.querySelector('[data-purchase-sheet]');
+
 const purchasePanel = purchaseSheet?.querySelector('.purchase-sheet');
+const purchaseScrollBody = purchaseSheet?.querySelector('.purchase-sheet__body');
 const purchaseSumInput = purchaseSheet?.querySelector('[data-purchase-sum]');
+
+const stopPurchaseBodySwipe = (event) => {
+  event.stopPropagation();
+};
+
+['touchstart', 'touchmove', 'touchend', 'touchcancel'].forEach((eventName) => {
+  purchaseScrollBody?.addEventListener(eventName, stopPurchaseBodySwipe, { passive: true });
+});
 
 const formatPurchaseSum = (value) => {
   const digits = value.replace(/\D/g, '').replace(/^0+(?=\d)/, '');
