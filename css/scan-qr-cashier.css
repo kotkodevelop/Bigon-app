@@ -775,3 +775,41 @@ svg {
 .purchase-result__sheet--small .scan-qr-primary {
   margin-top: 40px;
 }
+
+.purchase-sheet {
+  overflow-y: auto;
+  max-height: calc(100vh - 24px);
+  padding-top: 52px;
+  position: relative;
+}
+
+.purchase-sheet::before {
+  content: "";
+  position: sticky;
+  top: 0;
+  display: block;
+  height: 52px;
+  margin-top: -52px;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-bottom: 16px;
+  background: #fff;
+  z-index: 20;
+  border-radius: 24px 24px 0 0;
+}
+
+.purchase-sheet .scan-qr-sheet-handle {
+  position: sticky;
+  top: 14px;
+  z-index: 25;
+  margin-top: -38px;
+  margin-bottom: 30px;
+}
+
+.purchase-sheet .scan-qr-sheet-close {
+  position: sticky;
+  top: 12px;
+  z-index: 30;
+  margin-top: -42px;
+  margin-left: auto;
+}
