@@ -123,6 +123,101 @@ const dateMaskDigitPositions = [0, 1, 3, 4, 6, 7, 8, 9];
 
 const getDateDigits = (value) => (value || '').replace(/\D/g, '').slice(0, 8);
 
+const getDateWithoutTime = (year, month, day) => {
+  const date = new Date();
+  date.setFullYear(year, month - 1, day);
+  date.setHours(0, 0, 0, 0);
+  return date;
+};
+
+const getTodayWithoutTime = () => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return today;
+};
+
+const getDaysInMonth = (month, year = 2000) => {
+  const date = new Date();
+  date.setFullYear(year, month, 0);
+  date.setHours(0, 0, 0, 0);
+  return date.getDate();
+};
+
+const isPartialDateDigitsValid = (digits) => {
+  const value = getDateDigits(digits);
+
+  if (!value.length) {
+    return true;
+  }
+
+  if (value.length >= 1 && !/[0-3]/.test(value[0])) {
+    return false;
+  }
+
+  if (value.length >= 2) {
+    const day = Number(value.slice(0, 2));
+
+    if (day < 1 || day > 31) {
+      return false;
+    }
+  }
+
+  if (value.length >= 3 && !/[0-1]/.test(value[2])) {
+    return false;
+  }
+
+  if (value.length >= 4) {
+    const day = Number(value.slice(0, 2));
+    const month = Number(value.slice(2, 4));
+
+    if (month < 1 || month > 12) {
+      return false;
+    }
+
+    const maxDay = month === 2 ? 29 : getDaysInMonth(month);
+
+    if (day > maxDay) {
+      return false;
+    }
+  }
+
+  if (value.length === 8) {
+    const day = Number(value.slice(0, 2));
+    const month = Number(value.slice(2, 4));
+    const year = Number(value.slice(4, 8));
+    const date = getDateWithoutTime(year, month, day);
+
+    if (
+      year < 1 ||
+      date.getFullYear() !== year ||
+      date.getMonth() !== month - 1 ||
+      date.getDate() !== day
+    ) {
+      return false;
+    }
+
+    if (date > getTodayWithoutTime()) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const getAllowedDateDigits = (value) => {
+  const digits = getDateDigits(value);
+
+  for (let length = digits.length; length >= 0; length -= 1) {
+    const candidate = digits.slice(0, length);
+
+    if (isPartialDateDigitsValid(candidate)) {
+      return candidate;
+    }
+  }
+
+  return '';
+};
+
 const getMaskedDateValue = (digits) => {
   const chars = dateMask.split('');
 
@@ -142,23 +237,27 @@ const getDateCaretPosition = (digitIndex) =>
   dateMaskDigitPositions[digitIndex] ?? dateMask.length;
 
 const setDateMaskValue = (input, digits, caretDigitIndex = getDateDigits(digits).length) => {
-  const value = getDateDigits(digits);
+  const value = getAllowedDateDigits(digits);
   input.dataset.dateDigits = value;
   input.value = getMaskedDateValue(value);
 
   if (document.activeElement === input) {
-    const caretPosition = getDateCaretPosition(Math.min(caretDigitIndex, 8));
+    const caretPosition = getDateCaretPosition(Math.min(caretDigitIndex, value.length, 8));
     input.setSelectionRange(caretPosition, caretPosition);
   }
 };
 
 const replaceDateMaskRange = (input, insertValue = '') => {
-  const digits = input.dataset.dateDigits || getDateDigits(input.value);
+  const digits = input.dataset.dateDigits || getAllowedDateDigits(input.value);
   const selectionStart = input.selectionStart ?? 0;
   const selectionEnd = input.selectionEnd ?? selectionStart;
   let startIndex = getDateDigitIndex(selectionStart);
   let endIndex = getDateDigitIndex(selectionEnd);
   const insertDigits = getDateDigits(insertValue);
+
+  if (!insertDigits.length) {
+    return;
+  }
 
   startIndex = Math.min(startIndex, digits.length);
   endIndex = Math.min(Math.max(endIndex, startIndex), digits.length);
@@ -169,11 +268,15 @@ const replaceDateMaskRange = (input, insertValue = '') => {
 
   const nextDigits = `${digits.slice(0, startIndex)}${insertDigits}${digits.slice(endIndex)}`.slice(0, 8);
 
+  if (!isPartialDateDigitsValid(nextDigits)) {
+    return;
+  }
+
   setDateMaskValue(input, nextDigits, startIndex + insertDigits.length);
 };
 
 const removeDateMaskRange = (input, direction) => {
-  const digits = input.dataset.dateDigits || getDateDigits(input.value);
+  const digits = input.dataset.dateDigits || getAllowedDateDigits(input.value);
   const selectionStart = input.selectionStart ?? 0;
   const selectionEnd = input.selectionEnd ?? selectionStart;
   let startIndex = Math.min(getDateDigitIndex(selectionStart), digits.length);
@@ -193,12 +296,12 @@ const removeDateMaskRange = (input, direction) => {
 
 const bindDateMask = (input) => {
   input.addEventListener('focus', () => {
-    const digits = input.dataset.dateDigits || getDateDigits(input.value);
+    const digits = input.dataset.dateDigits || getAllowedDateDigits(input.value);
     setDateMaskValue(input, digits);
   });
 
   input.addEventListener('blur', () => {
-    const digits = input.dataset.dateDigits || getDateDigits(input.value);
+    const digits = input.dataset.dateDigits || getAllowedDateDigits(input.value);
 
     if (!digits.length) {
       input.dataset.dateDigits = '';
@@ -272,7 +375,7 @@ const bindDateMask = (input) => {
   });
 
   input.addEventListener('click', () => {
-    const digits = input.dataset.dateDigits || getDateDigits(input.value);
+    const digits = input.dataset.dateDigits || getAllowedDateDigits(input.value);
     const caretPosition = getDateCaretPosition(Math.min(digits.length, 8));
     const selectionStart = input.selectionStart ?? 0;
     const digitIndex = getDateDigitIndex(selectionStart);
@@ -283,20 +386,245 @@ const bindDateMask = (input) => {
   });
 };
 
+const timeMask = '__:__';
+const timeMaskDigitPositions = [0, 1, 3, 4];
+
+const getTimeDigitsFromValue = (value) => (value || '').replace(/\D/g, '').slice(0, 4);
+
+const isPartialTimeDigitsValid = (digits) => {
+  const value = getTimeDigitsFromValue(digits);
+
+  if (!value.length) {
+    return true;
+  }
+
+  if (value.length >= 1 && !/[0-2]/.test(value[0])) {
+    return false;
+  }
+
+  if (value.length >= 2) {
+    const hours = Number(value.slice(0, 2));
+
+    if (hours > 23) {
+      return false;
+    }
+  }
+
+  if (value.length >= 3 && !/[0-5]/.test(value[2])) {
+    return false;
+  }
+
+  return true;
+};
+
+const getAllowedTimeDigits = (value) => {
+  const digits = getTimeDigitsFromValue(value);
+
+  for (let length = digits.length; length >= 0; length -= 1) {
+    const candidate = digits.slice(0, length);
+
+    if (isPartialTimeDigitsValid(candidate)) {
+      return candidate;
+    }
+  }
+
+  return '';
+};
+
+const getMaskedTimeValue = (digits) => {
+  const chars = timeMask.split('');
+
+  getTimeDigitsFromValue(digits)
+    .split('')
+    .forEach((digit, index) => {
+      chars[timeMaskDigitPositions[index]] = digit;
+    });
+
+  return chars.join('');
+};
+
+const getTimeDigitIndex = (position) =>
+  timeMaskDigitPositions.filter((digitPosition) => digitPosition < position).length;
+
+const getTimeCaretPosition = (digitIndex) =>
+  timeMaskDigitPositions[digitIndex] ?? timeMask.length;
+
+const setTimeMaskValue = (
+  input,
+  digits,
+  caretDigitIndex = getTimeDigitsFromValue(digits).length,
+  forceMask = false
+) => {
+  const value = getAllowedTimeDigits(digits);
+  input.dataset.timeDigits = value;
+  input.value = value.length || forceMask || document.activeElement === input
+    ? getMaskedTimeValue(value)
+    : '';
+
+  if (document.activeElement === input) {
+    const caretPosition = getTimeCaretPosition(Math.min(caretDigitIndex, value.length, 4));
+    input.setSelectionRange(caretPosition, caretPosition);
+  }
+};
+
+const replaceTimeMaskRange = (input, insertValue = '') => {
+  const digits = input.dataset.timeDigits || getAllowedTimeDigits(input.value);
+  const selectionStart = input.selectionStart ?? 0;
+  const selectionEnd = input.selectionEnd ?? selectionStart;
+  let startIndex = getTimeDigitIndex(selectionStart);
+  let endIndex = getTimeDigitIndex(selectionEnd);
+  const insertDigits = getTimeDigitsFromValue(insertValue);
+
+  if (!insertDigits.length) {
+    return;
+  }
+
+  startIndex = Math.min(startIndex, digits.length);
+  endIndex = Math.min(Math.max(endIndex, startIndex), digits.length);
+
+  if (startIndex === endIndex && startIndex < digits.length) {
+    endIndex = Math.min(startIndex + insertDigits.length, digits.length);
+  }
+
+  const nextDigits = `${digits.slice(0, startIndex)}${insertDigits}${digits.slice(endIndex)}`.slice(0, 4);
+
+  if (!isPartialTimeDigitsValid(nextDigits)) {
+    return;
+  }
+
+  setTimeMaskValue(input, nextDigits, startIndex + insertDigits.length, true);
+};
+
+const removeTimeMaskRange = (input, direction) => {
+  const digits = input.dataset.timeDigits || getAllowedTimeDigits(input.value);
+  const selectionStart = input.selectionStart ?? 0;
+  const selectionEnd = input.selectionEnd ?? selectionStart;
+  let startIndex = Math.min(getTimeDigitIndex(selectionStart), digits.length);
+  let endIndex = Math.min(getTimeDigitIndex(selectionEnd), digits.length);
+
+  if (startIndex === endIndex) {
+    if (direction === 'backward' && startIndex > 0) {
+      startIndex -= 1;
+    } else if (direction === 'forward' && endIndex < digits.length) {
+      endIndex += 1;
+    }
+  }
+
+  const nextDigits = `${digits.slice(0, startIndex)}${digits.slice(endIndex)}`;
+  setTimeMaskValue(input, nextDigits, startIndex, true);
+};
+
 const bindTimeMask = (input) => {
   input.placeholder = '__:__';
   input.inputMode = 'numeric';
   input.autocomplete = 'off';
 
-  if (!window.IMask || timeMaskedInputs.has(input)) {
+  if (timeMaskedInputs.has(input)) {
     return;
   }
 
-  timeMaskedInputs.set(input, window.IMask(input, {
-    mask: '00:00',
-    lazy: false,
-    placeholderChar: '_',
-  }));
+  timeMaskedInputs.set(input, {
+    get value() {
+      return input.value;
+    },
+    set value(value) {
+      setTimeMaskValue(input, value, getTimeDigitsFromValue(value).length, true);
+    },
+  });
+
+  if (input.value) {
+    setTimeMaskValue(input, input.value, getTimeDigitsFromValue(input.value).length, true);
+  }
+
+  input.addEventListener('focus', () => {
+    const digits = input.dataset.timeDigits || getAllowedTimeDigits(input.value);
+    setTimeMaskValue(input, digits, digits.length, true);
+  });
+
+  input.addEventListener('blur', () => {
+    const digits = input.dataset.timeDigits || getAllowedTimeDigits(input.value);
+
+    if (!digits.length) {
+      input.dataset.timeDigits = '';
+      input.value = '';
+      return;
+    }
+
+    setTimeMaskValue(input, digits);
+  });
+
+  input.addEventListener('beforeinput', (event) => {
+    if (event.inputType === 'insertText') {
+      event.preventDefault();
+      if (getTimeDigitsFromValue(event.data).length) {
+        replaceTimeMaskRange(input, event.data);
+      }
+      return;
+    }
+
+    if (event.inputType === 'insertFromPaste' && event.data) {
+      event.preventDefault();
+      replaceTimeMaskRange(input, event.data);
+      return;
+    }
+
+    if (event.inputType === 'deleteContentBackward') {
+      event.preventDefault();
+      removeTimeMaskRange(input, 'backward');
+      return;
+    }
+
+    if (event.inputType === 'deleteContentForward') {
+      event.preventDefault();
+      removeTimeMaskRange(input, 'forward');
+    }
+  });
+
+  input.addEventListener('keydown', (event) => {
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+    if (/^\d$/.test(event.key)) {
+      event.preventDefault();
+      replaceTimeMaskRange(input, event.key);
+      return;
+    }
+
+    if (event.key === 'Backspace') {
+      event.preventDefault();
+      removeTimeMaskRange(input, 'backward');
+      return;
+    }
+
+    if (event.key === 'Delete') {
+      event.preventDefault();
+      removeTimeMaskRange(input, 'forward');
+      return;
+    }
+
+    if (event.key.length === 1) {
+      event.preventDefault();
+    }
+  });
+
+  input.addEventListener('paste', (event) => {
+    event.preventDefault();
+    replaceTimeMaskRange(input, event.clipboardData?.getData('text') || '');
+  });
+
+  input.addEventListener('input', () => {
+    setTimeMaskValue(input, input.value);
+  });
+
+  input.addEventListener('click', () => {
+    const digits = input.dataset.timeDigits || getAllowedTimeDigits(input.value);
+    const caretPosition = getTimeCaretPosition(Math.min(digits.length, 4));
+    const selectionStart = input.selectionStart ?? 0;
+    const digitIndex = getTimeDigitIndex(selectionStart);
+
+    if (!timeMaskDigitPositions.includes(selectionStart) || digitIndex > digits.length) {
+      input.setSelectionRange(caretPosition, caretPosition);
+    }
+  });
 };
 
 const bindTimeMasks = (root = document) => {

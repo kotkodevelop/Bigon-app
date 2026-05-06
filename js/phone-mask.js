@@ -78,7 +78,9 @@
 
   const bindPhoneMask = (input) => {
     input.placeholder = phonePlaceholder;
-    input.inputMode = 'tel';
+    if (!input.getAttribute('inputmode')) {
+      input.inputMode = 'tel';
+    }
 
     if (!input.autocomplete) {
       input.autocomplete = 'tel';
