@@ -442,7 +442,7 @@ svg {
 }
 
 .scan-qr-code-panel.is-error .scan-qr-code-input {
-  border: 1px solid #EB001B
+  border: 1px solid #EB001B;
 }
 
 .scan-qr-code-submit {
@@ -494,11 +494,51 @@ svg {
   max-height: calc(100dvh - 22px);
   display: flex;
   flex-direction: column;
-  padding: 50px 13px 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  padding: 0;
+  overflow: hidden;
   border-radius: 32px 32px 0 0;
   background: #ffffff;
+}
+
+.purchase-sheet__header {
+  position: relative;
+  z-index: 5;
+  flex: 0 0 58px;
+  height: 58px;
+  background: #ffffff;
+  border-radius: 32px 32px 0 0;
+}
+
+.purchase-sheet__header .scan-qr-sheet-handle {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  width: 40px;
+  height: 4px;
+  margin: 0;
+  transform: translateX(-50%);
+  border-radius: 100px;
+  background: #aaaaaa;
+}
+
+.purchase-sheet__header .scan-qr-sheet-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 6;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+}
+
+.purchase-sheet__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 13px;
 }
 
 .purchase-sheet h1 {
@@ -659,11 +699,9 @@ svg {
   font-weight: 400;
 }
 
-
-
 .purchase-actions {
   position: sticky;
-  z-index: 2;
+  z-index: 4;
   bottom: 0;
   display: grid;
   gap: 8px;
